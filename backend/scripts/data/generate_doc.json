@@ -1,0 +1,3390 @@
+[
+  {
+    "language": "C",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "HTTP/1.1 Server from Scratch",
+        "desc": "Build a minimal HTTP/1.1 web server in pure C that serves static files and handles concurrent clients using epoll. Implements request parsing, response formatting, and keep-alive connections.",
+        "difficulty": "Intermediate",
+        "concepts": "Socket Programming, TCP/IP, epoll, HTTP Protocol, File I/O"
+      },
+      {
+        "type": "Unique",
+        "title": "DNS Resolver CLI Tool",
+        "desc": "Implement a DNS resolver in C that sends raw UDP packets to query A, MX, and CNAME records without using system libraries. Parses DNS response packets byte-by-byte and displays results in a clean CLI format.",
+        "difficulty": "Advanced",
+        "concepts": "UDP Sockets, DNS Protocol, Bitwise Operations, Network Byte Order, Packet Parsing"
+      },
+      {
+        "type": "Ref",
+        "title": "Tiny Web Framework in C",
+        "desc": "A lightweight web framework inspired by Express.js, built in C with routing, middleware support, and JSON response helpers. Demonstrates how modern frameworks work under the hood.",
+        "difficulty": "Advanced",
+        "concepts": "Socket Programming, HTTP Parsing, Routing, Memory Management, Linked Lists",
+        "ref": "https://github.com/nicowillis/C-Web-Server"
+      }
+    ]
+  },
+  {
+    "language": "C",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Shared C Library for Android via JNI",
+        "desc": "Create a high-performance image processing library in C and expose it to Android Java/Kotlin code via JNI. Implements Gaussian blur, edge detection, and histogram equalization entirely in C for speed.",
+        "difficulty": "Advanced",
+        "concepts": "JNI, NDK, Bitmap Processing, Cross-compilation, CMake"
+      },
+      {
+        "type": "Unique",
+        "title": "BLE Packet Sniffer for Mobile Sensors",
+        "desc": "Build a C-based BLE packet capture utility that decodes Bluetooth Low Energy advertisement packets from IoT devices. Parses UUID, RSSI, and manufacturer data fields and outputs structured logs.",
+        "difficulty": "Advanced",
+        "concepts": "Bluetooth HCI, Raw Sockets, BLE Protocol, Packet Parsing, POSIX"
+      },
+      {
+        "type": "Ref",
+        "title": "SDL2 Mobile Game Engine Core",
+        "desc": "A minimal game-loop engine in C using SDL2, designed to compile for Android and iOS via cross-compilation. Supports sprite rendering, input handling, and a scene manager.",
+        "difficulty": "Intermediate",
+        "concepts": "SDL2, Cross-compilation, Game Loop, Sprite Rendering, Touch Input",
+        "ref": "https://github.com/Geri-Borbas/iOS.Library.eppz_kit"
+      }
+    ]
+  },
+  {
+    "language": "C",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Neural Network Inference Engine in C",
+        "desc": "Build a from-scratch feedforward neural network inference engine in C that loads pre-trained weights (exported from Python) and runs predictions with no external dependencies. Supports ReLU, sigmoid, and softmax activations.",
+        "difficulty": "Advanced",
+        "concepts": "Matrix Multiplication, Activation Functions, Weight Serialization, Memory Layout, Fixed-point Math"
+      },
+      {
+        "type": "Unique",
+        "title": "Minimax Chess Engine",
+        "desc": "Implement a chess engine in C using the Minimax algorithm with alpha-beta pruning. Includes a board representation using bitboards and a basic evaluation function based on material and position tables.",
+        "difficulty": "Advanced",
+        "concepts": "Bitboards, Minimax, Alpha-Beta Pruning, Game Trees, Heuristics"
+      },
+      {
+        "type": "Ref",
+        "title": "MNIST Digit Classifier in C",
+        "desc": "Train and run a simple neural network to classify MNIST handwritten digits, implemented entirely in C. Demonstrates forward pass, backpropagation, and SGD from scratch.",
+        "difficulty": "Advanced",
+        "concepts": "Backpropagation, SGD, Matrix Math, Binary File I/O, Neural Networks",
+        "ref": "https://github.com/AndrewCarterUK/mnist-neural-network-plain-c"
+      }
+    ]
+  },
+  {
+    "language": "C",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Decision Tree Classifier from Scratch",
+        "desc": "Implement a decision tree with Gini impurity and information gain splitting in C. Reads CSV training data, builds a tree structure dynamically, and outputs prediction accuracy on a test set.",
+        "difficulty": "Intermediate",
+        "concepts": "Binary Trees, Recursion, CSV Parsing, Gini Impurity, Dynamic Memory"
+      },
+      {
+        "type": "Unique",
+        "title": "K-Means Clustering Visualizer",
+        "desc": "Build a K-Means clustering algorithm in C that reads 2D point data, clusters it, and writes SVG output files showing cluster boundaries and centroid movement across iterations.",
+        "difficulty": "Intermediate",
+        "concepts": "Clustering, Euclidean Distance, Dynamic Arrays, SVG Generation, Iteration"
+      },
+      {
+        "type": "Ref",
+        "title": "Linear Regression with Gradient Descent",
+        "desc": "Implement multivariate linear regression with gradient descent in C. Reads a dataset from CSV, trains the model, and plots the loss curve by generating a gnuplot script.",
+        "difficulty": "Beginner",
+        "concepts": "Gradient Descent, Matrix Operations, CSV Parsing, Loss Function, Normalization",
+        "ref": "https://github.com/sylvainprigent/slinear-regression-c"
+      }
+    ]
+  },
+  {
+    "language": "C",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Fast CSV Analytics Engine",
+        "desc": "Build a command-line CSV analytics tool in C that computes descriptive statistics (mean, median, std dev, percentiles) on large files (>1GB) using memory-mapped I/O for speed.",
+        "difficulty": "Intermediate",
+        "concepts": "mmap, CSV Parsing, Sorting Algorithms, Statistical Functions, File I/O"
+      },
+      {
+        "type": "Unique",
+        "title": "Time-Series Anomaly Detector",
+        "desc": "Implement a sliding-window Z-score anomaly detector in C that reads timestamped numerical data from stdin and flags anomalies in real time. Designed for log analysis and sensor data pipelines.",
+        "difficulty": "Intermediate",
+        "concepts": "Ring Buffers, Statistical Z-score, Streaming Data, stdin Parsing, Signal Detection"
+      },
+      {
+        "type": "Ref",
+        "title": "Binary Search Tree–Based Frequency Counter",
+        "desc": "Use a self-balancing BST (AVL tree) in C to count word frequencies in large text files and output a sorted frequency report. Demonstrates efficient text processing.",
+        "difficulty": "Intermediate",
+        "concepts": "AVL Trees, String Hashing, File I/O, Sorting, Text Processing",
+        "ref": "https://github.com/MaximumProgrammer/AVL-tree-in-C"
+      }
+    ]
+  },
+  {
+    "language": "C",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Lightweight Container Runtime (mini-Docker)",
+        "desc": "Build a minimal container runtime in C using Linux namespaces (PID, NET, MNT) and cgroups. Can launch isolated processes with a specified filesystem root, simulating what Docker does at the kernel level.",
+        "difficulty": "Advanced",
+        "concepts": "Linux Namespaces, cgroups, clone(), chroot, Seccomp"
+      },
+      {
+        "type": "Unique",
+        "title": "S3-Compatible Object Storage Client",
+        "desc": "Implement a command-line S3 client in C using libcurl that supports PUT, GET, DELETE, and LIST operations with AWS Signature Version 4 authentication.",
+        "difficulty": "Advanced",
+        "concepts": "HMAC-SHA256, REST APIs, libcurl, AWS SigV4, HTTP Headers"
+      },
+      {
+        "type": "Ref",
+        "title": "Netdata-Style System Metrics Agent",
+        "desc": "Create a lightweight system metrics collector in C that gathers CPU, memory, disk, and network stats from /proc and /sys and exposes them over a simple HTTP endpoint for scraping.",
+        "difficulty": "Intermediate",
+        "concepts": "/proc Filesystem, HTTP Server, Metrics, Time Series, Polling",
+        "ref": "https://github.com/netdata/netdata"
+      }
+    ]
+  },
+  {
+    "language": "C",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Port Scanner with Banner Grabbing",
+        "desc": "Build a multi-threaded port scanner in C using raw sockets and pthreads that performs TCP SYN scans and grabs service banners from open ports. Outputs results in a structured report.",
+        "difficulty": "Advanced",
+        "concepts": "Raw Sockets, TCP SYN Scan, Multithreading, Banner Grabbing, POSIX Threads"
+      },
+      {
+        "type": "Unique",
+        "title": "File Integrity Monitor (FIM)",
+        "desc": "Implement a file integrity monitoring daemon in C using inotify and SHA-256 hashing. Detects unauthorized changes to watched directories and logs alerts with timestamps and file paths.",
+        "difficulty": "Intermediate",
+        "concepts": "inotify, SHA-256, Daemon Process, Hashing, File System Events"
+      },
+      {
+        "type": "Ref",
+        "title": "AES-128 Encryption Tool",
+        "desc": "Implement AES-128 encryption and decryption in C from scratch (no OpenSSL), supporting CBC mode with PKCS7 padding. Can encrypt files from the command line.",
+        "difficulty": "Advanced",
+        "concepts": "AES, Block Cipher, CBC Mode, PKCS7, Bitwise Operations",
+        "ref": "https://github.com/B-Con/crypto-algorithms"
+      }
+    ]
+  },
+  {
+    "language": "C",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Process Supervisor (mini-systemd)",
+        "desc": "Build a lightweight process supervisor in C that reads a config file, starts specified services, monitors them, and restarts them on failure. Supports log redirection and signal handling.",
+        "difficulty": "Advanced",
+        "concepts": "fork/exec, Signals, Pipes, Process Groups, Config Parsing"
+      },
+      {
+        "type": "Unique",
+        "title": "Rolling Log Rotator Daemon",
+        "desc": "Implement a log rotation daemon in C that watches log files via inotify, compresses them with zlib when they exceed a size threshold, and maintains a configurable number of archives.",
+        "difficulty": "Intermediate",
+        "concepts": "inotify, zlib Compression, Daemon Process, File I/O, Configuration Files"
+      },
+      {
+        "type": "Ref",
+        "title": "Tiny Load Balancer (Round Robin)",
+        "desc": "Build a TCP load balancer in C that distributes incoming connections across multiple backend servers using round-robin. Demonstrates proxy-level networking.",
+        "difficulty": "Intermediate",
+        "concepts": "TCP Forwarding, Round Robin, epoll, Non-blocking Sockets, Connection Pooling",
+        "ref": "https://github.com/rofl0r/microsocks"
+      }
+    ]
+  },
+  {
+    "language": "C",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "MQTT Broker from Scratch",
+        "desc": "Implement a lightweight MQTT v3.1.1 broker in C that supports publish/subscribe, QoS 0/1, retained messages, and multiple client connections using epoll.",
+        "difficulty": "Advanced",
+        "concepts": "MQTT Protocol, TCP Sockets, epoll, Pub/Sub Pattern, Protocol Parsing"
+      },
+      {
+        "type": "Unique",
+        "title": "Modbus RTU Sensor Reader",
+        "desc": "Build a Modbus RTU master implementation in C that communicates with industrial sensors over RS-485/serial. Reads holding registers and coils and logs data to CSV.",
+        "difficulty": "Advanced",
+        "concepts": "Modbus RTU, Serial Communication, CRC-16, Register Mapping, Industrial Protocols"
+      },
+      {
+        "type": "Ref",
+        "title": "DHT22 Sensor Logger on Raspberry Pi",
+        "desc": "Read temperature and humidity data from a DHT22 sensor using C on Raspberry Pi, store readings in a SQLite database, and serve a minimal HTTP dashboard.",
+        "difficulty": "Intermediate",
+        "concepts": "GPIO, Bit-banging, SQLite, HTTP Server, Sensor Interfacing",
+        "ref": "https://github.com/nicowillis/C-Web-Server"
+      }
+    ]
+  },
+  {
+    "language": "C",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Blockchain Data Structure in C",
+        "desc": "Implement a blockchain from scratch in C with SHA-256 hashing, proof-of-work mining, and chain validation. Stores blocks in a linked list and serializes/deserializes the chain to disk.",
+        "difficulty": "Advanced",
+        "concepts": "SHA-256, Linked Lists, Proof of Work, Serialization, Hash Chaining"
+      },
+      {
+        "type": "Unique",
+        "title": "Merkle Tree Implementation",
+        "desc": "Build a Merkle tree in C for transaction verification, supporting insertion, proof generation, and proof verification. Demonstrates the core data structure used in Bitcoin.",
+        "difficulty": "Intermediate",
+        "concepts": "Binary Trees, SHA-256, Cryptographic Proofs, Memory Management, Hashing"
+      },
+      {
+        "type": "Ref",
+        "title": "Minimal Bitcoin-Like Transaction Validator",
+        "desc": "Implement ECDSA signature creation and verification in C using a minimal secp256k1 library to validate Bitcoin-style transactions.",
+        "difficulty": "Advanced",
+        "concepts": "ECDSA, secp256k1, Elliptic Curves, Cryptography, Transaction Validation",
+        "ref": "https://github.com/bitcoin-core/secp256k1"
+      }
+    ]
+  },
+  {
+    "language": "C",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Raycasting 3D Engine (Wolfenstein-Style)",
+        "desc": "Build a Wolfenstein 3D-style raycasting engine in C using SDL2. Renders a 3D perspective from a 2D map with textured walls, a minimap overlay, and smooth player movement.",
+        "difficulty": "Advanced",
+        "concepts": "Raycasting, SDL2, Trigonometry, Texture Mapping, Game Loop"
+      },
+      {
+        "type": "Unique",
+        "title": "Tetris Clone with High Score Persistence",
+        "desc": "Implement Tetris in C using ncurses with all 7 tetromino pieces, line clearing, increasing speed, and a persistent high score file using binary serialization.",
+        "difficulty": "Intermediate",
+        "concepts": "ncurses, Game Loop, Collision Detection, File I/O, Input Handling"
+      },
+      {
+        "type": "Ref",
+        "title": "Snake Game with SDL2",
+        "desc": "Classic Snake game built in C with SDL2, featuring smooth rendering at 60 FPS, growing snake body, food spawning, and a game-over screen with score display.",
+        "difficulty": "Beginner",
+        "concepts": "SDL2, Game Loop, Linked Lists, Collision Detection, Rendering",
+        "ref": "https://github.com/HenrikThoroe/Snake-in-C"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Async REST API Server with Crow",
+        "desc": "Build a production-style REST API in C++ using the Crow framework with JWT authentication, rate limiting middleware, and PostgreSQL integration via libpqxx. Implements OpenAPI-style routing.",
+        "difficulty": "Intermediate",
+        "concepts": "Crow Framework, JWT, Middleware, PostgreSQL, REST API"
+      },
+      {
+        "type": "Unique",
+        "title": "Real-Time WebSocket Chat Server",
+        "desc": "Implement a WebSocket chat server in C++ using Boost.Asio and Beast that supports rooms, usernames, and message history. Handles thousands of concurrent connections efficiently.",
+        "difficulty": "Advanced",
+        "concepts": "Boost.Asio, WebSocket, Async I/O, Concurrency, Session Management"
+      },
+      {
+        "type": "Ref",
+        "title": "HTTP Load Tester CLI",
+        "desc": "Build an HTTP load testing tool in C++ (similar to wrk) that sends concurrent requests, measures latency percentiles, and generates a performance report.",
+        "difficulty": "Intermediate",
+        "concepts": "libcurl, Multithreading, Statistics, HTTP, Benchmarking",
+        "ref": "https://github.com/wg/wrk"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Cross-Platform 2D Game Engine for Mobile",
+        "desc": "Build a minimal 2D game engine in C++ using SDL2 and OpenGL ES that compiles to both Android (NDK) and iOS. Supports sprite batching, tilemap rendering, and touch input.",
+        "difficulty": "Advanced",
+        "concepts": "OpenGL ES, SDL2, NDK, Cross-compilation, Sprite Batching"
+      },
+      {
+        "type": "Unique",
+        "title": "Real-Time Audio Processing Library",
+        "desc": "Implement a C++ audio DSP library using PortAudio that applies real-time effects (reverb, pitch shift, noise gate) and exposes a JNI interface for Android apps.",
+        "difficulty": "Advanced",
+        "concepts": "DSP, FFT, PortAudio, JNI, Real-Time Audio"
+      },
+      {
+        "type": "Ref",
+        "title": "Cocos2d-x Mobile Puzzle Game",
+        "desc": "Create a sliding-puzzle mobile game using Cocos2d-x in C++ with animated tile movement, a countdown timer, and leaderboard storage using SQLite.",
+        "difficulty": "Intermediate",
+        "concepts": "Cocos2d-x, Scene Management, SQLite, Animations, Touch Input",
+        "ref": "https://github.com/cocos2d/cocos2d-x"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Object Detection Engine with ONNX Runtime",
+        "desc": "Integrate ONNX Runtime in a C++ application to run YOLOv8 inference on a video stream from a webcam. Draws bounding boxes in real time using OpenCV.",
+        "difficulty": "Advanced",
+        "concepts": "ONNX Runtime, YOLOv8, OpenCV, Inference, Computer Vision"
+      },
+      {
+        "type": "Unique",
+        "title": "A* Pathfinding Visualizer",
+        "desc": "Build an interactive A* pathfinding visualizer in C++ using SFML. Users can draw walls, set start/end points, and watch the algorithm explore the grid in real time with color-coded cells.",
+        "difficulty": "Intermediate",
+        "concepts": "A* Algorithm, Priority Queue, SFML, Grid Graphs, Heuristics"
+      },
+      {
+        "type": "Ref",
+        "title": "Minimax Tic-Tac-Toe AI with Alpha-Beta Pruning",
+        "desc": "Implement an unbeatable Tic-Tac-Toe AI in C++ using Minimax with alpha-beta pruning. Includes a simple SFML GUI for playing against the AI.",
+        "difficulty": "Intermediate",
+        "concepts": "Minimax, Alpha-Beta Pruning, Game Trees, SFML, AI Strategy",
+        "ref": "https://github.com/Younes-Charfaoui/Minimax-Tic-Tac-Toe"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Support Vector Machine from Scratch",
+        "desc": "Implement a binary SVM classifier in C++ using SMO (Sequential Minimal Optimization). Supports RBF and linear kernels and evaluates on the Iris dataset with k-fold cross validation.",
+        "difficulty": "Advanced",
+        "concepts": "SVM, SMO Algorithm, Kernels, Cross-Validation, Linear Algebra"
+      },
+      {
+        "type": "Unique",
+        "title": "Random Forest Classifier",
+        "desc": "Build a Random Forest in C++ with configurable tree depth, feature sampling, and bootstrap aggregation. Includes CSV data loading and reports accuracy, precision, and recall.",
+        "difficulty": "Advanced",
+        "concepts": "Decision Trees, Bootstrap Aggregation, Feature Sampling, Ensemble Methods, Statistics"
+      },
+      {
+        "type": "Ref",
+        "title": "K-Nearest Neighbors with KD-Tree",
+        "desc": "Implement KNN classification in C++ accelerated by a KD-Tree for efficient nearest-neighbor search. Benchmarks brute-force vs KD-Tree on large datasets.",
+        "difficulty": "Intermediate",
+        "concepts": "KD-Tree, KNN, Euclidean Distance, BST, Classification",
+        "ref": "https://github.com/crvs/KDTree"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "High-Performance DataFrame Library",
+        "desc": "Implement a lightweight DataFrame library in C++ with columnar storage, lazy evaluation, and operations like filter, groupby, and join. Inspired by Apache Arrow's design.",
+        "difficulty": "Advanced",
+        "concepts": "Columnar Storage, Templates, Lazy Evaluation, SIMD, Memory Management"
+      },
+      {
+        "type": "Unique",
+        "title": "Real-Time Stock Tick Analyzer",
+        "desc": "Build a streaming market data analyzer in C++ that consumes tick data from a CSV or WebSocket feed, computes rolling averages and VWAP, and detects price anomalies.",
+        "difficulty": "Intermediate",
+        "concepts": "Ring Buffers, Statistical Functions, WebSocket, VWAP, Streaming"
+      },
+      {
+        "type": "Ref",
+        "title": "Eigenface-Based Face Recognition",
+        "desc": "Implement PCA-based face recognition (Eigenfaces) in C++ using Eigen library. Trains on a face dataset, projects test images into PCA space, and identifies closest match.",
+        "difficulty": "Advanced",
+        "concepts": "PCA, Eigen Library, Linear Algebra, Face Recognition, Dimensionality Reduction",
+        "ref": "https://github.com/bytefish/opencv/tree/master/eigenfaces"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Distributed Key-Value Store (Raft Consensus)",
+        "desc": "Build a distributed key-value store in C++ implementing the Raft consensus algorithm for leader election and log replication. Nodes communicate via gRPC.",
+        "difficulty": "Advanced",
+        "concepts": "Raft Consensus, gRPC, Distributed Systems, Log Replication, Leader Election"
+      },
+      {
+        "type": "Unique",
+        "title": "Cloud Storage SDK with Multipart Upload",
+        "desc": "Implement an S3-compatible cloud storage SDK in C++ supporting multipart upload, download resumption, and retry logic with exponential backoff using libcurl.",
+        "difficulty": "Advanced",
+        "concepts": "Multipart Upload, libcurl, AWS SigV4, Retry Logic, Thread Pool"
+      },
+      {
+        "type": "Ref",
+        "title": "gRPC Microservice with C++",
+        "desc": "Create a product catalog microservice in C++ using gRPC with Protocol Buffers. Includes streaming RPCs, error handling, and integration with a SQLite database.",
+        "difficulty": "Intermediate",
+        "concepts": "gRPC, Protocol Buffers, Microservices, Streaming RPC, SQLite",
+        "ref": "https://github.com/grpc/grpc/tree/master/examples/cpp"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Network Packet Analyzer (Wireshark-Lite)",
+        "desc": "Build a packet capture and analysis tool in C++ using libpcap that decodes Ethernet, IP, TCP/UDP headers and logs HTTP request/response pairs from captured traffic.",
+        "difficulty": "Advanced",
+        "concepts": "libpcap, Packet Parsing, Protocol Layers, TCP Reassembly, HTTP Decoding"
+      },
+      {
+        "type": "Unique",
+        "title": "Fuzzer for HTTP Endpoints",
+        "desc": "Implement a smart HTTP fuzzer in C++ that mutates request parameters, headers, and body fields to find crashes, memory errors, and unexpected behavior in web APIs.",
+        "difficulty": "Advanced",
+        "concepts": "Fuzzing, Mutation Strategies, libcurl, Input Generation, Crash Detection"
+      },
+      {
+        "type": "Ref",
+        "title": "Password Manager with AES-GCM Encryption",
+        "desc": "Build a local password manager CLI in C++ using OpenSSL's AES-256-GCM for encryption. Stores encrypted credentials in a SQLite database with a master password-derived key.",
+        "difficulty": "Intermediate",
+        "concepts": "AES-GCM, PBKDF2, OpenSSL, SQLite, CLI Design",
+        "ref": "https://github.com/keepassxreboot/keepassxc"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Build System from Scratch (mini-Make)",
+        "desc": "Implement a dependency-aware build system in C++ that parses a Makefile-like config, builds a DAG of targets, and executes only changed files in parallel using thread pools.",
+        "difficulty": "Advanced",
+        "concepts": "DAG, Thread Pool, File Checksums, Parallel Execution, Config Parsing"
+      },
+      {
+        "type": "Unique",
+        "title": "Metrics Aggregation Pipeline",
+        "desc": "Build a metrics collection daemon in C++ that receives StatsD-format metrics over UDP, aggregates them (sum, avg, max) per flush interval, and forwards to a Prometheus endpoint.",
+        "difficulty": "Intermediate",
+        "concepts": "UDP, StatsD Protocol, Prometheus, Time Aggregation, Daemon Design"
+      },
+      {
+        "type": "Ref",
+        "title": "CI Pipeline Status Dashboard",
+        "desc": "Create a terminal dashboard in C++ using ncurses that polls a GitHub Actions API and displays live pipeline status, commit info, and failure logs for multiple repos.",
+        "difficulty": "Intermediate",
+        "concepts": "REST API, JSON Parsing, ncurses, Polling, GitHub API",
+        "ref": "https://github.com/jesseduffield/lazygit"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Edge AI Inference on Raspberry Pi",
+        "desc": "Deploy a TensorFlow Lite model in C++ on a Raspberry Pi to perform real-time object detection from a Pi Camera stream. Sends alerts via MQTT when specific objects are detected.",
+        "difficulty": "Advanced",
+        "concepts": "TensorFlow Lite, MQTT, Pi Camera, Edge Inference, C++ API"
+      },
+      {
+        "type": "Unique",
+        "title": "Industrial Protocol Gateway (Modbus to MQTT)",
+        "desc": "Build a protocol gateway in C++ that reads data from Modbus TCP sensors and publishes it as structured JSON to an MQTT broker. Includes configuration-driven register mapping.",
+        "difficulty": "Advanced",
+        "concepts": "Modbus TCP, MQTT, Protocol Translation, JSON, Socket Programming"
+      },
+      {
+        "type": "Ref",
+        "title": "Arduino Sensor Dashboard with Serial Comm",
+        "desc": "Develop a C++ desktop application using Qt that reads sensor data from an Arduino over serial, plots real-time charts, and saves data to CSV.",
+        "difficulty": "Intermediate",
+        "concepts": "Qt, Serial Communication, Real-Time Charts, Arduino, CSV Export",
+        "ref": "https://github.com/qt/qtserialport"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "UTXO-Based Cryptocurrency Model",
+        "desc": "Implement a simplified UTXO model like Bitcoin in C++, with transaction creation, validation, signing using secp256k1, and a mempool for unconfirmed transactions.",
+        "difficulty": "Advanced",
+        "concepts": "UTXO, secp256k1, Transaction Signing, Mempool, SHA-256"
+      },
+      {
+        "type": "Unique",
+        "title": "Smart Contract Bytecode Interpreter",
+        "desc": "Build a simple stack-based virtual machine in C++ that executes a custom smart contract bytecode language with arithmetic, conditionals, and state storage.",
+        "difficulty": "Advanced",
+        "concepts": "Stack Machine, Bytecode, Virtual Machine, State Management, Opcodes"
+      },
+      {
+        "type": "Ref",
+        "title": "Blockchain with Proof-of-Work in C++",
+        "desc": "A complete blockchain implementation in C++ with blocks, SHA-256 chaining, adjustable proof-of-work difficulty, and a simple peer-to-peer network using TCP sockets.",
+        "difficulty": "Intermediate",
+        "concepts": "SHA-256, Proof of Work, Blockchain, P2P Networking, TCP Sockets",
+        "ref": "https://github.com/nwaughachukwu/blockchain-cpp"
+      }
+    ]
+  },
+  {
+    "language": "C++",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "2D Physics Engine with Rigid Body Simulation",
+        "desc": "Build a 2D physics engine in C++ supporting circles and polygons with impulse-based collision resolution, friction, and restitution. Visualized with SFML.",
+        "difficulty": "Advanced",
+        "concepts": "Rigid Body Physics, Impulse Resolution, SAT Collision, SFML, Vector Math"
+      },
+      {
+        "type": "Unique",
+        "title": "Procedural Dungeon Generator",
+        "desc": "Implement a procedural dungeon generator in C++ using BSP trees to partition rooms. Connects rooms with corridors, places enemies and items, and renders to a terminal grid.",
+        "difficulty": "Intermediate",
+        "concepts": "BSP Trees, Procedural Generation, ncurses, Recursive Partitioning, Tile Maps"
+      },
+      {
+        "type": "Ref",
+        "title": "Platformer Game with Box2D",
+        "desc": "Build a 2D platformer game in C++ using SFML for rendering and Box2D for physics. Features player movement, jump mechanics, platforms, collectables, and a level loader.",
+        "difficulty": "Intermediate",
+        "concepts": "Box2D, SFML, Collision Detection, Tilemap, Game States",
+        "ref": "https://github.com/SFML/SFML-Game-Development-Book"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Multi-Tenant SaaS Backend with Spring Boot",
+        "desc": "Build a multi-tenant REST API in Spring Boot where each tenant has isolated data using schema-based separation in PostgreSQL. Includes JWT auth, role-based access control, and Swagger docs.",
+        "difficulty": "Advanced",
+        "concepts": "Spring Boot, Multi-Tenancy, JWT, RBAC, PostgreSQL, Swagger"
+      },
+      {
+        "type": "Unique",
+        "title": "Event-Driven Microservices with Kafka",
+        "desc": "Design an order management system using Spring Boot microservices communicating via Apache Kafka. Services include order, inventory, and notification with an API Gateway.",
+        "difficulty": "Advanced",
+        "concepts": "Kafka, Microservices, Spring Cloud Gateway, Event Sourcing, Docker"
+      },
+      {
+        "type": "Ref",
+        "title": "Spring Boot E-Commerce API",
+        "desc": "A complete e-commerce backend with Spring Boot featuring product catalog, cart, checkout, payment integration, and order tracking via REST APIs.",
+        "difficulty": "Intermediate",
+        "concepts": "Spring Boot, JPA/Hibernate, REST, Security, MySQL",
+        "ref": "https://github.com/techwithgbenga/spring-boot-ecommerce"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Offline-First Android Note App with Sync",
+        "desc": "Build an Android notes app using Room for offline storage and WorkManager for background sync with a REST API. Uses conflict resolution with timestamps and a merge strategy.",
+        "difficulty": "Intermediate",
+        "concepts": "Room DB, WorkManager, Conflict Resolution, MVVM, Coroutines"
+      },
+      {
+        "type": "Unique",
+        "title": "Augmented Reality Ruler with ARCore",
+        "desc": "Create an Android AR app using Google ARCore that detects surfaces, lets users place measurement points, and displays real-world distances with a 3D overlay.",
+        "difficulty": "Advanced",
+        "concepts": "ARCore, SceneView, 3D Rendering, Hit Testing, Vector Math"
+      },
+      {
+        "type": "Ref",
+        "title": "Android MVVM Weather App",
+        "desc": "A clean-architecture weather app for Android using Retrofit, ViewModel, LiveData, and OpenWeatherMap API. Features location-based forecast and offline caching.",
+        "difficulty": "Intermediate",
+        "concepts": "Retrofit, MVVM, LiveData, Room, Hilt DI",
+        "ref": "https://github.com/Ezike/MVI_UIComponents"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Resume Parser with NLP (OpenNLP)",
+        "desc": "Build a Java-based resume parsing service using Apache OpenNLP that extracts name, skills, experience, and education from PDF resumes. Outputs structured JSON for an ATS system.",
+        "difficulty": "Intermediate",
+        "concepts": "OpenNLP, NER, PDF Parsing, NLP Pipeline, JSON Output"
+      },
+      {
+        "type": "Unique",
+        "title": "Fraud Detection Engine with Decision Trees",
+        "desc": "Implement a real-time fraud detection engine in Java using Weka's decision tree. Processes transaction streams, flags anomalies, and explains decisions using tree traversal paths.",
+        "difficulty": "Advanced",
+        "concepts": "Weka, Decision Trees, Stream Processing, Feature Engineering, Explainability"
+      },
+      {
+        "type": "Ref",
+        "title": "Chatbot with Rasa and Java Spring Integration",
+        "desc": "Build an intelligent customer support chatbot backend in Java that connects to a Rasa NLU server, manages conversation sessions, and integrates with a MySQL-backed ticketing system.",
+        "difficulty": "Advanced",
+        "concepts": "REST APIs, NLU, Session Management, Spring Boot, MySQL",
+        "ref": "https://github.com/RasaHQ/rasa"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Movie Recommendation System with Collaborative Filtering",
+        "desc": "Build a movie recommender in Java using matrix factorization (ALS) on the MovieLens dataset. Implements user-user and item-item similarity and serves recommendations via a Spring Boot API.",
+        "difficulty": "Advanced",
+        "concepts": "Collaborative Filtering, ALS, Matrix Factorization, Spring Boot, Cosine Similarity"
+      },
+      {
+        "type": "Unique",
+        "title": "Anomaly Detection in Log Files",
+        "desc": "Implement an Isolation Forest anomaly detector in Java using Weka to analyze web server logs. Flags abnormal request patterns (potential attacks or errors) and generates reports.",
+        "difficulty": "Intermediate",
+        "concepts": "Isolation Forest, Weka, Log Parsing, Feature Extraction, Anomaly Detection"
+      },
+      {
+        "type": "Ref",
+        "title": "Spam Email Classifier with Naive Bayes",
+        "desc": "Train a Naive Bayes spam classifier on the SpamAssassin dataset in Java using Weka. Includes email preprocessing, TF-IDF feature extraction, and a REST API endpoint for live classification.",
+        "difficulty": "Intermediate",
+        "concepts": "Naive Bayes, TF-IDF, Weka, Text Classification, REST API",
+        "ref": "https://github.com/airalcorn2/Weka-Naive-Bayes-Spam-Filter"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Social Network Graph Analyzer",
+        "desc": "Build a graph analytics tool in Java using JGraphT to analyze a Twitter-like social network. Computes degree centrality, betweenness, and community clusters from edge-list CSV files.",
+        "difficulty": "Advanced",
+        "concepts": "JGraphT, Graph Algorithms, Centrality Metrics, Community Detection, CSV"
+      },
+      {
+        "type": "Unique",
+        "title": "Financial Report PDF Generator",
+        "desc": "Create a data pipeline in Java that reads sales data from a database, computes KPIs, and generates a formatted PDF report with charts using Apache PDFBox and JFreeChart.",
+        "difficulty": "Intermediate",
+        "concepts": "Apache PDFBox, JFreeChart, JDBC, Data Aggregation, Report Generation"
+      },
+      {
+        "type": "Ref",
+        "title": "Apache Spark Word Frequency Analysis",
+        "desc": "Use Apache Spark with Java API to analyze a large text corpus, compute word frequencies, find co-occurrence patterns, and visualize with a word cloud generator.",
+        "difficulty": "Intermediate",
+        "concepts": "Apache Spark, RDD, MapReduce, Word Count, Data Processing",
+        "ref": "https://github.com/apache/spark/tree/master/examples/src/main/java/org/apache/spark/examples"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Serverless Function Framework on AWS Lambda",
+        "desc": "Build a mini serverless framework in Java that deploys Spring Boot functions to AWS Lambda with API Gateway, handles cold starts via provisioned concurrency, and includes a local testing harness.",
+        "difficulty": "Advanced",
+        "concepts": "AWS Lambda, API Gateway, Spring Cloud Function, Cold Start, GraalVM Native"
+      },
+      {
+        "type": "Unique",
+        "title": "Auto-Scaling Kubernetes Operator",
+        "desc": "Implement a custom Kubernetes operator in Java using the Fabric8 client that auto-scales deployments based on custom metrics (e.g., queue depth from RabbitMQ).",
+        "difficulty": "Advanced",
+        "concepts": "Kubernetes, Fabric8, CRD, HPA, RabbitMQ, Operator Pattern"
+      },
+      {
+        "type": "Ref",
+        "title": "Google Cloud Storage File Manager",
+        "desc": "Build a Java web app that lets users upload, browse, and share files stored in Google Cloud Storage with signed URLs, metadata tagging, and a Spring Boot backend.",
+        "difficulty": "Intermediate",
+        "concepts": "GCS SDK, Signed URLs, Spring Boot, File Upload, IAM",
+        "ref": "https://github.com/GoogleCloudPlatform/java-docs-samples"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Web Application Vulnerability Scanner",
+        "desc": "Build a Java-based web vulnerability scanner using Jsoup and HttpClient that checks for XSS, SQL injection, open redirects, and missing security headers. Generates an HTML report.",
+        "difficulty": "Advanced",
+        "concepts": "HTTP, Jsoup, XSS, SQLi, Security Headers, Report Generation"
+      },
+      {
+        "type": "Unique",
+        "title": "JWT Exploitation Lab (Signature Bypass)",
+        "desc": "Create a Java application that demonstrates common JWT vulnerabilities: algorithm confusion (RS256 to HS256), none-algorithm bypass, and key confusion attacks. For educational purposes.",
+        "difficulty": "Advanced",
+        "concepts": "JWT, JJWT, Algorithm Confusion, Cryptography, Security Research"
+      },
+      {
+        "type": "Ref",
+        "title": "SSL/TLS Certificate Validator",
+        "desc": "Implement a Java tool that checks SSL certificates for expiry, weak ciphers, certificate chain issues, and OCSP stapling support. Produces a colored console security report.",
+        "difficulty": "Intermediate",
+        "concepts": "SSL/TLS, JSSE, Certificate Chains, OCSP, Security Audit",
+        "ref": "https://github.com/SSLMate/certspotter"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "CI/CD Pipeline as Code with Jenkins DSL",
+        "desc": "Build a Jenkins shared library in Java/Groovy that defines reusable pipeline stages for build, test, Docker push, and Helm deploy. Includes Slack notifications and rollback support.",
+        "difficulty": "Advanced",
+        "concepts": "Jenkins DSL, Groovy, Docker, Helm, Slack API, Rollback"
+      },
+      {
+        "type": "Unique",
+        "title": "Infrastructure Cost Analyzer",
+        "desc": "Create a Spring Boot tool that queries AWS Cost Explorer and Terraform state files to correlate infrastructure costs with teams or features, and generates savings recommendations.",
+        "difficulty": "Intermediate",
+        "concepts": "AWS SDK, Terraform State, Cost Explorer, REST API, Report Generation"
+      },
+      {
+        "type": "Ref",
+        "title": "Docker Registry Mirror with Spring Boot",
+        "desc": "Build a Docker registry proxy in Java using Spring Boot that caches image layers locally, implements pull-through caching, and provides a usage analytics dashboard.",
+        "difficulty": "Advanced",
+        "concepts": "Docker Registry API, Caching, Spring Boot, HTTP Proxy, Storage",
+        "ref": "https://github.com/distribution/distribution"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Smart Home Hub with MQTT and REST",
+        "desc": "Build a Java-based IoT hub using Eclipse Paho (MQTT) and Spring Boot (REST) that aggregates sensor data, stores it in InfluxDB, and exposes control endpoints for connected devices.",
+        "difficulty": "Advanced",
+        "concepts": "MQTT, InfluxDB, Spring Boot, Device Management, REST API"
+      },
+      {
+        "type": "Unique",
+        "title": "OPC-UA Industrial Data Collector",
+        "desc": "Implement an OPC-UA client in Java using Eclipse Milo that connects to industrial PLCs, reads process variables, and stores time-series data in TimescaleDB.",
+        "difficulty": "Advanced",
+        "concepts": "OPC-UA, Eclipse Milo, TimescaleDB, Industrial IoT, Subscription Model"
+      },
+      {
+        "type": "Ref",
+        "title": "Android IoT Controller for ESP8266",
+        "desc": "Build an Android app in Java that sends HTTP commands to an ESP8266 Wi-Fi module to control GPIO pins (LEDs, relays). Includes device discovery via mDNS.",
+        "difficulty": "Intermediate",
+        "concepts": "HTTP, mDNS, Android, ESP8266, UI Controls",
+        "ref": "https://github.com/esp8266/Arduino"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Ethereum Wallet Manager",
+        "desc": "Build a Java application using Web3j that creates HD wallets, signs transactions offline, monitors wallet balances, and sends ERC-20 token transfers with gas estimation.",
+        "difficulty": "Advanced",
+        "concepts": "Web3j, HD Wallets, BIP-39, ERC-20, Gas Estimation"
+      },
+      {
+        "type": "Unique",
+        "title": "Hyperledger Fabric Asset Tracker",
+        "desc": "Develop a supply chain asset tracking system on Hyperledger Fabric in Java. Chaincode manages asset lifecycle events and the Spring Boot client queries the ledger via Fabric Gateway.",
+        "difficulty": "Advanced",
+        "concepts": "Hyperledger Fabric, Chaincode, Fabric Gateway, Supply Chain, gRPC"
+      },
+      {
+        "type": "Ref",
+        "title": "Simple Blockchain with Java",
+        "desc": "Implement a blockchain from scratch in Java with SHA-256 hashing, proof-of-work, wallet addresses, and digital signatures using ECDSA.",
+        "difficulty": "Intermediate",
+        "concepts": "SHA-256, ECDSA, Blockchain, Proof of Work, Digital Signatures",
+        "ref": "https://github.com/CryptoKass/learn-blockchain-java"
+      }
+    ]
+  },
+  {
+    "language": "Java",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Multiplayer Game Server with Netty",
+        "desc": "Build a low-latency multiplayer game server in Java using Netty, supporting a simple top-down shooter with UDP for game state and TCP for reliable events. Handles 100+ concurrent players.",
+        "difficulty": "Advanced",
+        "concepts": "Netty, UDP, TCP, Game State Sync, Serialization"
+      },
+      {
+        "type": "Unique",
+        "title": "Procedural World Generator with Perlin Noise",
+        "desc": "Implement a 2D world generator in Java using LibGDX that creates infinite terrain with Perlin noise, biome classification, and chunk-based loading/unloading.",
+        "difficulty": "Advanced",
+        "concepts": "Perlin Noise, LibGDX, Chunk Management, Biome Generation, Procedural Content"
+      },
+      {
+        "type": "Ref",
+        "title": "2D RPG with LibGDX and Tiled Maps",
+        "desc": "Create a 2D RPG in Java using LibGDX with Tiled map integration, character movement, NPC dialogues, an inventory system, and a battle system.",
+        "difficulty": "Intermediate",
+        "concepts": "LibGDX, Tiled Maps, Entity System, Inventory, Animation",
+        "ref": "https://github.com/libgdx/libgdx"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "AI-Powered Code Review Bot",
+        "desc": "Build a GitHub bot in Python (Flask/FastAPI) that listens to pull request webhooks, sends changed code to the OpenAI API for review, and posts structured comments with suggestions and severity levels.",
+        "difficulty": "Intermediate",
+        "concepts": "FastAPI, GitHub Webhooks, OpenAI API, Async, OAuth"
+      },
+      {
+        "type": "Unique",
+        "title": "Real-Time Collaborative Document Editor Backend",
+        "desc": "Implement a real-time collaborative editing backend in Python using FastAPI and WebSockets with Operational Transformation (OT) for conflict resolution. Supports multiple concurrent editors.",
+        "difficulty": "Advanced",
+        "concepts": "WebSockets, Operational Transformation, FastAPI, Redis Pub/Sub, Concurrency"
+      },
+      {
+        "type": "Ref",
+        "title": "Django REST Framework API with Celery Tasks",
+        "desc": "Build a full-featured task management API with Django REST Framework, Celery for background jobs, Redis as broker, and JWT authentication. Includes email notifications on task completion.",
+        "difficulty": "Intermediate",
+        "concepts": "Django, DRF, Celery, Redis, JWT, PostgreSQL",
+        "ref": "https://github.com/encode/django-rest-framework"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Cross-Platform Mobile App with Kivy",
+        "desc": "Build a cross-platform mobile budgeting app with Kivy and KivyMD that runs on Android and iOS. Features category-based spending tracking, pie chart visualization, and SQLite storage.",
+        "difficulty": "Intermediate",
+        "concepts": "Kivy, KivyMD, SQLite, Charts, Cross-Platform"
+      },
+      {
+        "type": "Unique",
+        "title": "Mobile Backend-as-a-Service with Firebase Admin",
+        "desc": "Create a Python FastAPI backend that integrates with Firebase to provide push notifications, Firestore sync, remote config, and A/B testing hooks for a mobile app.",
+        "difficulty": "Intermediate",
+        "concepts": "Firebase Admin SDK, FastAPI, Firestore, FCM Push, Remote Config"
+      },
+      {
+        "type": "Ref",
+        "title": "Python Flask Backend for Flutter App",
+        "desc": "Build a RESTful Python Flask API backend for a Flutter social app. Includes user auth with JWT, media upload to S3, feed generation with pagination, and WebSocket notifications.",
+        "difficulty": "Intermediate",
+        "concepts": "Flask, JWT, S3, WebSocket, REST API, Pagination",
+        "ref": "https://github.com/pallets/flask"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Custom RAG (Retrieval-Augmented Generation) Pipeline",
+        "desc": "Build a document Q&A system using LangChain, ChromaDB, and OpenAI that ingests PDFs, creates vector embeddings, retrieves relevant chunks, and answers questions with citations.",
+        "difficulty": "Intermediate",
+        "concepts": "RAG, LangChain, ChromaDB, Embeddings, OpenAI API"
+      },
+      {
+        "type": "Unique",
+        "title": "AI Agent with Tool Use (ReAct Pattern)",
+        "desc": "Implement an autonomous AI agent in Python using the ReAct framework that can browse the web, run Python code, query databases, and solve multi-step research tasks using GPT-4.",
+        "difficulty": "Advanced",
+        "concepts": "ReAct Pattern, Function Calling, LangChain Agents, Tool Use, LLM"
+      },
+      {
+        "type": "Ref",
+        "title": "Fine-Tuned Sentiment Analysis Model",
+        "desc": "Fine-tune a BERT model on a custom sentiment dataset using Hugging Face Transformers. Includes data preprocessing, training loop, evaluation metrics, and a FastAPI inference endpoint.",
+        "difficulty": "Intermediate",
+        "concepts": "BERT, Fine-Tuning, Transformers, FastAPI, Evaluation Metrics",
+        "ref": "https://github.com/huggingface/transformers"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "AutoML Pipeline with Feature Engineering",
+        "desc": "Build an AutoML system in Python that automatically performs feature selection, tries multiple models (RF, XGBoost, LightGBM), tunes hyperparameters with Optuna, and generates a model card.",
+        "difficulty": "Advanced",
+        "concepts": "Optuna, XGBoost, LightGBM, Feature Selection, Model Cards"
+      },
+      {
+        "type": "Unique",
+        "title": "Credit Scoring Model with Fairness Analysis",
+        "desc": "Train an ML model for credit risk scoring and analyze it for demographic bias using the Fairlearn library. Implements debiasing strategies and explains decisions with SHAP values.",
+        "difficulty": "Advanced",
+        "concepts": "Fairlearn, SHAP, XGBoost, Bias Mitigation, Explainability"
+      },
+      {
+        "type": "Ref",
+        "title": "Kaggle-Style House Price Prediction Pipeline",
+        "desc": "Build an end-to-end ML pipeline for house price prediction using scikit-learn pipelines, cross-validation, stacking ensemble, and feature importance visualization.",
+        "difficulty": "Intermediate",
+        "concepts": "Scikit-learn, Pipelines, Stacking, Cross-Validation, EDA",
+        "ref": "https://github.com/ageron/handson-ml3"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Twitter Trend Analyzer with NLP",
+        "desc": "Build a real-time Twitter trend analyzer using Tweepy, spaCy for NER, and BERTopic for topic modeling. Visualizes emerging topics with interactive Plotly dashboards.",
+        "difficulty": "Advanced",
+        "concepts": "Tweepy, spaCy, BERTopic, Plotly, NLP"
+      },
+      {
+        "type": "Unique",
+        "title": "Epidemiological SIR Model Simulator",
+        "desc": "Implement an interactive SIR/SEIR disease spread simulator in Python with Streamlit. Lets users tune parameters, visualize spread curves, and compare intervention scenarios.",
+        "difficulty": "Intermediate",
+        "concepts": "SIR Model, ODE Solving (scipy), Streamlit, Visualization, Parameter Tuning"
+      },
+      {
+        "type": "Ref",
+        "title": "EDA & Dashboard for COVID-19 Dataset",
+        "desc": "Perform comprehensive exploratory data analysis on COVID-19 data using Pandas, Seaborn, and Plotly. Build an interactive Streamlit dashboard with country comparisons and trends.",
+        "difficulty": "Beginner",
+        "concepts": "Pandas, Plotly, Streamlit, EDA, Data Cleaning",
+        "ref": "https://github.com/owid/covid-19-data"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Infrastructure-as-Code Generator (Pulumi)",
+        "desc": "Build a Python CLI tool using Pulumi that generates cloud infrastructure (VPC, EC2, RDS, S3) from a YAML spec file. Includes drift detection and a cost estimation feature via Infracost.",
+        "difficulty": "Advanced",
+        "concepts": "Pulumi, IaC, AWS SDK, Cost Estimation, YAML DSL"
+      },
+      {
+        "type": "Unique",
+        "title": "Multi-Cloud Backup Orchestrator",
+        "desc": "Create a Python orchestration tool that backs up databases and files to AWS S3, GCS, and Azure Blob simultaneously, with encryption, deduplication, and Slack-based alerting.",
+        "difficulty": "Advanced",
+        "concepts": "Boto3, GCS, Azure SDK, Encryption, Multi-Cloud, Scheduling"
+      },
+      {
+        "type": "Ref",
+        "title": "Serverless Image Processor with AWS Lambda",
+        "desc": "Build an AWS Lambda function in Python that triggers on S3 image uploads, performs resizing and watermarking with Pillow, and stores results back in S3 with metadata in DynamoDB.",
+        "difficulty": "Intermediate",
+        "concepts": "AWS Lambda, S3 Events, DynamoDB, Pillow, SAM CLI",
+        "ref": "https://github.com/awslabs/serverless-application-model"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Malware Behavior Sandbox",
+        "desc": "Build a lightweight Python-based malware analysis sandbox using subprocess isolation and ptrace to monitor system calls, network connections, and file changes made by a suspicious binary.",
+        "difficulty": "Advanced",
+        "concepts": "ptrace, Subprocess, Syscall Tracing, Network Monitoring, Behavior Analysis"
+      },
+      {
+        "type": "Unique",
+        "title": "Phishing URL Detector with ML",
+        "desc": "Train a machine learning classifier in Python to detect phishing URLs using lexical features (URL length, special chars, entropy) and a gradient boosting model. Serves results via FastAPI.",
+        "difficulty": "Intermediate",
+        "concepts": "URL Feature Extraction, XGBoost, FastAPI, Scikit-learn, WHOIS"
+      },
+      {
+        "type": "Ref",
+        "title": "Network Scanner and Vulnerability Reporter",
+        "desc": "Build a Python tool using python-nmap and Shodan API to scan a network, fingerprint services, check for known CVEs, and generate a PDF vulnerability report.",
+        "difficulty": "Intermediate",
+        "concepts": "python-nmap, Shodan API, CVE Lookup, PDF Generation, Port Scanning",
+        "ref": "https://github.com/threat9/routersploit"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "GitOps Reconciler Bot",
+        "desc": "Build a Python daemon that watches a Git repo for Kubernetes manifest changes and automatically applies them to a cluster using the Kubernetes Python client. Implements rollback on failure.",
+        "difficulty": "Advanced",
+        "concepts": "Kubernetes Python Client, GitPython, GitOps, Rollback, Reconciliation Loop"
+      },
+      {
+        "type": "Unique",
+        "title": "Automated Dependency Vulnerability Patcher",
+        "desc": "Create a Python tool that scans a project's dependencies (pip, npm), checks them against the OSV database for CVEs, and automatically opens pull requests with patched versions.",
+        "difficulty": "Intermediate",
+        "concepts": "OSV API, GitHub API, pip, npm, Automated PRs, Security Scanning"
+      },
+      {
+        "type": "Ref",
+        "title": "Ansible Playbook for Full-Stack App Deployment",
+        "desc": "Write Ansible playbooks in Python/YAML that provision an Ubuntu server, install dependencies, deploy a Django app, configure Nginx, and set up SSL with Let's Encrypt.",
+        "difficulty": "Intermediate",
+        "concepts": "Ansible, Nginx, SSL, Django Deployment, Server Provisioning",
+        "ref": "https://github.com/ansible/ansible"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Predictive Maintenance System",
+        "desc": "Build a Python system that collects vibration and temperature data from industrial sensors via MQTT, applies an LSTM model for anomaly prediction, and sends maintenance alerts via Telegram.",
+        "difficulty": "Advanced",
+        "concepts": "MQTT, LSTM, TensorFlow, Predictive Analytics, Telegram Bot"
+      },
+      {
+        "type": "Unique",
+        "title": "Energy Consumption Optimizer",
+        "desc": "Create a Raspberry Pi–based home energy monitor in Python that reads power consumption from a smart meter via RS-485, analyzes usage patterns with pandas, and auto-schedules high-draw appliances.",
+        "difficulty": "Advanced",
+        "concepts": "RS-485, Modbus, Pandas, Time Series Analysis, Scheduling"
+      },
+      {
+        "type": "Ref",
+        "title": "Raspberry Pi Home Automation with MQTT and Flask",
+        "desc": "Build a home automation system with Raspberry Pi, MQTT broker, and a Flask dashboard. Control relays for lights and fans, monitor DHT22 temperature/humidity, and view logs.",
+        "difficulty": "Intermediate",
+        "concepts": "Raspberry Pi, MQTT, Flask, GPIO, DHT22, Dashboard",
+        "ref": "https://github.com/home-assistant/core"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "DeFi Yield Optimizer Bot",
+        "desc": "Build a Python bot using Web3.py that monitors Aave and Compound lending rates, automatically moves funds to the highest-yield protocol, and logs all transactions to a local database.",
+        "difficulty": "Advanced",
+        "concepts": "Web3.py, DeFi, Smart Contracts, Aave, Compound, Automation"
+      },
+      {
+        "type": "Unique",
+        "title": "NFT Metadata Generator and IPFS Uploader",
+        "desc": "Create a Python tool that generates unique NFT metadata (traits, rarity scores), uploads images and JSON metadata to IPFS via Pinata, and outputs a ready-to-mint collection manifest.",
+        "difficulty": "Intermediate",
+        "concepts": "IPFS, Pinata API, NFT Metadata, Rarity Scoring, PIL"
+      },
+      {
+        "type": "Ref",
+        "title": "Ethereum Token Balance Tracker",
+        "desc": "Build a Python dashboard using Web3.py and Streamlit that tracks ERC-20 token balances across multiple wallets, shows price history from CoinGecko, and alerts on large transfers.",
+        "difficulty": "Intermediate",
+        "concepts": "Web3.py, CoinGecko API, Streamlit, ERC-20, Wallet Monitoring",
+        "ref": "https://github.com/ethereum/web3.py"
+      }
+    ]
+  },
+  {
+    "language": "Python",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Reinforcement Learning Game Agent (DQN)",
+        "desc": "Train a Deep Q-Network agent in Python using PyTorch and OpenAI Gym to play Atari games. Implements experience replay, target network, and epsilon-greedy exploration.",
+        "difficulty": "Advanced",
+        "concepts": "DQN, PyTorch, OpenAI Gym, Experience Replay, Reinforcement Learning"
+      },
+      {
+        "type": "Unique",
+        "title": "Procedural Narrative RPG Engine",
+        "desc": "Build a text-based RPG engine in Python where story events are generated dynamically by an LLM based on player choices. Includes a quest graph, inventory system, and NPC personality states.",
+        "difficulty": "Advanced",
+        "concepts": "OpenAI API, State Machines, Graph Traversal, NLP, Game Design"
+      },
+      {
+        "type": "Ref",
+        "title": "Pygame Tower Defense Game",
+        "desc": "Create a tower defense game in Python using Pygame with enemy pathing via A*, multiple tower types, upgrade system, and wave-based enemy spawning.",
+        "difficulty": "Intermediate",
+        "concepts": "Pygame, A* Pathfinding, Wave Management, OOP, Game Mechanics",
+        "ref": "https://github.com/russs123/pygame_tutorials"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Real-Time Whiteboard with Conflict-Free Sync",
+        "desc": "Build a collaborative whiteboard app using Node.js, Socket.io, and CRDTs (Y.js) for conflict-free real-time sync. Supports drawing, shapes, text, and cursor presence indicators.",
+        "difficulty": "Advanced",
+        "concepts": "Y.js, CRDTs, Socket.io, Canvas API, Presence"
+      },
+      {
+        "type": "Unique",
+        "title": "Micro-Frontend Architecture Shell App",
+        "desc": "Build a module federation-based micro-frontend application using Webpack 5 where independent React micro-apps (dashboard, profile, settings) are composed at runtime in a shell.",
+        "difficulty": "Advanced",
+        "concepts": "Webpack Module Federation, Micro-Frontends, React, Shared State, Dynamic Imports"
+      },
+      {
+        "type": "Ref",
+        "title": "Full-Stack Social Platform with Next.js",
+        "desc": "Build a full-stack social platform using Next.js 14, Prisma, PostgreSQL, and NextAuth. Features posts, comments, likes, follow system, and server-side rendering.",
+        "difficulty": "Intermediate",
+        "concepts": "Next.js, Prisma, PostgreSQL, NextAuth, SSR/ISR",
+        "ref": "https://github.com/vercel/next.js/tree/canary/examples"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Offline-First PWA with Background Sync",
+        "desc": "Build a Progressive Web App with Service Workers, IndexedDB, and the Background Sync API. Users can create and edit records offline; changes sync automatically when connectivity is restored.",
+        "difficulty": "Intermediate",
+        "concepts": "Service Workers, IndexedDB, Background Sync, PWA, Cache API"
+      },
+      {
+        "type": "Unique",
+        "title": "React Native Gesture-Controlled Media Player",
+        "desc": "Create a React Native media player with advanced gesture controls: swipe to skip, pinch to change speed, pan for volume, and haptic feedback. Uses Reanimated 3 for smooth 60fps animations.",
+        "difficulty": "Advanced",
+        "concepts": "React Native, Reanimated 3, Gesture Handler, Haptics, Audio API"
+      },
+      {
+        "type": "Ref",
+        "title": "Expo React Native Chat App",
+        "desc": "Build a full-featured chat app with Expo and Firebase: real-time messaging, push notifications, image sharing, read receipts, and typing indicators.",
+        "difficulty": "Intermediate",
+        "concepts": "Expo, Firebase Firestore, FCM, React Navigation, AsyncStorage",
+        "ref": "https://github.com/GetStream/stream-chat-react-native"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "In-Browser AI Image Classifier",
+        "desc": "Build a browser-based image classifier using TensorFlow.js and MobileNet that runs entirely client-side with no server. Users drag-and-drop images and get top-5 predictions with confidence bars.",
+        "difficulty": "Intermediate",
+        "concepts": "TensorFlow.js, MobileNet, Transfer Learning, WebGL, Canvas API"
+      },
+      {
+        "type": "Unique",
+        "title": "AI-Powered Form Autofill Extension",
+        "desc": "Build a Chrome extension that uses the OpenAI API to analyze a webpage's form fields, infer context, and intelligently autofill them based on a stored user profile. Handles dynamic SPAs.",
+        "difficulty": "Advanced",
+        "concepts": "Chrome Extensions, OpenAI API, DOM Parsing, Content Scripts, SPA Handling"
+      },
+      {
+        "type": "Ref",
+        "title": "Chatbot UI with LangChain.js and Streaming",
+        "desc": "Build a streaming chatbot UI in JavaScript using LangChain.js, the OpenAI API, and React. Features conversation memory, streaming token display, and markdown rendering.",
+        "difficulty": "Intermediate",
+        "concepts": "LangChain.js, OpenAI Streaming, React, Markdown, Conversation Memory",
+        "ref": "https://github.com/hwchase17/langchainjs"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Real-Time Pose Estimation Fitness Coach",
+        "desc": "Build a browser-based fitness coach using TensorFlow.js PoseNet that detects body keypoints via webcam, counts reps of exercises (squats, push-ups), and gives form feedback in real time.",
+        "difficulty": "Advanced",
+        "concepts": "PoseNet, TensorFlow.js, Keypoint Detection, MediaPipe, Canvas"
+      },
+      {
+        "type": "Unique",
+        "title": "Client-Side Recommendation Engine",
+        "desc": "Implement a collaborative filtering recommendation engine in JavaScript that runs in the browser using TensorFlow.js matrix factorization. Suggests articles based on user reading history.",
+        "difficulty": "Intermediate",
+        "concepts": "TensorFlow.js, Matrix Factorization, Collaborative Filtering, LocalStorage, WebWorkers"
+      },
+      {
+        "type": "Ref",
+        "title": "Hand Gesture Recognition with MediaPipe",
+        "desc": "Use MediaPipe Hands and TensorFlow.js in a browser app to recognize hand gestures and map them to keyboard shortcuts or UI controls. Runs entirely client-side.",
+        "difficulty": "Intermediate",
+        "concepts": "MediaPipe, TensorFlow.js, Landmark Detection, Gesture Classification, WebRTC",
+        "ref": "https://github.com/google-ai-edge/mediapipe"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Interactive D3.js Data Storytelling Platform",
+        "desc": "Build a scrollytelling data visualization platform using D3.js and Intersection Observer where charts animate and update as the user scrolls through a narrative about a dataset.",
+        "difficulty": "Advanced",
+        "concepts": "D3.js, Scrollytelling, SVG Animation, Intersection Observer, Data Binding"
+      },
+      {
+        "type": "Unique",
+        "title": "Browser-Based Geospatial Analyzer",
+        "desc": "Create a geospatial data analysis tool using Deck.gl and Mapbox GL JS that visualizes large GeoJSON datasets with hexbin aggregation, heatmaps, and time-animation playback.",
+        "difficulty": "Advanced",
+        "concepts": "Deck.gl, Mapbox GL, GeoJSON, WebGL, Geospatial Viz"
+      },
+      {
+        "type": "Ref",
+        "title": "Observable-Style Notebook with Vega-Lite",
+        "desc": "Build a browser-based data notebook in JavaScript where users write markdown + Vega-Lite JSON specs and see live charts. Supports CSV data upload and reactive cell updates.",
+        "difficulty": "Intermediate",
+        "concepts": "Vega-Lite, Observable Pattern, Reactive Programming, CSV Parsing, Monaco Editor",
+        "ref": "https://github.com/observablehq/plot"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Serverless URL Analytics Platform",
+        "desc": "Build a URL analytics service on Cloudflare Workers and KV storage that shortens URLs, tracks click events (geo, device, referrer), and serves a dashboard built with React.",
+        "difficulty": "Intermediate",
+        "concepts": "Cloudflare Workers, KV Storage, Edge Computing, Analytics, React"
+      },
+      {
+        "type": "Unique",
+        "title": "Multi-Region Failover Orchestrator",
+        "desc": "Create a Node.js orchestration service that monitors the health of multi-region deployments, automatically reroutes traffic via Route53 APIs, and sends incident reports to PagerDuty.",
+        "difficulty": "Advanced",
+        "concepts": "AWS Route53, Health Checks, Failover, PagerDuty API, Monitoring"
+      },
+      {
+        "type": "Ref",
+        "title": "Firebase Cloud Functions for Push Notifications",
+        "desc": "Build a Node.js Firebase Cloud Functions backend that triggers on Firestore events to send targeted FCM push notifications, schedule reminders, and manage notification preferences.",
+        "difficulty": "Intermediate",
+        "concepts": "Firebase Functions, Firestore Triggers, FCM, Scheduling, Node.js",
+        "ref": "https://github.com/firebase/functions-samples"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Browser Security Policy Analyzer",
+        "desc": "Build a browser extension in JavaScript that analyzes Content Security Policy headers, checks for dangerous inline scripts, flags missing HSTS/X-Frame-Options, and gives a security score per site.",
+        "difficulty": "Intermediate",
+        "concepts": "Chrome Extensions, CSP, HTTP Headers, Security Analysis, DOM Inspection"
+      },
+      {
+        "type": "Unique",
+        "title": "JWT Debugger and Attack Simulator",
+        "desc": "Create a web app in JavaScript that decodes JWTs, validates signatures, simulates common attacks (none algorithm, key confusion), and explains vulnerabilities with interactive demos.",
+        "difficulty": "Intermediate",
+        "concepts": "JWT, JOSE, Algorithm Confusion, Web Crypto API, Security Education"
+      },
+      {
+        "type": "Ref",
+        "title": "OWASP ZAP-Inspired Passive Scanner",
+        "desc": "Build a Node.js HTTP proxy that passively inspects traffic for OWASP Top 10 vulnerabilities (XSS, SQLi, insecure cookies) and logs findings to a web dashboard.",
+        "difficulty": "Advanced",
+        "concepts": "HTTP Proxy, Node.js, OWASP, XSS Detection, SQLi Pattern Matching",
+        "ref": "https://github.com/zaproxy/zaproxy"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "GitHub Actions Workflow Analyzer",
+        "desc": "Build a Node.js CLI tool that parses GitHub Actions YAML workflows, detects common antipatterns (hardcoded secrets, missing pin versions, overpermissioned tokens), and suggests fixes.",
+        "difficulty": "Intermediate",
+        "concepts": "GitHub Actions, YAML Parsing, Static Analysis, Security, CLI Design"
+      },
+      {
+        "type": "Unique",
+        "title": "Deployment Approval Slack Bot",
+        "desc": "Create a Slack bot with Node.js using the Bolt SDK that integrates into a CI/CD pipeline. Engineers approve or reject deployments via interactive Slack messages with environment diffs.",
+        "difficulty": "Intermediate",
+        "concepts": "Slack Bolt SDK, CI/CD Integration, Webhooks, Interactive Messages, Approval Workflows"
+      },
+      {
+        "type": "Ref",
+        "title": "Custom Webpack Plugin for Bundle Analysis",
+        "desc": "Build a custom Webpack plugin in JavaScript that tracks bundle size over time, flags regressions, detects duplicate modules, and generates an HTML report with treemap visualization.",
+        "difficulty": "Intermediate",
+        "concepts": "Webpack Plugin API, Bundle Analysis, AST, Module Graph, HTML Report",
+        "ref": "https://github.com/webpack-contrib/webpack-bundle-analyzer"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Node.js Edge Gateway for IoT Sensors",
+        "desc": "Build an IoT edge gateway with Node.js and Johnny-Five that aggregates data from multiple sensors (temperature, motion, light), applies local rules-based filtering, and forwards to AWS IoT Core.",
+        "difficulty": "Advanced",
+        "concepts": "Johnny-Five, AWS IoT Core, MQTT, Edge Computing, Rules Engine"
+      },
+      {
+        "type": "Unique",
+        "title": "Browser-Based Robot Controller",
+        "desc": "Create a browser UI using WebSockets and Web Serial API that communicates with an Arduino/Raspberry Pi in real time to control motors, display sensor readings, and visualize robot telemetry.",
+        "difficulty": "Intermediate",
+        "concepts": "Web Serial API, WebSocket, Arduino, Real-Time Control, Dashboard"
+      },
+      {
+        "type": "Ref",
+        "title": "Node-RED Smart Home Dashboard",
+        "desc": "Build a smart home automation dashboard using Node-RED flows and MQTT to control smart plugs, visualize energy usage, and trigger automations based on sensor events.",
+        "difficulty": "Intermediate",
+        "concepts": "Node-RED, MQTT, Dashboard, Automation Flows, Smart Home",
+        "ref": "https://github.com/node-red/node-red"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Decentralized Voting DApp",
+        "desc": "Build a fully on-chain voting application with Solidity smart contracts and a JavaScript/React frontend using Ethers.js. Features candidate registration, vote casting, results dashboard, and MetaMask integration.",
+        "difficulty": "Advanced",
+        "concepts": "Solidity, Ethers.js, React, MetaMask, Smart Contracts"
+      },
+      {
+        "type": "Unique",
+        "title": "NFT Minting Platform with Metadata",
+        "desc": "Create a full-stack NFT minting dApp where users upload art, pin metadata to IPFS via Pinata, and mint ERC-721 tokens on Polygon testnet. Includes a gallery view of minted NFTs.",
+        "difficulty": "Advanced",
+        "concepts": "ERC-721, IPFS, Pinata, Ethers.js, Polygon, React"
+      },
+      {
+        "type": "Ref",
+        "title": "Crypto Portfolio Tracker",
+        "desc": "Build a JavaScript/React crypto portfolio dashboard that tracks wallet holdings, fetches real-time prices from CoinGecko, calculates P&L, and displays allocation pie charts.",
+        "difficulty": "Intermediate",
+        "concepts": "CoinGecko API, React, Chart.js, LocalStorage, Crypto APIs",
+        "ref": "https://github.com/coinpaprika/coinpaprika-api"
+      }
+    ]
+  },
+  {
+    "language": "JavaScript",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Multiplayer Browser Game with WebSockets",
+        "desc": "Build a real-time multiplayer .io-style game with Node.js/Socket.io and Phaser 3. Features client-side prediction, server reconciliation, and lag compensation for smooth gameplay.",
+        "difficulty": "Advanced",
+        "concepts": "Socket.io, Phaser 3, Client Prediction, Server Reconciliation, Game Networking"
+      },
+      {
+        "type": "Unique",
+        "title": "Procedural Pixel Art Generator",
+        "desc": "Create a browser tool in JavaScript using Canvas API that procedurally generates pixel art characters based on seed values. Supports exporting as PNG sprite sheets for use in games.",
+        "difficulty": "Intermediate",
+        "concepts": "Canvas API, Procedural Generation, Pixel Art, Seeded Random, Sprite Sheets"
+      },
+      {
+        "type": "Ref",
+        "title": "3D Browser Game with Three.js",
+        "desc": "Build a 3D first-person exploration game in the browser using Three.js with procedurally generated terrain, collectables, basic physics, and ambient sound.",
+        "difficulty": "Advanced",
+        "concepts": "Three.js, WebGL, Procedural Terrain, Physics, First-Person Camera",
+        "ref": "https://github.com/mrdoob/three.js"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Type-Safe API Client SDK Generator",
+        "desc": "Build a CLI tool in TypeScript that reads an OpenAPI spec and generates a fully type-safe SDK with request/response types, error handling, and retry logic. Outputs an npm-publishable package.",
+        "difficulty": "Advanced",
+        "concepts": "OpenAPI, Code Generation, TypeScript AST, npm Publishing, Generics"
+      },
+      {
+        "type": "Unique",
+        "title": "Server-Side Rendered Blog with Incremental Static Regeneration",
+        "desc": "Build a Next.js 14 blog platform in TypeScript with MDX support, tag-based filtering, ISR for fresh content, and a custom CMS-like admin panel backed by Prisma and PostgreSQL.",
+        "difficulty": "Intermediate",
+        "concepts": "Next.js 14, ISR, MDX, Prisma, TypeScript, Server Components"
+      },
+      {
+        "type": "Ref",
+        "title": "tRPC Full-Stack Application",
+        "desc": "Build a type-safe full-stack app with tRPC, Next.js, Prisma, and Zod where the API contract is shared end-to-end with zero code generation. Features auth, real-time subscriptions.",
+        "difficulty": "Intermediate",
+        "concepts": "tRPC, Next.js, Prisma, Zod, TypeScript, WebSocket Subscriptions",
+        "ref": "https://github.com/trpc/trpc"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "React Native Design System Library",
+        "desc": "Build a typed, themed React Native component library in TypeScript with a design token system, dark/light mode, accessible components, and Storybook documentation.",
+        "difficulty": "Intermediate",
+        "concepts": "React Native, Design Tokens, Storybook, Theming, Accessibility"
+      },
+      {
+        "type": "Unique",
+        "title": "TypeScript SDK for Wearable Device Integration",
+        "desc": "Create a TypeScript SDK that abstracts BLE communication with wearable fitness devices (heart rate, steps) using React Native BLE Manager. Includes type-safe device profiles.",
+        "difficulty": "Advanced",
+        "concepts": "BLE, React Native, TypeScript SDK, Device Abstraction, Type Safety"
+      },
+      {
+        "type": "Ref",
+        "title": "Expo TypeScript App with Zustand State Management",
+        "desc": "Build a production-ready Expo app in TypeScript using Zustand for global state, React Navigation for routing, and Zod for API response validation.",
+        "difficulty": "Intermediate",
+        "concepts": "Expo, Zustand, Zod, TypeScript, React Navigation",
+        "ref": "https://github.com/expo/expo"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "AI-Powered Accessibility Checker",
+        "desc": "Build a TypeScript Node.js tool that crawls a website, uses OpenAI Vision to detect WCAG accessibility violations in screenshots, and generates a structured remediation report.",
+        "difficulty": "Advanced",
+        "concepts": "OpenAI Vision, Puppeteer, WCAG, Accessibility, Report Generation"
+      },
+      {
+        "type": "Unique",
+        "title": "Structured Data Extractor with Zod + LLM",
+        "desc": "Create a TypeScript library that wraps an LLM API to extract structured, type-safe data from unstructured text. Uses Zod schemas to define output types and validates LLM responses.",
+        "difficulty": "Intermediate",
+        "concepts": "Zod, OpenAI, TypeScript Generics, Structured Outputs, Schema Validation"
+      },
+      {
+        "type": "Ref",
+        "title": "LangChain TypeScript Chatbot with Tools",
+        "desc": "Build a TypeScript chatbot using LangChain.js that has access to tools (web search, calculator, Wikipedia) and maintains conversation memory across sessions.",
+        "difficulty": "Intermediate",
+        "concepts": "LangChain.js, TypeScript, Tool Use, Memory, OpenAI",
+        "ref": "https://github.com/hwchase17/langchainjs"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Browser ML Model Benchmark Suite",
+        "desc": "Build a TypeScript web app that benchmarks different TensorFlow.js models (MobileNet, BERT-tiny, BodyPix) measuring inference time, memory usage, and accuracy across WebGL/CPU backends.",
+        "difficulty": "Advanced",
+        "concepts": "TensorFlow.js, Benchmarking, WebGL, Performance API, Model Comparison"
+      },
+      {
+        "type": "Unique",
+        "title": "Active Learning Annotation Tool",
+        "desc": "Create a TypeScript/React annotation tool for image classification that uses an uncertainty sampling strategy (TensorFlow.js) to prioritize which images to label next for ML training.",
+        "difficulty": "Advanced",
+        "concepts": "Active Learning, TensorFlow.js, Uncertainty Sampling, React, Annotation UI"
+      },
+      {
+        "type": "Ref",
+        "title": "Teachable Machine Clone",
+        "desc": "Build a browser-based Teachable Machine clone in TypeScript using TensorFlow.js where users train a custom image classifier with their webcam and download the model.",
+        "difficulty": "Intermediate",
+        "concepts": "TensorFlow.js, Transfer Learning, MobileNet, Webcam API, Model Export",
+        "ref": "https://github.com/googlecreativelab/teachablemachine-community"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Real-Time Analytics Dashboard with WebSockets",
+        "desc": "Build a TypeScript/React analytics dashboard that receives streaming event data via WebSockets, aggregates metrics with sliding windows, and renders live-updating charts with Recharts.",
+        "difficulty": "Intermediate",
+        "concepts": "WebSockets, Recharts, TypeScript, Sliding Window, Real-Time Aggregation"
+      },
+      {
+        "type": "Unique",
+        "title": "CSV/JSON Data Transformation CLI",
+        "desc": "Create a type-safe data transformation CLI in TypeScript (using zx) that pipelines CSV/JSON files through configurable transformations (filter, map, aggregate, join) with full type inference.",
+        "difficulty": "Intermediate",
+        "concepts": "TypeScript Generics, zx, Data Pipelines, CSV, JSON Schema"
+      },
+      {
+        "type": "Ref",
+        "title": "Observable-Style Live Data Notebook",
+        "desc": "Build a browser-based reactive data notebook in TypeScript where cells depend on each other, updating automatically when upstream data changes. Visualizes with Vega-Lite.",
+        "difficulty": "Advanced",
+        "concepts": "Reactive Programming, TypeScript, Vega-Lite, Dependency Graph, Cell Evaluation",
+        "ref": "https://github.com/observablehq/framework"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Pulumi Infrastructure as Code with TypeScript",
+        "desc": "Define cloud infrastructure for a complete web app (VPC, ECS, RDS, CloudFront, WAF) using Pulumi TypeScript. Includes multi-environment stacks and policy-as-code with Pulumi CrossGuard.",
+        "difficulty": "Advanced",
+        "concepts": "Pulumi, AWS, TypeScript, IaC, CrossGuard Policy, Multi-Environment"
+      },
+      {
+        "type": "Unique",
+        "title": "Cloudflare Workers Edge API",
+        "desc": "Build a globally distributed edge API with Cloudflare Workers in TypeScript that handles authentication, rate limiting, and KV-backed data storage with Durable Objects for state.",
+        "difficulty": "Advanced",
+        "concepts": "Cloudflare Workers, Durable Objects, KV, Edge Computing, TypeScript"
+      },
+      {
+        "type": "Ref",
+        "title": "AWS CDK App with TypeScript",
+        "desc": "Build and deploy a serverless REST API using AWS CDK in TypeScript. Provisions Lambda, API Gateway, DynamoDB, and Cognito with full CI/CD via GitHub Actions.",
+        "difficulty": "Intermediate",
+        "concepts": "AWS CDK, Lambda, DynamoDB, Cognito, CI/CD",
+        "ref": "https://github.com/aws/aws-cdk"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Security Headers Enforcement Middleware",
+        "desc": "Build a TypeScript Express middleware library that enforces and audits HTTP security headers (HSTS, CSP, COEP, COOP) with configurable policies, violation reporting, and a compliance dashboard.",
+        "difficulty": "Intermediate",
+        "concepts": "Express Middleware, CSP, HSTS, COEP, Compliance Reporting"
+      },
+      {
+        "type": "Unique",
+        "title": "Runtime TypeScript API Contract Enforcer",
+        "desc": "Create a TypeScript middleware for Express/Fastify that validates all incoming requests and outgoing responses against Zod schemas and logs contract violations with full context for security auditing.",
+        "difficulty": "Intermediate",
+        "concepts": "Zod, Fastify, Runtime Validation, API Contracts, Security Logging"
+      },
+      {
+        "type": "Ref",
+        "title": "OWASP Dependency Checker for npm",
+        "desc": "Build a TypeScript CLI that scans package.json dependencies against the OSV and NVD databases, flags vulnerabilities with CVSS scores, and creates GitHub issues for critical findings.",
+        "difficulty": "Intermediate",
+        "concepts": "OSV API, NVD API, npm Audit, TypeScript CLI, GitHub API",
+        "ref": "https://github.com/jeremylong/DependencyCheck"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Infrastructure Drift Detector",
+        "desc": "Build a TypeScript tool that compares live AWS resource state against Terraform state files, detects manual changes (drift), and generates a detailed drift report with remediation commands.",
+        "difficulty": "Advanced",
+        "concepts": "AWS SDK, Terraform State, Drift Detection, TypeScript, Resource Reconciliation"
+      },
+      {
+        "type": "Unique",
+        "title": "Release Notes Generator from Git History",
+        "desc": "Create a TypeScript CLI tool that parses Git commit history (Conventional Commits), categorizes changes, links to GitHub PRs/issues, and generates formatted release notes in Markdown.",
+        "difficulty": "Intermediate",
+        "concepts": "Conventional Commits, Git, GitHub API, Markdown Generation, CLI"
+      },
+      {
+        "type": "Ref",
+        "title": "Probot GitHub App for Code Quality",
+        "desc": "Build a GitHub App using Probot in TypeScript that runs automated checks on PRs: enforces commit message format, checks for large files, validates PR description templates, and posts review comments.",
+        "difficulty": "Intermediate",
+        "concepts": "Probot, GitHub API, Webhooks, TypeScript, Automated Reviews",
+        "ref": "https://github.com/probot/probot"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Type-Safe MQTT Client Library",
+        "desc": "Build a TypeScript MQTT client library with Zod-based schema validation for topics and payloads. Provides type-safe publish/subscribe with full IntelliSense for topic trees.",
+        "difficulty": "Advanced",
+        "concepts": "MQTT, Zod, TypeScript Generics, Pub/Sub, Schema Validation"
+      },
+      {
+        "type": "Unique",
+        "title": "IoT Fleet Management Dashboard",
+        "desc": "Create a full-stack TypeScript app (Next.js + tRPC + Prisma) for managing an IoT device fleet. Shows device health, firmware versions, telemetry time series, and remote configuration push.",
+        "difficulty": "Advanced",
+        "concepts": "Next.js, tRPC, Prisma, InfluxDB, Real-Time, Fleet Management"
+      },
+      {
+        "type": "Ref",
+        "title": "AWS IoT Device Shadow with TypeScript",
+        "desc": "Build a TypeScript app using AWS IoT Core Device Shadow service to synchronize state between cloud and physical devices. Includes a React dashboard for remote device configuration.",
+        "difficulty": "Intermediate",
+        "concepts": "AWS IoT, Device Shadow, MQTT, TypeScript, React Dashboard",
+        "ref": "https://github.com/aws/aws-iot-device-sdk-js-v2"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Type-Safe Ethereum Smart Contract SDK",
+        "desc": "Generate fully typed TypeScript bindings for Solidity smart contracts using TypeChain. Build an SDK around them with retry logic, gas estimation, and event subscription with typed event args.",
+        "difficulty": "Advanced",
+        "concepts": "TypeChain, Ethers.js, TypeScript, Smart Contracts, Event Handling"
+      },
+      {
+        "type": "Unique",
+        "title": "Cross-Chain Bridge Monitor",
+        "desc": "Build a TypeScript service that monitors multiple blockchain bridge contracts (Polygon, Arbitrum) for cross-chain transfer events, tracks completion status, and alerts on stuck transactions.",
+        "difficulty": "Advanced",
+        "concepts": "Ethers.js, Cross-Chain, Event Monitoring, Multi-Chain, TypeScript"
+      },
+      {
+        "type": "Ref",
+        "title": "Solana NFT Mint with TypeScript",
+        "desc": "Build a TypeScript dApp using Metaplex SDK and Anchor to mint NFTs on Solana devnet with on-chain metadata, royalties, and a React frontend.",
+        "difficulty": "Advanced",
+        "concepts": "Solana, Metaplex, Anchor, TypeScript, React, NFT",
+        "ref": "https://github.com/metaplex-foundation/metaplex"
+      }
+    ]
+  },
+  {
+    "language": "TypeScript",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Entity Component System (ECS) Game Engine",
+        "desc": "Build a TypeScript ECS game engine from scratch with typed component stores, systems, and an event bus. Demo it with a simple top-down shooter using Canvas 2D API.",
+        "difficulty": "Advanced",
+        "concepts": "ECS Architecture, TypeScript Generics, Canvas 2D, Typed Systems, Event Bus"
+      },
+      {
+        "type": "Unique",
+        "title": "Multiplayer Turn-Based Strategy Game",
+        "desc": "Create a type-safe turn-based strategy game (Tic-Tac-Toe+ or Chess-lite) in TypeScript with Socket.io, Zod-validated game state transitions, and a React game board UI.",
+        "difficulty": "Advanced",
+        "concepts": "Socket.io, TypeScript, Zod, Game State Machine, React, Turn-Based Logic"
+      },
+      {
+        "type": "Ref",
+        "title": "Phaser 3 TypeScript Platformer",
+        "desc": "Build a polished 2D platformer in TypeScript using Phaser 3 with Tiled map integration, animated characters, collectables, enemies, and a game state manager.",
+        "difficulty": "Intermediate",
+        "concepts": "Phaser 3, TypeScript, Tiled Maps, Animation, State Management",
+        "ref": "https://github.com/photonstorm/phaser"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "High-Performance API Gateway",
+        "desc": "Build an API gateway in Go using Fiber that supports JWT auth, rate limiting (token bucket), circuit breaking, request logging, and dynamic upstream routing via a config file.",
+        "difficulty": "Advanced",
+        "concepts": "Fiber, Middleware, Rate Limiting, Circuit Breaker, Reverse Proxy"
+      },
+      {
+        "type": "Unique",
+        "title": "Real-Time Notification Service",
+        "desc": "Implement a scalable server-sent events (SSE) notification service in Go that fans out events from Redis Pub/Sub to thousands of connected clients, with topic-based filtering.",
+        "difficulty": "Advanced",
+        "concepts": "SSE, Redis Pub/Sub, Goroutines, Channels, Fan-out Pattern"
+      },
+      {
+        "type": "Ref",
+        "title": "REST API with Chi Router and PostgreSQL",
+        "desc": "Build a production-ready REST API in Go with Chi router, GORM, PostgreSQL, JWT auth, graceful shutdown, and structured logging using zerolog.",
+        "difficulty": "Intermediate",
+        "concepts": "Chi, GORM, JWT, PostgreSQL, zerolog, Graceful Shutdown",
+        "ref": "https://github.com/go-chi/chi"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Go Mobile Backend with Protocol Buffers",
+        "desc": "Build a Go gRPC backend service for a mobile app using Protocol Buffers. Implements bidirectional streaming for real-time features and generates Go and Dart client stubs.",
+        "difficulty": "Advanced",
+        "concepts": "gRPC, Protocol Buffers, Bidirectional Streaming, Go, Code Generation"
+      },
+      {
+        "type": "Unique",
+        "title": "Push Notification Service with FCM and APNs",
+        "desc": "Implement a high-throughput push notification service in Go that routes messages to Firebase Cloud Messaging (Android) and APNs (iOS) with delivery tracking and retry logic.",
+        "difficulty": "Advanced",
+        "concepts": "FCM, APNs, Go, Concurrency, Delivery Tracking, Retry Logic"
+      },
+      {
+        "type": "Ref",
+        "title": "Go Backend for Flutter App with WebSocket",
+        "desc": "Build a Go backend for a Flutter chat app using Gorilla WebSocket, JWT authentication, PostgreSQL for message history, and Redis for session management.",
+        "difficulty": "Intermediate",
+        "concepts": "Gorilla WebSocket, JWT, PostgreSQL, Redis, Flutter API",
+        "ref": "https://github.com/gorilla/websocket"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "AI Code Review CLI with OpenAI",
+        "desc": "Build a Go CLI tool that reads a git diff, sends it to the OpenAI API with a structured prompt, and prints an AI code review with severity levels. Integrates with pre-commit hooks.",
+        "difficulty": "Intermediate",
+        "concepts": "OpenAI API, Git Diff Parsing, CLI, Pre-commit Hooks, Structured Prompts"
+      },
+      {
+        "type": "Unique",
+        "title": "Semantic Search Engine",
+        "desc": "Implement a semantic search service in Go that generates vector embeddings via OpenAI, stores them in pgvector (PostgreSQL), and returns semantically similar documents for a query.",
+        "difficulty": "Advanced",
+        "concepts": "pgvector, Embeddings, Cosine Similarity, PostgreSQL, Semantic Search"
+      },
+      {
+        "type": "Ref",
+        "title": "LLM Proxy and Caching Layer",
+        "desc": "Build a Go reverse proxy for LLM APIs (OpenAI/Anthropic) that caches identical requests in Redis, enforces spending limits per API key, and logs all completions to a database.",
+        "difficulty": "Intermediate",
+        "concepts": "Reverse Proxy, Redis Caching, Rate Limiting, Go, Middleware",
+        "ref": "https://github.com/BerriAI/litellm"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "ML Feature Store API",
+        "desc": "Build a feature store service in Go that manages ML feature definitions, computes them from raw data, serves online (low-latency Redis) and offline (Parquet files) requests.",
+        "difficulty": "Advanced",
+        "concepts": "Feature Store, Redis, Parquet, Go, REST API, ML Pipelines"
+      },
+      {
+        "type": "Unique",
+        "title": "Model Registry and Versioning Service",
+        "desc": "Create a Go service (similar to MLflow) that tracks ML experiment runs, stores metrics and parameters, versions model artifacts in S3, and compares model performance across versions.",
+        "difficulty": "Advanced",
+        "concepts": "Model Registry, S3, PostgreSQL, Versioning, Experiment Tracking"
+      },
+      {
+        "type": "Ref",
+        "title": "GoLearn ML Pipeline",
+        "desc": "Use the GoLearn library to build a classification pipeline for a real dataset. Implement cross-validation, feature selection, and model comparison with a benchmarking report.",
+        "difficulty": "Intermediate",
+        "concepts": "GoLearn, Classification, Cross-Validation, Feature Selection, Benchmarking",
+        "ref": "https://github.com/sjwhitworth/golearn"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "High-Performance Log Aggregator",
+        "desc": "Build a log aggregation service in Go that parses structured logs from multiple sources, computes real-time statistics (error rate, p99 latency), and writes aggregated data to ClickHouse.",
+        "difficulty": "Advanced",
+        "concepts": "ClickHouse, Log Parsing, Goroutines, Time Series, Aggregation"
+      },
+      {
+        "type": "Unique",
+        "title": "Real-Time Event Pipeline with Kafka",
+        "desc": "Create a Go Kafka consumer pipeline that processes clickstream events, computes session-based metrics (session length, funnel steps), and stores results in a PostgreSQL analytics schema.",
+        "difficulty": "Advanced",
+        "concepts": "Kafka, Go, Event Processing, Session Analytics, PostgreSQL"
+      },
+      {
+        "type": "Ref",
+        "title": "CSV Processing with goroutines and Data Viz",
+        "desc": "Build a Go CLI tool that processes large CSV files concurrently with worker goroutines, computes summary statistics, and generates SVG charts using go-chart.",
+        "difficulty": "Intermediate",
+        "concepts": "Goroutines, Worker Pool, CSV, go-chart, Concurrency",
+        "ref": "https://github.com/wcharczuk/go-chart"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Kubernetes Pod Autoscaler Controller",
+        "desc": "Write a custom Kubernetes controller in Go using controller-runtime that watches custom metric annotations on Deployments and scales replicas based on external queue depth from SQS.",
+        "difficulty": "Advanced",
+        "concepts": "controller-runtime, Kubernetes API, Custom Controller, SQS, Reconciliation"
+      },
+      {
+        "type": "Unique",
+        "title": "Terraform Provider in Go",
+        "desc": "Build a custom Terraform provider in Go using the Terraform Plugin SDK that manages resources for a mock internal API (users, groups, permissions), enabling IaC for internal platforms.",
+        "difficulty": "Advanced",
+        "concepts": "Terraform Plugin SDK, IaC, REST Client, CRUD Operations, Provider Schema"
+      },
+      {
+        "type": "Ref",
+        "title": "CLI for AWS with Cobra and AWS SDK",
+        "desc": "Build a feature-rich AWS CLI replacement in Go using Cobra and the AWS SDK v2 that supports listing, creating, and deleting EC2, S3, and RDS resources with colored output.",
+        "difficulty": "Intermediate",
+        "concepts": "Cobra, AWS SDK v2, CLI, EC2, S3, RDS",
+        "ref": "https://github.com/aws/aws-sdk-go-v2"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "TLS Certificate Monitoring Service",
+        "desc": "Build a Go service that monitors TLS certificates for a list of domains, checks expiry dates, detects certificate changes via Certificate Transparency logs, and sends Slack/email alerts.",
+        "difficulty": "Intermediate",
+        "concepts": "TLS, Certificate Transparency, Monitoring, Slack API, Go"
+      },
+      {
+        "type": "Unique",
+        "title": "Secrets Scanning CLI",
+        "desc": "Implement a Go CLI tool that scans codebases and Git history for leaked secrets (API keys, tokens, credentials) using regex patterns and entropy analysis. Integrates with pre-commit.",
+        "difficulty": "Intermediate",
+        "concepts": "Regex, Entropy Analysis, Git History Scanning, CLI, Pre-commit"
+      },
+      {
+        "type": "Ref",
+        "title": "Network Intrusion Detection with pcap",
+        "desc": "Build a Go-based network IDS using gopacket/pcap that analyzes live or captured traffic for port scanning, DNS exfiltration patterns, and large data transfers.",
+        "difficulty": "Advanced",
+        "concepts": "gopacket, pcap, Pattern Matching, Network Analysis, Alerts",
+        "ref": "https://github.com/google/gopacket"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Helm Chart Linter and Policy Enforcer",
+        "desc": "Build a Go CLI that parses Helm charts, enforces organizational policies (resource limits required, no latest tags, secrets not in values), and integrates with CI to block non-compliant charts.",
+        "difficulty": "Intermediate",
+        "concepts": "Helm SDK, Policy Enforcement, YAML Parsing, CLI, CI Integration"
+      },
+      {
+        "type": "Unique",
+        "title": "Multi-Cluster Kubernetes Status Dashboard",
+        "desc": "Create a Go terminal dashboard using Bubble Tea/Lipgloss that connects to multiple kubeconfig clusters and shows live pod status, resource usage, and recent events side-by-side.",
+        "difficulty": "Advanced",
+        "concepts": "Bubble Tea, Kubernetes Client, Multi-Cluster, TUI, kubeconfig"
+      },
+      {
+        "type": "Ref",
+        "title": "Docker Compose to Kubernetes Converter",
+        "desc": "Build a Go CLI tool that reads docker-compose.yml files and generates equivalent Kubernetes manifests (Deployments, Services, ConfigMaps, PVCs) with best-practice defaults.",
+        "difficulty": "Intermediate",
+        "concepts": "YAML Parsing, Docker Compose, Kubernetes Manifests, CLI, Go",
+        "ref": "https://github.com/kubernetes/kompose"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "MQTT Broker with Auth and Persistence",
+        "desc": "Build a production-grade MQTT broker in Go that supports client authentication (username/password, TLS), topic ACLs, message persistence in BoltDB, and a REST management API.",
+        "difficulty": "Advanced",
+        "concepts": "MQTT, TLS, BoltDB, ACLs, REST API"
+      },
+      {
+        "type": "Unique",
+        "title": "OTA Firmware Update Server",
+        "desc": "Create a Go service for managing over-the-air firmware updates for IoT devices. Devices check in via HTTPS, receive delta updates, verify checksums, and report update status.",
+        "difficulty": "Advanced",
+        "concepts": "OTA, Delta Updates, HTTPS, Checksums, Device Management"
+      },
+      {
+        "type": "Ref",
+        "title": "InfluxDB IoT Sensor Time Series API",
+        "desc": "Build a Go REST API that ingests sensor telemetry from IoT devices, stores it in InfluxDB, and provides endpoints for querying recent readings, aggregations, and anomaly detection.",
+        "difficulty": "Intermediate",
+        "concepts": "InfluxDB, Go, REST API, Time Series, Telegraf",
+        "ref": "https://github.com/influxdata/influxdb-client-go"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Ethereum Transaction Indexer",
+        "desc": "Build a Go service that connects to an Ethereum node via WebSocket, indexes all transactions for a set of addresses, stores them in PostgreSQL, and serves a REST API for wallet history.",
+        "difficulty": "Advanced",
+        "concepts": "go-ethereum, WebSocket, PostgreSQL, Event Indexing, REST API"
+      },
+      {
+        "type": "Unique",
+        "title": "Blockchain Explorer Backend",
+        "desc": "Implement a Go backend for a blockchain explorer that syncs blocks and transactions from a node, computes stats (TPS, gas usage, rich list), and serves a GraphQL API.",
+        "difficulty": "Advanced",
+        "concepts": "go-ethereum, GraphQL, gqlgen, Block Sync, PostgreSQL"
+      },
+      {
+        "type": "Ref",
+        "title": "Go Ethereum DApp Backend",
+        "desc": "Build a Go backend using go-ethereum that deploys and interacts with smart contracts, listens for contract events, and stores decoded event data in PostgreSQL.",
+        "difficulty": "Advanced",
+        "concepts": "go-ethereum, ABI Decoding, Event Listening, Smart Contracts, PostgreSQL",
+        "ref": "https://github.com/ethereum/go-ethereum"
+      }
+    ]
+  },
+  {
+    "language": "Go",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Multiplayer Game Server with Custom Binary Protocol",
+        "desc": "Build a Go multiplayer game server using a custom binary protocol over UDP for low-latency state sync. Implements delta compression, jitter buffer, and sequence number tracking.",
+        "difficulty": "Advanced",
+        "concepts": "UDP, Binary Protocol, Delta Compression, Jitter Buffer, Game Server"
+      },
+      {
+        "type": "Unique",
+        "title": "Procedural Dungeon Generator API",
+        "desc": "Create a Go REST API that generates procedural dungeon maps using BSP tree partitioning and returns them as JSON with room coordinates, corridors, and enemy spawn points.",
+        "difficulty": "Intermediate",
+        "concepts": "BSP Trees, Procedural Generation, REST API, JSON, Game Design"
+      },
+      {
+        "type": "Ref",
+        "title": "Ebiten 2D Game in Go",
+        "desc": "Build a complete 2D arcade-style game in Go using the Ebiten library with sprite sheets, collision detection, a score system, and a game-over/restart flow.",
+        "difficulty": "Intermediate",
+        "concepts": "Ebiten, Sprite Rendering, Collision Detection, Game Loop, Go",
+        "ref": "https://github.com/hajimehoshi/ebiten"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "High-Throughput REST API with Axum",
+        "desc": "Build a production REST API in Rust using Axum, SQLx (async Postgres), Tower middleware, and OpenTelemetry tracing. Benchmarks throughput against Node.js and Go equivalents.",
+        "difficulty": "Advanced",
+        "concepts": "Axum, SQLx, Tower, OpenTelemetry, Async Rust"
+      },
+      {
+        "type": "Unique",
+        "title": "WebAssembly-Powered Image Processing Web App",
+        "desc": "Implement image processing filters (blur, sharpen, grayscale, edge detection) in Rust compiled to WebAssembly. A React frontend calls the WASM module for near-native browser performance.",
+        "difficulty": "Advanced",
+        "concepts": "WebAssembly, wasm-bindgen, React, Image Processing, Rust"
+      },
+      {
+        "type": "Ref",
+        "title": "Actix-Web Full-Stack App",
+        "desc": "Build a full-stack web app in Rust using Actix-Web for the backend, Diesel ORM with PostgreSQL, and a Yew frontend compiled to WASM with shared Rust types.",
+        "difficulty": "Advanced",
+        "concepts": "Actix-Web, Diesel, Yew, WASM, Shared Types",
+        "ref": "https://github.com/actix/actix-web"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Cross-Platform Mobile Core Library",
+        "desc": "Build a shared business logic core in Rust (uniffi-rs) that compiles to native libraries for iOS (Swift binding) and Android (Kotlin binding). Implements offline sync, encryption, and data models.",
+        "difficulty": "Advanced",
+        "concepts": "uniffi-rs, FFI, iOS, Android, Cross-Platform, Rust"
+      },
+      {
+        "type": "Unique",
+        "title": "BLE Device Driver in Rust for Mobile",
+        "desc": "Implement a Bluetooth Low Energy device driver in Rust using btleplug that abstracts communication with a custom BLE peripheral. Generates Kotlin/Swift bindings via cbindgen.",
+        "difficulty": "Advanced",
+        "concepts": "btleplug, BLE, cbindgen, FFI, Rust"
+      },
+      {
+        "type": "Ref",
+        "title": "Tauri Desktop App (also runs on mobile)",
+        "desc": "Build a cross-platform note-taking app using Tauri (Rust backend + React frontend) with encrypted local storage, file attachments, and Markdown rendering.",
+        "difficulty": "Intermediate",
+        "concepts": "Tauri, Rust, React, Local Storage, Encryption",
+        "ref": "https://github.com/tauri-apps/tauri"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "LLM Inference Runtime in Rust",
+        "desc": "Build a Rust inference runtime for GPT-2/GGUF models using candle (Hugging Face). Implements tokenization, transformer forward pass, and KV-cache optimization for fast CPU/GPU inference.",
+        "difficulty": "Advanced",
+        "concepts": "candle, Transformer Inference, KV Cache, Tokenization, GGUF"
+      },
+      {
+        "type": "Unique",
+        "title": "Embedding-Based Semantic Search Engine",
+        "desc": "Implement a vector similarity search engine in Rust using HNSW index and fastembed for generating embeddings. Serves results via a low-latency REST API with sub-millisecond query times.",
+        "difficulty": "Advanced",
+        "concepts": "HNSW, fastembed, Vector Search, Axum, Embeddings"
+      },
+      {
+        "type": "Ref",
+        "title": "Rust Candle Neural Network Training",
+        "desc": "Train a small neural network on MNIST from scratch in Rust using the candle framework. Implements SGD, dropout, and batch normalization with a training progress bar.",
+        "difficulty": "Advanced",
+        "concepts": "candle, Neural Networks, SGD, Backpropagation, MNIST",
+        "ref": "https://github.com/huggingface/candle"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Decision Forest in Rust with Rayon Parallelism",
+        "desc": "Implement a parallel Random Forest classifier in Rust using Rayon for multi-core tree training. Benchmarks training time vs Python sklearn on large datasets.",
+        "difficulty": "Advanced",
+        "concepts": "Random Forest, Rayon, Parallel Computing, Decision Trees, Benchmarking"
+      },
+      {
+        "type": "Unique",
+        "title": "Online Learning Algorithm (Vowpal Wabbit-style)",
+        "desc": "Build an online machine learning system in Rust that processes streaming data with stochastic gradient descent, supports feature hashing, and updates model weights in real time.",
+        "difficulty": "Advanced",
+        "concepts": "Online Learning, SGD, Feature Hashing, Streaming, Rust"
+      },
+      {
+        "type": "Ref",
+        "title": "Linear Regression with linfa",
+        "desc": "Use the Rust linfa ML framework to implement linear and logistic regression pipelines on real datasets, with cross-validation, feature normalization, and model evaluation.",
+        "difficulty": "Intermediate",
+        "concepts": "linfa, Regression, Cross-Validation, Feature Normalization, Rust",
+        "ref": "https://github.com/rust-ml/linfa"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "High-Performance DataFrame Engine",
+        "desc": "Build a columnar data processing engine in Rust (inspired by Polars) that supports lazy evaluation, predicate pushdown, and multi-threaded query execution on Parquet and CSV files.",
+        "difficulty": "Advanced",
+        "concepts": "Columnar Storage, Lazy Evaluation, Parquet, Rayon, Query Optimization"
+      },
+      {
+        "type": "Unique",
+        "title": "Real-Time Stream Processing Engine",
+        "desc": "Implement a stream processing system in Rust using Tokio that handles windowed aggregations (tumbling, sliding, session windows) on high-throughput event streams.",
+        "difficulty": "Advanced",
+        "concepts": "Tokio, Async Streams, Window Aggregation, Back-pressure, Stream Processing"
+      },
+      {
+        "type": "Ref",
+        "title": "Polars Data Analysis CLI",
+        "desc": "Build a CLI data analysis tool in Rust using Polars that reads CSV/Parquet files, runs SQL-like queries, computes statistics, and outputs formatted tables.",
+        "difficulty": "Intermediate",
+        "concepts": "Polars, SQL, CSV, Parquet, CLI",
+        "ref": "https://github.com/pola-rs/polars"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Lightweight Container Runtime in Rust",
+        "desc": "Build a container runtime in Rust using Linux namespaces (clone), cgroups v2, and overlayfs. Can pull OCI images, unpack layers, and launch isolated containers.",
+        "difficulty": "Advanced",
+        "concepts": "Linux Namespaces, cgroups v2, OCI, overlayfs, Rust"
+      },
+      {
+        "type": "Unique",
+        "title": "AWS Lambda Custom Runtime in Rust",
+        "desc": "Build a custom AWS Lambda runtime in Rust using the lambda_runtime crate and deploy compute-intensive workloads (image compression, crypto) with minimal cold start times.",
+        "difficulty": "Advanced",
+        "concepts": "Lambda Runtime, AWS, Cold Start, Rust Binary, Custom Runtime"
+      },
+      {
+        "type": "Ref",
+        "title": "AWS S3 Client with Tokio",
+        "desc": "Build an async S3 client in Rust using the AWS SDK and Tokio that supports parallel multipart uploads, download streaming, and retry with exponential backoff.",
+        "difficulty": "Intermediate",
+        "concepts": "AWS SDK Rust, Tokio, Multipart Upload, Async, S3",
+        "ref": "https://github.com/awslabs/aws-sdk-rust"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Memory-Safe Network Packet Parser",
+        "desc": "Implement a zero-copy network packet parser in Rust using nom that safely parses Ethernet, IP, TCP, and DNS frames without any unsafe code. Benchmarks against C implementations.",
+        "difficulty": "Advanced",
+        "concepts": "nom, Zero-Copy, Packet Parsing, nom combinators, Protocol Decoding"
+      },
+      {
+        "type": "Unique",
+        "title": "Post-Quantum Cryptography Demo",
+        "desc": "Build a Rust application demonstrating post-quantum key exchange (Kyber) and signatures (Dilithium) using the pqcrypto crate. Benchmarks vs traditional RSA/ECDSA.",
+        "difficulty": "Advanced",
+        "concepts": "Post-Quantum Cryptography, Kyber, Dilithium, pqcrypto, Benchmarking"
+      },
+      {
+        "type": "Ref",
+        "title": "Password Hashing and Verification CLI",
+        "desc": "Build a secure password hashing tool in Rust using Argon2id, bcrypt, and scrypt implementations. Benchmarks memory hardness and time parameters for each algorithm.",
+        "difficulty": "Intermediate",
+        "concepts": "Argon2id, bcrypt, scrypt, Password Hashing, Security",
+        "ref": "https://github.com/RustCrypto/password-hashes"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Fast Log Tail and Grep Tool",
+        "desc": "Build a high-performance log analysis CLI in Rust (ripgrep-style) that tails log files, filters by regex, highlights matches, and computes metrics like error rate per minute.",
+        "difficulty": "Intermediate",
+        "concepts": "regex, mmap, CLI, Log Analysis, Terminal Colors"
+      },
+      {
+        "type": "Unique",
+        "title": "GitOps Reconciler with Kubernetes",
+        "desc": "Build a Rust Kubernetes controller using kube-rs that watches a Git repository via webhooks, parses YAML manifests, and applies changes to the cluster with full audit logging.",
+        "difficulty": "Advanced",
+        "concepts": "kube-rs, GitOps, Kubernetes API, Webhooks, Audit Logging"
+      },
+      {
+        "type": "Ref",
+        "title": "Monitoring Agent with Prometheus Exporter",
+        "desc": "Build a Rust system monitoring agent that collects CPU, memory, disk, and network metrics and exposes them as a Prometheus-compatible /metrics endpoint.",
+        "difficulty": "Intermediate",
+        "concepts": "prometheus crate, System Metrics, HTTP, /proc, Monitoring",
+        "ref": "https://github.com/tikv/rust-prometheus"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Embedded Rust Sensor Firmware",
+        "desc": "Write bare-metal Rust firmware for an STM32 microcontroller using embassy-rs async runtime. Reads I2C sensors, manages power states, and transmits data over UART with zero-alloc design.",
+        "difficulty": "Advanced",
+        "concepts": "embassy-rs, STM32, I2C, UART, no_std, Async Embedded"
+      },
+      {
+        "type": "Unique",
+        "title": "Edge ML Inference on Embedded Rust",
+        "desc": "Deploy a TFLite Micro model in Rust on an embedded system for keyword detection. Uses micromath for no_std math and outputs results via serial at under 10ms latency.",
+        "difficulty": "Advanced",
+        "concepts": "TFLite Micro, no_std, micromath, Embedded Inference, Keyword Detection"
+      },
+      {
+        "type": "Ref",
+        "title": "MQTT IoT Client with Tokio",
+        "desc": "Build an async MQTT client in Rust using Tokio and rumqttc that connects to a broker, publishes sensor data, subscribes to commands, and handles reconnection logic.",
+        "difficulty": "Intermediate",
+        "concepts": "rumqttc, Tokio, MQTT, Async, Reconnection",
+        "ref": "https://github.com/bytebeamio/rumqtt"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Solana On-Chain Program in Rust",
+        "desc": "Develop a Solana on-chain program (smart contract) in Rust using the Anchor framework. Implements a decentralized escrow service with conditional release and dispute resolution.",
+        "difficulty": "Advanced",
+        "concepts": "Solana, Anchor, PDAs, Escrow, On-Chain Program"
+      },
+      {
+        "type": "Unique",
+        "title": "Blockchain Node P2P Network",
+        "desc": "Build a simplified blockchain node in Rust with a libp2p peer-to-peer network. Nodes gossip new blocks, validate chain integrity, and reach consensus via Proof of Work.",
+        "difficulty": "Advanced",
+        "concepts": "libp2p, P2P Networking, Gossip Protocol, Proof of Work, Consensus"
+      },
+      {
+        "type": "Ref",
+        "title": "Substrate Blockchain Runtime",
+        "desc": "Build a custom blockchain runtime using Polkadot Substrate in Rust. Implements a custom pallet for on-chain identity management with governance and upgrade mechanisms.",
+        "difficulty": "Advanced",
+        "concepts": "Substrate, Pallets, Runtime, FRAME, Polkadot",
+        "ref": "https://github.com/paritytech/polkadot-sdk"
+      }
+    ]
+  },
+  {
+    "language": "Rust",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "ECS-Based Game Engine with Bevy",
+        "desc": "Build a game using Bevy's ECS architecture in Rust — a real-time strategy prototype with unit selection, pathfinding via A*, FOW (fog of war), and a basic combat system.",
+        "difficulty": "Advanced",
+        "concepts": "Bevy, ECS, A* Pathfinding, Fog of War, Rust"
+      },
+      {
+        "type": "Unique",
+        "title": "Procedural Terrain with Noise and LOD",
+        "desc": "Implement procedural terrain generation in Rust with Simplex noise, multi-octave blending, biome assignment, and GPU-driven LOD mesh generation using wgpu.",
+        "difficulty": "Advanced",
+        "concepts": "wgpu, Simplex Noise, LOD, Mesh Generation, Biomes"
+      },
+      {
+        "type": "Ref",
+        "title": "Bevy 2D Platformer Game",
+        "desc": "Create a 2D platformer game in Rust using Bevy with physics via bevy_rapier, animated sprites, parallax backgrounds, and a level-loading system from Tiled maps.",
+        "difficulty": "Intermediate",
+        "concepts": "Bevy, bevy_rapier, Sprite Animation, Tiled Maps, ECS",
+        "ref": "https://github.com/bevyengine/bevy"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Ktor Microservice with GraphQL",
+        "desc": "Build a Kotlin microservice using Ktor and KGraphQL that exposes a GraphQL API for a social media platform. Features subscriptions for real-time feed updates and batching with DataLoader.",
+        "difficulty": "Advanced",
+        "concepts": "Ktor, KGraphQL, GraphQL Subscriptions, DataLoader, Coroutines"
+      },
+      {
+        "type": "Unique",
+        "title": "Reactive REST API with Spring WebFlux",
+        "desc": "Build a fully reactive REST API in Kotlin using Spring WebFlux, R2DBC (reactive PostgreSQL), and Kotlin coroutines. Benchmarks throughput compared to blocking Spring MVC.",
+        "difficulty": "Advanced",
+        "concepts": "Spring WebFlux, R2DBC, Coroutines, Reactive Programming, Kotlin"
+      },
+      {
+        "type": "Ref",
+        "title": "Spring Boot REST API with Kotlin",
+        "desc": "Build a complete REST API in Kotlin with Spring Boot, Spring Data JPA, PostgreSQL, Kotlin DSL for Gradle, and OpenAPI documentation with SpringDoc.",
+        "difficulty": "Intermediate",
+        "concepts": "Spring Boot, Kotlin, JPA, PostgreSQL, OpenAPI",
+        "ref": "https://github.com/spring-projects/spring-boot"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Jetpack Compose Multi-Module Fitness App",
+        "desc": "Build a modular Android fitness tracking app using Jetpack Compose with a feature-per-module architecture. Uses Health Connect API for workout data, HealthKit integration, and offline-first design.",
+        "difficulty": "Advanced",
+        "concepts": "Jetpack Compose, Health Connect, Multi-Module, Hilt, Room"
+      },
+      {
+        "type": "Unique",
+        "title": "Kotlin Multiplatform Shared SDK (KMP)",
+        "desc": "Create a Kotlin Multiplatform library that shares business logic, networking (Ktor), and data models between Android and iOS apps. Implements a clean domain layer with use cases.",
+        "difficulty": "Advanced",
+        "concepts": "KMP, Ktor, Kotlin, iOS, Android, Domain Layer"
+      },
+      {
+        "type": "Ref",
+        "title": "Android MVVM App with Coroutines and Flow",
+        "desc": "Build a clean-architecture Android app in Kotlin using MVVM, StateFlow, Kotlin Coroutines, Hilt, and Room for a news reader app with offline caching.",
+        "difficulty": "Intermediate",
+        "concepts": "MVVM, StateFlow, Coroutines, Hilt, Room",
+        "ref": "https://github.com/android/architecture-samples"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "On-Device ML with ML Kit and Kotlin",
+        "desc": "Build an Android app in Kotlin that uses Google ML Kit for on-device face mesh detection, smart reply, and entity extraction. Processes camera frames in real time without internet.",
+        "difficulty": "Intermediate",
+        "concepts": "ML Kit, CameraX, Kotlin, On-Device Inference, Face Mesh"
+      },
+      {
+        "type": "Unique",
+        "title": "Android Gemini AI Assistant App",
+        "desc": "Create a Kotlin Android app using the Google Generative AI SDK (Gemini) that accepts text and images, maintains conversation history, and supports custom system prompts.",
+        "difficulty": "Intermediate",
+        "concepts": "Gemini API, Multimodal, Android, Kotlin, Conversation History"
+      },
+      {
+        "type": "Ref",
+        "title": "Kotlin Android ChatGPT Clone",
+        "desc": "Build an Android ChatGPT-style app in Kotlin with streaming responses via OpenAI API, markdown rendering, conversation management, and local history storage with Room.",
+        "difficulty": "Intermediate",
+        "concepts": "OpenAI API, Streaming, Kotlin, Room, Markdown",
+        "ref": "https://github.com/skydoves/chatgpt-android"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "TensorFlow Lite Custom Model Deployer",
+        "desc": "Build a Kotlin Android framework that manages downloading, versioning, and switching between TFLite models at runtime. Supports quantized models and benchmarks inference latency per model.",
+        "difficulty": "Advanced",
+        "concepts": "TFLite, Model Versioning, WorkManager, Android, Inference"
+      },
+      {
+        "type": "Unique",
+        "title": "Federated Learning Demo App",
+        "desc": "Implement a federated learning demo in Kotlin where an Android app trains a local model on on-device data and sends model updates (not data) to a server for aggregation.",
+        "difficulty": "Advanced",
+        "concepts": "Federated Learning, TFLite, Privacy, Differential Privacy, Android"
+      },
+      {
+        "type": "Ref",
+        "title": "Image Classifier with TFLite and CameraX",
+        "desc": "Build an Android app in Kotlin using CameraX and TFLite that classifies real-time camera frames, displays top predictions with confidence, and logs classification history.",
+        "difficulty": "Intermediate",
+        "concepts": "TFLite, CameraX, Kotlin, Image Classification, Real-Time Inference",
+        "ref": "https://github.com/tensorflow/examples/tree/master/lite/examples"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Kotlin DataFrame Analytics CLI",
+        "desc": "Build a Kotlin CLI tool using the Kotlin DataFrame library that processes large CSV/JSON datasets, computes grouped statistics, and outputs formatted table reports with outlier detection.",
+        "difficulty": "Intermediate",
+        "concepts": "Kotlin DataFrame, Statistics, CSV, CLI, Outlier Detection"
+      },
+      {
+        "type": "Unique",
+        "title": "Android Sensor Data Recorder and Analyzer",
+        "desc": "Create an Android app in Kotlin that records accelerometer, gyroscope, and location sensor data, stores it in Room, and performs on-device time series analysis to detect activity patterns.",
+        "difficulty": "Intermediate",
+        "concepts": "Sensor APIs, Room, Kotlin, Time Series, Activity Recognition"
+      },
+      {
+        "type": "Ref",
+        "title": "Lets-Plot Kotlin Data Visualization App",
+        "desc": "Use the Lets-Plot library in a Kotlin app to create interactive data visualizations (scatter plots, histograms, heatmaps) with data loaded from a CSV file.",
+        "difficulty": "Intermediate",
+        "concepts": "Lets-Plot, Kotlin, Data Visualization, CSV, Statistical Charts",
+        "ref": "https://github.com/JetBrains/lets-plot-kotlin"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "GCP Cloud Run Microservice with Kotlin",
+        "desc": "Deploy a Kotlin Ktor service to Google Cloud Run with auto-scaling. Integrates Pub/Sub for async messaging, Firestore for storage, and Cloud Armor for security. Includes IaC with Terraform.",
+        "difficulty": "Advanced",
+        "concepts": "Cloud Run, Pub/Sub, Firestore, Ktor, Terraform"
+      },
+      {
+        "type": "Unique",
+        "title": "Kotlin AWS Lambda with GraalVM Native",
+        "desc": "Build an AWS Lambda function in Kotlin compiled to GraalVM native image for sub-10ms cold starts. Processes S3 events, transforms data, and writes to DynamoDB.",
+        "difficulty": "Advanced",
+        "concepts": "GraalVM, Lambda, S3 Events, DynamoDB, Native Image"
+      },
+      {
+        "type": "Ref",
+        "title": "Spring Boot Kotlin App on Kubernetes",
+        "desc": "Containerize and deploy a Kotlin Spring Boot app on Kubernetes with Helm charts, horizontal pod autoscaling, liveness/readiness probes, and a CI/CD pipeline with GitHub Actions.",
+        "difficulty": "Intermediate",
+        "concepts": "Kubernetes, Helm, GitHub Actions, Spring Boot, Docker",
+        "ref": "https://github.com/GoogleCloudPlatform/kotlin-samples"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Android App Security Analyzer",
+        "desc": "Build a Kotlin desktop tool (Compose Desktop) that takes an Android APK, decompiles it with jadx, and analyzes it for common vulnerabilities: hardcoded secrets, insecure permissions, and exported components.",
+        "difficulty": "Advanced",
+        "concepts": "APK Analysis, jadx, Compose Desktop, Static Analysis, Android Security"
+      },
+      {
+        "type": "Unique",
+        "title": "Certificate Pinning Bypass Detector",
+        "desc": "Create a Kotlin Android testing tool that hooks into OkHttp and detects certificate pinning bypass attempts via Frida/root. Logs suspicious network traffic and SSL errors.",
+        "difficulty": "Advanced",
+        "concepts": "OkHttp, SSL Pinning, Frida, Network Interception, Security Testing"
+      },
+      {
+        "type": "Ref",
+        "title": "Android Biometric Auth with Encrypted Storage",
+        "desc": "Build an Android app in Kotlin demonstrating biometric authentication (Fingerprint, Face) with EncryptedSharedPreferences and Android Keystore for secure credential storage.",
+        "difficulty": "Intermediate",
+        "concepts": "BiometricPrompt, EncryptedSharedPreferences, Keystore, Kotlin, Security",
+        "ref": "https://github.com/android/security-samples"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Gradle Convention Plugin Library",
+        "desc": "Build a Kotlin Gradle convention plugins library that standardizes Android project setup: code quality (Detekt, Ktlint), dependency management, test configuration, and build variants.",
+        "difficulty": "Intermediate",
+        "concepts": "Gradle, Convention Plugins, Kotlin DSL, Detekt, Ktlint"
+      },
+      {
+        "type": "Unique",
+        "title": "Kotlin Build Scan Analyzer",
+        "desc": "Create a Kotlin CLI that queries the Gradle Enterprise API to analyze build scan data across CI runs, identifies slow tasks, detects configuration issues, and generates optimization reports.",
+        "difficulty": "Advanced",
+        "concepts": "Gradle Enterprise API, Build Optimization, Kotlin, REST API, Performance Analysis"
+      },
+      {
+        "type": "Ref",
+        "title": "Android CI/CD with GitHub Actions and Fastlane",
+        "desc": "Set up a complete Android CI/CD pipeline using GitHub Actions for build, test, and lint, and Fastlane (with Kotlin Fastfile) for automated Play Store deployment.",
+        "difficulty": "Intermediate",
+        "concepts": "GitHub Actions, Fastlane, Android, CI/CD, Play Store",
+        "ref": "https://github.com/fastlane/fastlane"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Kotlin Android BLE IoT Controller",
+        "desc": "Build an Android app in Kotlin that discovers and connects to BLE devices (thermometers, wearables), parses GATT characteristics, and displays real-time data with historical charts.",
+        "difficulty": "Intermediate",
+        "concepts": "BLE, GATT, Android, Kotlin, Real-Time Charts"
+      },
+      {
+        "type": "Unique",
+        "title": "Kotlin MQTT Home Automation Dashboard",
+        "desc": "Create a Kotlin Compose Desktop app that acts as a home automation dashboard, subscribing to MQTT topics from sensors and smart devices, and sending control commands.",
+        "difficulty": "Intermediate",
+        "concepts": "Compose Desktop, MQTT, Kotlin, IoT Dashboard, Real-Time"
+      },
+      {
+        "type": "Ref",
+        "title": "Android Things IoT App (Pi/Arduino)",
+        "desc": "Build a Kotlin Android app that communicates with an Arduino via USB serial to read sensor data (temperature, humidity), display it with live charts, and send actuator commands.",
+        "difficulty": "Intermediate",
+        "concepts": "USB Serial, Android, Kotlin, Arduino, Live Charts",
+        "ref": "https://github.com/google/android-things-samples"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Ethereum DApp Android Client",
+        "desc": "Build an Android Kotlin app using Web3j that acts as an Ethereum DApp client. Supports wallet creation, sending transactions, calling smart contract functions, and showing token balances.",
+        "difficulty": "Advanced",
+        "concepts": "Web3j, Android, Ethereum, Smart Contracts, Wallet"
+      },
+      {
+        "type": "Unique",
+        "title": "Hyperledger Fabric Gateway Kotlin Client",
+        "desc": "Implement a Kotlin client using the Hyperledger Fabric Gateway SDK to interact with a supply chain chaincode. Supports submitting transactions, querying state, and listening to events.",
+        "difficulty": "Advanced",
+        "concepts": "Hyperledger Fabric, Gateway SDK, Kotlin, Chaincode, Events"
+      },
+      {
+        "type": "Ref",
+        "title": "Bitcoin Wallet with Bitcoinj",
+        "desc": "Build a Kotlin Android Bitcoin wallet using bitcoinj that generates keys, sends/receives BTC on testnet, displays transaction history, and shows QR codes for addresses.",
+        "difficulty": "Advanced",
+        "concepts": "bitcoinj, Bitcoin, Kotlin, Android, Wallet, QR Code",
+        "ref": "https://github.com/bitcoinj/bitcoinj"
+      }
+    ]
+  },
+  {
+    "language": "Kotlin",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Android Game with Box2D Physics",
+        "desc": "Build a physics-based Android puzzle game in Kotlin using LibGDX and Box2D. Players launch projectiles at structures, with realistic physics simulation and a level editor using JSON.",
+        "difficulty": "Advanced",
+        "concepts": "LibGDX, Box2D, Kotlin, Level Editor, Physics Simulation"
+      },
+      {
+        "type": "Unique",
+        "title": "Roguelike with Procedural Maps and Combat",
+        "desc": "Create a roguelike game in Kotlin using LibKTX (Kotlin extensions for LibGDX) with procedurally generated dungeons, turn-based combat, a status effect system, and permadeath.",
+        "difficulty": "Advanced",
+        "concepts": "LibKTX, LibGDX, Procedural Generation, ECS, Roguelike Design"
+      },
+      {
+        "type": "Ref",
+        "title": "Korge Kotlin Multiplatform Game",
+        "desc": "Build a cross-platform puzzle game using Korge (Kotlin multiplatform game engine) that runs on Android, iOS, and desktop with a shared Kotlin codebase.",
+        "difficulty": "Intermediate",
+        "concepts": "Korge, Kotlin Multiplatform, Game Development, Cross-Platform, KMP",
+        "ref": "https://github.com/korlibs/korge"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Vapor REST API with Fluent ORM",
+        "desc": "Build a production-grade REST API using Vapor 4, Fluent ORM, and PostgreSQL. Includes JWT auth, rate limiting middleware, async/await throughout, and OpenAPI documentation.",
+        "difficulty": "Advanced",
+        "concepts": "Vapor 4, Fluent, PostgreSQL, JWT, async/await, OpenAPI"
+      },
+      {
+        "type": "Unique",
+        "title": "Server-Side Swift GraphQL API",
+        "desc": "Implement a GraphQL API in Swift using Vapor and Graphiti. Features subscriptions via WebSocket, batching with DataLoader, and a schema-first design for a social media platform.",
+        "difficulty": "Advanced",
+        "concepts": "Vapor, Graphiti, GraphQL, Subscriptions, DataLoader"
+      },
+      {
+        "type": "Ref",
+        "title": "Hummingbird Swift Web Framework API",
+        "desc": "Build a lightweight REST API using the Hummingbird Swift web framework with async/await, middleware, and SQLite integration. A modern alternative to Vapor for simple services.",
+        "difficulty": "Intermediate",
+        "concepts": "Hummingbird, Swift, async/await, Middleware, SQLite",
+        "ref": "https://github.com/hummingbird-project/hummingbird"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "SwiftUI Design System with Previews",
+        "desc": "Build a production-ready SwiftUI component library with a design token system, dark/light mode, dynamic type support, accessibility (VoiceOver), and a Xcode Previews catalog.",
+        "difficulty": "Intermediate",
+        "concepts": "SwiftUI, Design Tokens, Accessibility, VoiceOver, Previews"
+      },
+      {
+        "type": "Unique",
+        "title": "iOS App with WidgetKit and App Intents",
+        "desc": "Create an iOS productivity app with multiple interactive WidgetKit widgets, App Shortcuts using App Intents, and Siri integration for voice-controlled task creation.",
+        "difficulty": "Advanced",
+        "concepts": "WidgetKit, App Intents, Siri, SwiftUI, iOS 17"
+      },
+      {
+        "type": "Ref",
+        "title": "SwiftUI MVVM App with Combine",
+        "desc": "Build a clean-architecture iOS app in Swift using SwiftUI, MVVM, Combine for reactive data flow, URLSession, and Core Data for offline storage.",
+        "difficulty": "Intermediate",
+        "concepts": "SwiftUI, MVVM, Combine, Core Data, URLSession",
+        "ref": "https://github.com/nalexn/clean-architecture-swiftui"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Core ML On-Device Document Scanner",
+        "desc": "Build an iOS app in Swift that uses Core ML with a custom-trained model to detect and extract text from documents, auto-crop using Vision framework perspective correction, and export as PDF.",
+        "difficulty": "Advanced",
+        "concepts": "Core ML, Vision, VNDocumentCameraViewController, Create ML, PDF"
+      },
+      {
+        "type": "Unique",
+        "title": "Real-Time Sign Language Translator",
+        "desc": "Create an iOS app using Vision and Core ML that detects hand gestures in real time from the camera and translates ASL hand signs to text using a custom trained classifier.",
+        "difficulty": "Advanced",
+        "concepts": "Vision, Core ML, Hand Pose, Real-Time Classification, Create ML"
+      },
+      {
+        "type": "Ref",
+        "title": "iOS ChatGPT App with SwiftUI",
+        "desc": "Build a SwiftUI iOS ChatGPT client with streaming responses, conversation history, Markdown rendering, and Core Data persistence. Uses the OpenAI Swift SDK.",
+        "difficulty": "Intermediate",
+        "concepts": "OpenAI, SwiftUI, Streaming, Core Data, Markdown",
+        "ref": "https://github.com/alfianlosari/ChatGPTSwiftUI"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Create ML Custom Object Detector",
+        "desc": "Train a custom Core ML object detection model using Create ML on a self-labeled dataset. Deploy it in a Swift iOS app with ARKit overlay of detected objects in 3D space.",
+        "difficulty": "Advanced",
+        "concepts": "Create ML, Core ML, ARKit, Object Detection, Model Training"
+      },
+      {
+        "type": "Unique",
+        "title": "On-Device NLP Pipeline with Natural Language",
+        "desc": "Build a Swift iOS app that uses the Natural Language framework for sentiment analysis, named entity recognition, and language identification entirely on-device without internet.",
+        "difficulty": "Intermediate",
+        "concepts": "Natural Language, NLP, NER, Sentiment Analysis, iOS"
+      },
+      {
+        "type": "Ref",
+        "title": "CoreML Image Classification App",
+        "desc": "Build an iOS app in Swift that uses a Core ML ResNet model to classify camera images in real time, display confidence scores, and allow users to fine-tune with their own photos.",
+        "difficulty": "Intermediate",
+        "concepts": "Core ML, Vision, ResNet, Image Classification, Create ML",
+        "ref": "https://developer.apple.com/documentation/coreml"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Swift Charts Interactive Analytics App",
+        "desc": "Build an iOS analytics app using Swift Charts that visualizes business metrics with interactive drilldown charts, animated transitions, and export to PDF/image functionality.",
+        "difficulty": "Intermediate",
+        "concepts": "Swift Charts, SwiftUI, Animations, PDF Export, Data Viz"
+      },
+      {
+        "type": "Unique",
+        "title": "Health Data Analyzer with HealthKit",
+        "desc": "Create an iOS app in Swift that reads HealthKit data (steps, heart rate, sleep, workouts), performs trend analysis, computes health scores, and provides personalized weekly reports.",
+        "difficulty": "Intermediate",
+        "concepts": "HealthKit, Statistics, Swift Charts, Trend Analysis, SwiftUI"
+      },
+      {
+        "type": "Ref",
+        "title": "iOS App with Charts and CoreData Analytics",
+        "desc": "Build a personal finance analytics app in Swift using Core Data for storage and Swift Charts for visualizations — spending by category, monthly trends, and budget vs actuals.",
+        "difficulty": "Intermediate",
+        "concepts": "Core Data, Swift Charts, SwiftUI, Analytics, Budgeting",
+        "ref": "https://developer.apple.com/documentation/charts"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "CloudKit-Backed Sync Engine",
+        "desc": "Build a Swift app with a custom sync engine on CloudKit that handles conflict resolution, incremental sync, offline queuing, and push-triggered sync using CloudKit subscriptions.",
+        "difficulty": "Advanced",
+        "concepts": "CloudKit, Conflict Resolution, NSPersistentCloudKitContainer, Sync Engine, Push"
+      },
+      {
+        "type": "Unique",
+        "title": "AWS Amplify Full-Stack iOS App",
+        "desc": "Build an iOS app in Swift using AWS Amplify with authentication (Cognito), GraphQL API (AppSync), storage (S3), and push notifications. Includes an auto-generated TypeSafe API client.",
+        "difficulty": "Advanced",
+        "concepts": "AWS Amplify, Cognito, AppSync, S3, GraphQL, Swift"
+      },
+      {
+        "type": "Ref",
+        "title": "Firebase iOS App with Firestore and Auth",
+        "desc": "Build a Swift iOS social app using Firebase Authentication, Cloud Firestore for real-time data, Firebase Storage for images, and Cloud Functions for server-side logic.",
+        "difficulty": "Intermediate",
+        "concepts": "Firebase, Firestore, Cloud Functions, Auth, iOS Swift",
+        "ref": "https://github.com/firebase/firebase-ios-sdk"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "iOS Keychain Manager with Biometrics",
+        "desc": "Build a Swift framework that abstracts Keychain Services with a clean API, supporting biometric authentication (Touch ID, Face ID), key rotation, iCloud Keychain sync, and audit logging.",
+        "difficulty": "Advanced",
+        "concepts": "Keychain Services, LocalAuthentication, Biometrics, iCloud Sync, Security"
+      },
+      {
+        "type": "Unique",
+        "title": "SSL Pinning and Certificate Transparency Verifier",
+        "desc": "Implement SSL certificate pinning in a Swift iOS networking layer using public key hashing and verify certificates against the Certificate Transparency log using a Vapor backend.",
+        "difficulty": "Advanced",
+        "concepts": "SSL Pinning, Certificate Transparency, URLSession, Security, Networking"
+      },
+      {
+        "type": "Ref",
+        "title": "Secure iOS Data Storage with CryptoKit",
+        "desc": "Build a Swift iOS app using CryptoKit for end-to-end encrypted notes. Implements AES-GCM encryption, Curve25519 key exchange, and secure key derivation with HKDF.",
+        "difficulty": "Advanced",
+        "concepts": "CryptoKit, AES-GCM, Curve25519, HKDF, Secure Storage",
+        "ref": "https://developer.apple.com/documentation/cryptokit"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Swift Danger Plugin for iOS CI",
+        "desc": "Build a Danger-Swift plugin that enforces iOS project conventions: PR size limits, required Changelog entries, test coverage thresholds, and SwiftLint compliance on CI.",
+        "difficulty": "Intermediate",
+        "concepts": "Danger-Swift, CI, SwiftLint, Code Quality, GitHub API"
+      },
+      {
+        "type": "Unique",
+        "title": "Xcode Build Performance Tracker",
+        "desc": "Create a Swift tool that parses Xcode build logs, tracks compile times per module over Git history, detects regressions, and generates a Markdown report posted to GitHub PRs.",
+        "difficulty": "Intermediate",
+        "concepts": "Xcode Build System, Log Parsing, Git, Performance Tracking, GitHub API"
+      },
+      {
+        "type": "Ref",
+        "title": "Fastlane iOS Deployment Automation",
+        "desc": "Build a complete Fastlane automation setup in Swift (Fastfile) for iOS: code signing with Match, automated TestFlight upload, release notes from changelog, and Slack notifications.",
+        "difficulty": "Intermediate",
+        "concepts": "Fastlane, Match, TestFlight, iOS Signing, CI/CD",
+        "ref": "https://github.com/fastlane/fastlane"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "HomeKit Accessory Simulator",
+        "desc": "Build a Swift macOS app that implements a simulated HomeKit accessory using HomeKit Accessory Protocol (HAP). Exposes virtual sensors and switches that appear in the Home app.",
+        "difficulty": "Advanced",
+        "concepts": "HomeKit, HAP, Core Bluetooth, Swift, Home Automation"
+      },
+      {
+        "type": "Unique",
+        "title": "iOS BLE Sensor Dashboard",
+        "desc": "Create an iOS app in Swift using CoreBluetooth that discovers nearby BLE sensors, subscribes to GATT characteristics, and displays live sensor readings with color-coded alert thresholds.",
+        "difficulty": "Intermediate",
+        "concepts": "CoreBluetooth, GATT, Swift, Live Charts, BLE"
+      },
+      {
+        "type": "Ref",
+        "title": "Apple Watch IoT Sensor Monitor",
+        "desc": "Build a watchOS + iOS app in Swift where the Apple Watch displays live readings from BLE sensors paired via the iPhone, with complication support and heart rate alerts.",
+        "difficulty": "Advanced",
+        "concepts": "watchOS, CoreBluetooth, WatchConnectivity, Complications, Swift",
+        "ref": "https://developer.apple.com/documentation/corebluetooth"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "iOS Ethereum Wallet with WalletConnect",
+        "desc": "Build a Swift iOS Ethereum wallet using web3.swift that supports WalletConnect v2 for DApp connections, ERC-20 token management, and transaction signing with biometric auth.",
+        "difficulty": "Advanced",
+        "concepts": "web3.swift, WalletConnect, Biometrics, ERC-20, Transaction Signing"
+      },
+      {
+        "type": "Unique",
+        "title": "NFT Gallery iOS App",
+        "desc": "Create a Swift iOS app that fetches a user's NFT collection using the Alchemy or OpenSea API, displays them in an animated gallery, and shows metadata, rarity scores, and ownership history.",
+        "difficulty": "Intermediate",
+        "concepts": "Alchemy API, NFT, SwiftUI, Animations, Web3"
+      },
+      {
+        "type": "Ref",
+        "title": "Bitcoin iOS App with BitcoinKit",
+        "desc": "Build an iOS Bitcoin wallet in Swift using BitcoinKit that generates BIP-39 mnemonics, derives HD wallet addresses, and sends/receives testnet Bitcoin with a transaction history view.",
+        "difficulty": "Advanced",
+        "concepts": "BitcoinKit, BIP-39, HD Wallets, Bitcoin Testnet, Swift",
+        "ref": "https://github.com/yenom/BitcoinKit"
+      }
+    ]
+  },
+  {
+    "language": "Swift",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "AR Multiplayer Game with ARKit and MultipeerConnectivity",
+        "desc": "Build a two-player AR board game in Swift using ARKit for surface detection and MultipeerConnectivity for device-to-device sync. Both players see the same virtual board anchored to a surface.",
+        "difficulty": "Advanced",
+        "concepts": "ARKit, MultipeerConnectivity, SceneKit, Anchor Sharing, Multiplayer"
+      },
+      {
+        "type": "Unique",
+        "title": "SpriteKit Roguelike with Procedural Maps",
+        "desc": "Create a roguelike iOS game using SpriteKit with procedurally generated tile maps (BSP), a visibility system (Shadowcasting), turn-based combat, and GameCenter leaderboards.",
+        "difficulty": "Advanced",
+        "concepts": "SpriteKit, BSP, Shadowcasting, GameCenter, Tile Maps"
+      },
+      {
+        "type": "Ref",
+        "title": "GameplayKit Pathfinding iOS Game",
+        "desc": "Build a strategy iOS game in Swift using GameplayKit's pathfinding, entity-component system, and state machines. Features grid-based movement and a simple AI opponent.",
+        "difficulty": "Intermediate",
+        "concepts": "GameplayKit, SpriteKit, ECS, State Machines, Pathfinding",
+        "ref": "https://developer.apple.com/documentation/gameplaykit"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "Web Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flutter Web SPA with Riverpod and GoRouter",
+        "desc": "Build a single-page web application in Flutter/Dart using Riverpod for state management, GoRouter for deep linking, and a Dart Frog backend API with JWT authentication.",
+        "difficulty": "Advanced",
+        "concepts": "Flutter Web, Riverpod, GoRouter, Dart Frog, JWT"
+      },
+      {
+        "type": "Unique",
+        "title": "Server-Side Rendering with Dart Frog",
+        "desc": "Build a blog platform using Dart Frog with server-side rendering, Markdown content, middleware for caching and compression, and a PostgreSQL backend using the Dart postgres driver.",
+        "difficulty": "Advanced",
+        "concepts": "Dart Frog, SSR, PostgreSQL, Middleware, Markdown"
+      },
+      {
+        "type": "Ref",
+        "title": "Dart Shelf REST API",
+        "desc": "Build a RESTful API with Dart using the Shelf framework, jwt_auth middleware, a PostgreSQL database via the postgres package, and automated API tests with the http package.",
+        "difficulty": "Intermediate",
+        "concepts": "Dart Shelf, JWT, PostgreSQL, REST API, Testing",
+        "ref": "https://github.com/dart-lang/shelf"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "Mobile Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flutter App with Clean Architecture and TDD",
+        "desc": "Build a production-ready Flutter app following Uncle Bob's Clean Architecture: entities, use cases, repositories, and data sources. Implements TDD with 80%+ test coverage using Mocktail.",
+        "difficulty": "Advanced",
+        "concepts": "Clean Architecture, TDD, Mocktail, BLoC, Flutter"
+      },
+      {
+        "type": "Unique",
+        "title": "Flutter Dynamic Theme Engine",
+        "desc": "Create a Flutter app with a fully dynamic theming engine that supports multiple branded themes, dark/light mode, user-customizable accent colors, and persists preferences across sessions.",
+        "difficulty": "Intermediate",
+        "concepts": "Flutter, Dynamic Theming, SharedPreferences, Material You, Design Tokens"
+      },
+      {
+        "type": "Ref",
+        "title": "Flutter BLoC State Management App",
+        "desc": "Build a complete Flutter app using the BLoC pattern with flutter_bloc, featuring authentication, product listing with pagination, cart management, and offline support.",
+        "difficulty": "Intermediate",
+        "concepts": "BLoC, flutter_bloc, Pagination, Offline Support, Hive",
+        "ref": "https://github.com/felangel/bloc"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "Artificial Intelligence",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flutter AI Image Analyzer with Gemini",
+        "desc": "Build a Flutter app that lets users take photos and send them to the Gemini Vision API for analysis. Supports multi-turn conversations about an image and exports analysis as PDF.",
+        "difficulty": "Intermediate",
+        "concepts": "Gemini API, Flutter, Camera, Multimodal AI, PDF Export"
+      },
+      {
+        "type": "Unique",
+        "title": "On-Device Text Classification with TFLite",
+        "desc": "Create a Flutter app using TensorFlow Lite (tflite_flutter) to classify user-entered text (news category, sentiment) entirely on-device with sub-50ms inference times.",
+        "difficulty": "Advanced",
+        "concepts": "TFLite, tflite_flutter, Text Classification, On-Device ML, Flutter"
+      },
+      {
+        "type": "Ref",
+        "title": "Flutter ChatGPT Client with Streaming",
+        "desc": "Build a Flutter ChatGPT client with streaming token display using SSE, conversation management, Markdown message rendering, and local history stored with Hive.",
+        "difficulty": "Intermediate",
+        "concepts": "OpenAI API, SSE Streaming, Flutter, Hive, Markdown",
+        "ref": "https://github.com/OpenAISwift/ChatGPTFlutter"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "Machine Learning",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flutter TFLite Pose Estimation App",
+        "desc": "Build a Flutter app using tflite_flutter and MoveNet to perform real-time pose estimation from the camera. Draws skeleton overlays and tracks repetition counts for exercises.",
+        "difficulty": "Advanced",
+        "concepts": "TFLite, MoveNet, Pose Estimation, Flutter, Camera"
+      },
+      {
+        "type": "Unique",
+        "title": "Dart-Based ML Model Evaluation Tool",
+        "desc": "Create a Dart CLI tool that loads a TFLite model, runs it on a labeled test dataset, and produces a full evaluation report (accuracy, confusion matrix, per-class metrics).",
+        "difficulty": "Advanced",
+        "concepts": "TFLite, Dart CLI, Confusion Matrix, Model Evaluation, CSV"
+      },
+      {
+        "type": "Ref",
+        "title": "Flutter Plant Disease Detector",
+        "desc": "Build a Flutter app using a TFLite plant disease classifier trained on the PlantVillage dataset. Users photograph leaves and get disease diagnosis with treatment recommendations.",
+        "difficulty": "Intermediate",
+        "concepts": "TFLite, Image Classification, Flutter, PlantVillage, Camera",
+        "ref": "https://github.com/tensorflow/flutter-tflite"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "Data Science",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flutter Interactive Data Dashboard",
+        "desc": "Build a Flutter data dashboard app using fl_chart and syncfusion_flutter_charts with data loaded from a REST API. Features drill-down charts, date range pickers, and CSV export.",
+        "difficulty": "Intermediate",
+        "concepts": "fl_chart, Syncfusion Charts, REST API, CSV Export, Flutter"
+      },
+      {
+        "type": "Unique",
+        "title": "Dart Data Pipeline CLI",
+        "desc": "Implement a Dart CLI tool that fetches data from public APIs (weather, finance, social), normalizes it, runs descriptive statistics, and writes outputs to JSON/CSV with visualized summaries.",
+        "difficulty": "Intermediate",
+        "concepts": "Dart CLI, REST API, Statistics, JSON, CSV"
+      },
+      {
+        "type": "Ref",
+        "title": "Flutter Firebase Analytics Dashboard",
+        "desc": "Build a Flutter app connected to Firebase Analytics that visualizes custom event data, user retention, funnel analysis, and A/B test results using fl_chart.",
+        "difficulty": "Intermediate",
+        "concepts": "Firebase Analytics, Flutter, fl_chart, Funnel Analysis, A/B Testing",
+        "ref": "https://pub.dev/packages/fl_chart"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "Cloud Computing",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flutter App with Multi-Cloud File Manager",
+        "desc": "Build a Flutter app that connects to Google Drive, Dropbox, and OneDrive simultaneously, allowing file browsing, upload, download, and cross-cloud copying with a unified interface.",
+        "difficulty": "Advanced",
+        "concepts": "Google Drive API, Dropbox API, OneDrive API, Flutter, OAuth"
+      },
+      {
+        "type": "Unique",
+        "title": "Dart Frog Backend on Cloud Run",
+        "desc": "Deploy a Dart Frog REST API to Google Cloud Run with auto-scaling, Cloud SQL PostgreSQL backend, Secret Manager for credentials, and Cloud Pub/Sub for async messaging.",
+        "difficulty": "Advanced",
+        "concepts": "Dart Frog, Cloud Run, Cloud SQL, Pub/Sub, Secret Manager"
+      },
+      {
+        "type": "Ref",
+        "title": "Flutter Firebase Serverless App",
+        "desc": "Build a Flutter app with a fully serverless backend using Firebase: Auth, Firestore, Cloud Functions (Dart/Node.js), Firebase Storage, and App Check for security.",
+        "difficulty": "Intermediate",
+        "concepts": "Firebase, Firestore, Cloud Functions, Storage, App Check",
+        "ref": "https://github.com/firebase/flutterfire"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "Cyber Security",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flutter Secure Vault App",
+        "desc": "Build a Flutter password vault app with AES-256-GCM encryption using the pointycastle library, biometric authentication, PBKDF2 key derivation, and encrypted backup/restore to cloud storage.",
+        "difficulty": "Advanced",
+        "concepts": "pointycastle, AES-GCM, PBKDF2, Biometrics, Encrypted Backup"
+      },
+      {
+        "type": "Unique",
+        "title": "SSL/TLS Certificate Inspector App",
+        "desc": "Create a Flutter app that connects to any hostname, fetches its TLS certificate chain, analyzes cipher suites, expiry dates, and CT log inclusion, and assigns a security grade.",
+        "difficulty": "Intermediate",
+        "concepts": "TLS, Certificate Analysis, Dart, Flutter, Security Grading"
+      },
+      {
+        "type": "Ref",
+        "title": "Flutter App with Encrypted SharedPreferences",
+        "desc": "Build a Flutter app demonstrating best practices for secure local storage: flutter_secure_storage for Keychain/Keystore-backed secrets, encrypted SQLite with sqflite_cipher, and data masking in UI.",
+        "difficulty": "Intermediate",
+        "concepts": "flutter_secure_storage, sqflite_cipher, Keychain, Android Keystore, Security",
+        "ref": "https://pub.dev/packages/flutter_secure_storage"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "DevOps",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flutter CI/CD Status Mobile App",
+        "desc": "Build a Flutter mobile app that integrates with GitHub Actions, GitLab CI, and Bitrise APIs to show real-time pipeline status, failure logs, and deployment history across projects.",
+        "difficulty": "Intermediate",
+        "concepts": "GitHub Actions API, GitLab CI API, Flutter, Push Notifications, REST"
+      },
+      {
+        "type": "Unique",
+        "title": "Dart CLI DevOps Toolkit",
+        "desc": "Build a Dart CLI toolkit with subcommands for common DevOps tasks: Docker image size analysis, Kubernetes manifest linting, secret scanning, and environment variable validation.",
+        "difficulty": "Intermediate",
+        "concepts": "Dart CLI, Docker API, Kubernetes, Linting, Secrets Scanning"
+      },
+      {
+        "type": "Ref",
+        "title": "Codemagic CI/CD Flutter App",
+        "desc": "Set up a complete Flutter CI/CD pipeline on Codemagic that builds for iOS and Android, runs Flutter tests, generates release notes, and deploys to both App Store and Play Store.",
+        "difficulty": "Intermediate",
+        "concepts": "Codemagic, Flutter, iOS/Android Build, Testing, App Distribution",
+        "ref": "https://github.com/codemagic-ci-cd/codemagic-sample-projects"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "Internet of Things (IoT)",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flutter BLE IoT Controller Dashboard",
+        "desc": "Build a Flutter app using flutter_blue_plus that discovers BLE devices, reads and writes GATT characteristics, plots live sensor data with fl_chart, and sends commands to actuators.",
+        "difficulty": "Intermediate",
+        "concepts": "flutter_blue_plus, BLE, GATT, fl_chart, IoT"
+      },
+      {
+        "type": "Unique",
+        "title": "Flutter MQTT Smart Home Controller",
+        "desc": "Create a Flutter smart home app using the mqtt_client package to subscribe to sensor topics and publish control commands, with animated device status cards and historical data charts.",
+        "difficulty": "Intermediate",
+        "concepts": "mqtt_client, MQTT, Flutter, Smart Home, Real-Time"
+      },
+      {
+        "type": "Ref",
+        "title": "Flutter Arduino IoT Monitor",
+        "desc": "Build a Flutter app that communicates with an Arduino via BLE or Wi-Fi, monitors GPIO sensor readings in real time, and lets users toggle digital outputs from the app.",
+        "difficulty": "Intermediate",
+        "concepts": "BLE/Wi-Fi, Arduino, Flutter, Real-Time Monitoring, fl_chart",
+        "ref": "https://pub.dev/packages/flutter_blue_plus"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "Blockchain",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flutter Web3 Ethereum Wallet",
+        "desc": "Build a Flutter Ethereum wallet using web3dart that supports key generation, ETH/ERC-20 transfers, gas estimation, WalletConnect integration, and a transaction history screen.",
+        "difficulty": "Advanced",
+        "concepts": "web3dart, Ethereum, ERC-20, WalletConnect, Flutter"
+      },
+      {
+        "type": "Unique",
+        "title": "NFT Marketplace Flutter App",
+        "desc": "Create a Flutter front-end for an NFT marketplace that fetches listings from OpenSea API, shows token metadata and prices, and allows minting via a connected Ethereum wallet.",
+        "difficulty": "Advanced",
+        "concepts": "OpenSea API, web3dart, Flutter, NFT, Wallet Integration"
+      },
+      {
+        "type": "Ref",
+        "title": "Dart Blockchain Data Explorer",
+        "desc": "Build a Dart/Flutter app that uses the Etherscan API to explore Ethereum blocks, transactions, and wallet activity. Shows gas usage trends and whale movement alerts.",
+        "difficulty": "Intermediate",
+        "concepts": "Etherscan API, Flutter, Dart, Ethereum, Data Visualization",
+        "ref": "https://pub.dev/packages/web3dart"
+      }
+    ]
+  },
+  {
+    "language": "Dart",
+    "domain": "Game Development",
+    "projects": [
+      {
+        "type": "Unique",
+        "title": "Flame ECS Multiplayer Mobile Game",
+        "desc": "Build a real-time multiplayer mobile game using the Flame game engine with its ECS system, synchronized via a Dart Frog WebSocket server. Features a top-down shooter with lag compensation.",
+        "difficulty": "Advanced",
+        "concepts": "Flame, ECS, WebSocket, Multiplayer, Dart Frog"
+      },
+      {
+        "type": "Unique",
+        "title": "Procedural Pixel Art Dungeon Game",
+        "desc": "Create a Flutter/Flame dungeon crawler with procedurally generated pixel art levels, A* pathfinding for enemies, an inventory system, and 8-directional player animation using sprite sheets.",
+        "difficulty": "Advanced",
+        "concepts": "Flame, Procedural Generation, A* Pathfinding, Sprite Animation, Inventory"
+      },
+      {
+        "type": "Ref",
+        "title": "Flame 2D Platformer Game",
+        "desc": "Build a complete 2D platformer using the Flame game engine in Dart: player movement, tile-based maps loaded from Tiled, collectables, enemies with basic AI, and a scoring system.",
+        "difficulty": "Intermediate",
+        "concepts": "Flame, Tiled Maps, Flutter, Collision Detection, Game Loop",
+        "ref": "https://github.com/flame-engine/flame"
+      }
+    ]
+  }
+]
