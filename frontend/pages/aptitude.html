@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/home.css">
+  <link rel="stylesheet" href="../assets/css/aptitude.css">
+  <link rel="stylesheet" href="../assets/css/auth-modal.css">
+  <title>Aptitude Practice - Career Prepare Hub</title>
+</head>
+<body data-restricted-page="true">
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="aptitude-main">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="home.html">Home</a>
+      <span class="separator">/</span>
+      <span aria-current="page">Aptitude</span>
+    </nav>
+
+    <h1>Aptitude Section</h1>
+    <p class="subtext">Choose your path: learn aptitude topics or start practice questions.</p>
+
+    <section class="card-grid">
+      <a class="aptitude-card-link" href="aptitude-topics.html">
+        <article class="feature-card">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80" alt="Aptitude topics">
+          <div class="card-content">
+            <h3>Aptitude Topics</h3>
+            <p>
+              Explore complete aptitude syllabus categories like Percentages, Profit and Loss,
+              Time and Work, Probability, Data Interpretation, Verbal Ability, and more.
+            </p>
+          </div>
+        </article>
+      </a>
+
+      <a class="aptitude-card-link" href="aptitude-practice.html">
+        <article class="feature-card">
+          <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=900&q=80" alt="Aptitude practice">
+          <div class="card-content">
+            <h3>Aptitude Practice</h3>
+            <p>
+              Attempt interactive aptitude questions topic-wise with instant feedback,
+              answer reveal, and progress tracking to improve speed and accuracy.
+            </p>
+          </div>
+        </article>
+      </a>
+    </section>
+  </main>
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/auth-gate.js"></script>
+</body>
+</html>

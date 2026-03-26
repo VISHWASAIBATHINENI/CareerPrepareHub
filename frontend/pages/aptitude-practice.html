@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/home.css">
+  <link rel="stylesheet" href="../assets/css/aptitude.css">
+  <link rel="stylesheet" href="../assets/css/auth-modal.css">
+  <title>Aptitude Practice - Career Prepare Hub</title>
+</head>
+<body data-restricted-page="true">
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="aptitude-page-main">
+    <section class="section aptitude-section">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="home.html">Home</a>
+          <span class="separator">/</span>
+          <a href="aptitude.html">Aptitude</a>
+          <span class="separator">/</span>
+          <span aria-current="page">Aptitude Practice</span>
+        </nav>
+
+        <div class="aptitude-header">
+          <h1 class="aptitude-title">Aptitude Practice</h1>
+          <p class="aptitude-subtitle">Choose a topic, attempt the question, and reveal answers only when needed.</p>
+        </div>
+
+        <div class="aptitude-controls">
+          <div class="topic-filter-group">
+            <label for="aptitudeTopicFilter">Filter by Topic</label>
+            <select id="aptitudeTopicFilter" aria-label="Filter aptitude by topic">
+              <option value="all">All Topics</option>
+            </select>
+          </div>
+          <div id="aptitudeProgress" class="aptitude-progress">0 / 0</div>
+        </div>
+
+        <article id="aptitudeCard" class="aptitude-card">
+          <div class="question-meta">
+            <span id="aptitudeQuestionNumber" class="question-number">Q1</span>
+            <span id="aptitudeDifficulty" class="question-difficulty hidden"></span>
+          </div>
+
+          <h2 id="aptitudeQuestionText" class="question-text">Loading question...</h2>
+
+          <div id="aptitudeOptions" class="options-grid" role="radiogroup" aria-label="Answer options"></div>
+
+          <div class="answer-actions">
+            <button id="submitAnswerBtn" class="aptitude-btn" type="button">Submit Answer</button>
+            <button id="showAnswerBtn" class="aptitude-btn secondary" type="button">Show Answer</button>
+          </div>
+
+          <p id="submitFeedback" class="submit-feedback hidden" aria-live="polite"></p>
+
+          <div id="answerPanel" class="answer-panel hidden" aria-live="polite">
+            <p><strong>Correct Answer:</strong> <span id="correctAnswerText"></span></p>
+            <p><strong>Explanation:</strong> <span id="explanationText"></span></p>
+          </div>
+
+          <div class="navigation-actions">
+            <button id="prevQuestionBtn" class="aptitude-btn ghost" type="button">Previous Question</button>
+            <button id="nextQuestionBtn" class="aptitude-btn" type="button">Next Question</button>
+          </div>
+        </article>
+
+        <p id="aptitudeStatusMessage" class="aptitude-status-message hidden"></p>
+      </div>
+    </section>
+  </main>
+
+  <div id="answerConfirmModal" class="aptitude-modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="answerConfirmTitle">
+    <div class="aptitude-modal-card">
+      <h3 id="answerConfirmTitle">Are you giving up? Try once before checking the answer!</h3>
+      <div class="aptitude-modal-actions">
+        <button id="confirmShowAnswerBtn" class="aptitude-btn" type="button">Yes, Show Answer</button>
+        <button id="cancelShowAnswerBtn" class="aptitude-btn ghost" type="button">No, I’ll Try Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/aptitude.js"></script>
+  <script src="../assets/js/auth-gate.js"></script>
+</body>
+</html>

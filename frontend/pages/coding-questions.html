@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/auth-modal.css">
+  <link rel="stylesheet" href="../assets/css/coding-questions.css">
+  <title>Coding Questions - Career Prepare Hub</title>
+</head>
+<body data-restricted-page="true">
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="coding-main">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="home.html">Home</a>
+      <span class="crumb-separator">/</span>
+      <span aria-current="page">Coding Questions</span>
+    </nav>
+
+    <header class="page-header">
+      <h1>Coding Questions</h1>
+      <p>Practice 450 interview questions from 30 companies, grouped by company and difficulty.</p>
+    </header>
+
+    <section class="filters-section">
+      <div class="filter-group">
+        <label for="companyFilter">Company</label>
+        <select id="companyFilter">
+          <option value="all">All Companies</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="difficultyFilter">Difficulty</label>
+        <select id="difficultyFilter">
+          <option value="all">All Difficulties</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+
+      <div class="filter-group search-group">
+        <label for="searchInput">Search Question</label>
+        <input id="searchInput" type="text" placeholder="Search by topic, title, company, or description...">
+      </div>
+    </section>
+
+    <div class="results-meta" id="resultsMeta">Loading questions...</div>
+
+    <section id="questionsContainer" class="questions-container"></section>
+
+    <div id="premiumModal" class="premium-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="premiumTitle">
+      <div class="premium-modal-backdrop" data-close-premium="true"></div>
+      <div class="premium-modal-card">
+        <button class="premium-close-btn" id="premiumCloseBtn" type="button" aria-label="Close premium page">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <p class="premium-page-label">Premium Page</p>
+        <h2 id="premiumTitle">Upgrade to Premium 🚀</h2>
+
+        <ul class="premium-benefits">
+          <li><i class="fa-solid fa-lock-open"></i> Access to Hard Questions</li>
+          <li><i class="fa-solid fa-brain"></i> Interview-level problems</li>
+          <li><i class="fa-solid fa-file-lines"></i> Detailed explanations</li>
+        </ul>
+
+        <div class="premium-pricing">
+          <span class="price-tag">₹99</span>
+          <span class="price-sub">one-time</span>
+        </div>
+
+        <button id="payNowBtn" class="pay-now-btn" type="button">Pay Now</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/coding-questions.js"></script>
+  <script src="../assets/js/auth-gate.js"></script>
+</body>
+</html>

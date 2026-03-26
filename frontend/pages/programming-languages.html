@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/auth-modal.css">
+  <link rel="stylesheet" href="../assets/css/programming-languages.css">
+  <title>Programming Languages - Career Prepare Hub</title>
+</head>
+<body data-restricted-page="true">
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="languages-main">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="home.html">Home</a>
+      <span class="separator">/</span>
+      <a href="tech-skills.html">Tech Skills</a>
+      <span class="separator">/</span>
+      <span aria-current="page">Programming Languages</span>
+    </nav>
+
+    <h1>Programming Languages</h1>
+    <p class="subtext">Select your preferred spoken language and open the corresponding video cards.</p>
+
+    <div class="selector-wrap">
+      <label for="spokenLanguage">Video Language:</label>
+      <select id="spokenLanguage">
+        <option value="english">English</option>
+        <option value="telugu">Telugu</option>
+        <option value="hindi">Hindi</option>
+        <option value="tamil">Tamil</option>
+      </select>
+    </div>
+
+    <section class="language-grid" id="languageGrid">
+      <article class="language-card" data-key="c">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80" alt="C Language">
+        <div class="card-content">
+          <h3>C</h3>
+          <p>Fast and memory-efficient language widely used for system programming, embedded software, and strong foundational coding skills.</p>
+          <a class="watch-btn" data-lang-key="c" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+
+      <article class="language-card" data-key="cpp">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80" alt="C++ Language">
+        <div class="card-content">
+          <h3>C++</h3>
+          <p>Object-oriented and high-performance language used in competitive programming, game engines, and large-scale applications.</p>
+          <a class="watch-btn" data-lang-key="cpp" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+
+      <article class="language-card" data-key="java">
+        <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=900&q=80" alt="Java Language">
+        <div class="card-content">
+          <h3>Java</h3>
+          <p>Platform-independent language popular for enterprise applications, Android development, and robust backend systems.</p>
+          <a class="watch-btn" data-lang-key="java" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+
+      <article class="language-card" data-key="python">
+        <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=900&q=80" alt="Python Language">
+        <div class="card-content">
+          <h3>Python</h3>
+          <p>Readable and beginner-friendly language used for automation, AI/ML, data science, backend development, and scripting.</p>
+          <a class="watch-btn" data-lang-key="python" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+
+      <article class="language-card" data-key="javascript">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80" alt="JavaScript Language">
+        <div class="card-content">
+          <h3>JavaScript</h3>
+          <p>Core language of the web for creating interactive UI, dynamic applications, and full-stack apps with Node.js.</p>
+          <a class="watch-btn" data-lang-key="javascript" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+
+      <article class="language-card" data-key="typescript">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=900&q=80" alt="TypeScript Language">
+        <div class="card-content">
+          <h3>TypeScript</h3>
+          <p>JavaScript with static typing that improves code quality, maintainability, and scalability in modern web projects.</p>
+          <a class="watch-btn" data-lang-key="typescript" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+
+      <article class="language-card" data-key="go">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="Go Language">
+        <div class="card-content">
+          <h3>Go</h3>
+          <p>Simple and performant language designed for concurrency, networking services, cloud-native tools, and backend systems.</p>
+          <a class="watch-btn" data-lang-key="go" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+
+      <article class="language-card" data-key="rust">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80" alt="Rust Language">
+        <div class="card-content">
+          <h3>Rust</h3>
+          <p>Modern systems language focused on memory safety and speed, ideal for secure and high-performance applications.</p>
+          <a class="watch-btn" data-lang-key="rust" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+
+      <article class="language-card" data-key="kotlin">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin Language Logo">
+        <div class="card-content">
+          <h3>Kotlin</h3>
+          <p>Concise JVM language used heavily for Android development, backend services, and safer Java interoperability.</p>
+          <a class="watch-btn" data-lang-key="kotlin" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+
+      <article class="language-card" data-key="swift">
+        <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=900&q=80" alt="Swift Language">
+        <div class="card-content">
+          <h3>Swift</h3>
+          <p>Apple’s modern language for iOS, macOS, watchOS, and tvOS apps with strong performance and clean syntax.</p>
+          <a class="watch-btn" data-lang-key="swift" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+
+      <article class="language-card" data-key="dart">
+        <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=900&q=80" alt="Dart Language">
+        <div class="card-content">
+          <h3>Dart</h3>
+          <p>Language used with Flutter to build cross-platform mobile, web, and desktop apps from one codebase.</p>
+          <a class="watch-btn" data-lang-key="dart" href="#" target="_blank">Open English Video</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/programming-languages.js"></script>
+  <script src="../assets/js/auth-gate.js"></script>
+</body>
+</html>

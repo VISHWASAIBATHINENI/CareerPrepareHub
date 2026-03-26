@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/home.css">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/auth-modal.css">
+  <title>Career Prepare Hub - Home</title>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a  class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg
+              class="cph-logo-svg"
+              viewBox="0 0 580 160"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Career Prepare Hub logo"
+            >
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="tech-skills.html" class="nav-link">Tech Skills</a>
+        <a href="core-subjects.html" class="nav-link">Core Subjects</a>
+        <a href="coding-questions.html" class="nav-link">Coding Questions</a>
+        <a href="project-explorer.html" class="nav-link">Projects</a>
+        <a href="aptitude.html" class="nav-link">Aptitude</a>
+        <a href="#interview-prep" class="nav-link">Interview Prep</a>
+      </div>
+      <div class="nav-right">
+        <a id="navLoginBtn" href="login.html" class="nav-login-btn">Login</a>
+        <button id="profileCircle" class="profile-circle hidden" aria-label="Open profile"></button>
+        <div id="profileCard" class="profile-card hidden">
+          <h4>User Details</h4>
+          <div id="profileDetails"></div>
+          <div class="profile-actions">
+            <button id="editProfileBtn" class="profile-action-btn" type="button">Edit</button>
+            <button id="logoutBtn" class="profile-action-btn logout" type="button">Logout</button>
+          </div>
+        </div>
+      </div>
+      <div class="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="section home-section">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Welcome to Career Prepare Hub</h1>
+          <div class="quotes-container">
+            <div class="typing-container">
+              <span id="typing-text"></span>
+              <span class="cursor"></span>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <h3>400+</h3>
+              <p>Coding Questions</p>
+            </div>
+            <div class="stat">
+              <h3>20+</h3>
+              <p>Tech Skills</p>
+            </div>
+            <div class="stat">
+              <h3>300+</h3>
+              <p>Projects</p>
+            </div>
+            <div class="stat">
+              <h3>150+</h3>
+              <p>Aptitude Questions</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80" alt="Students and developers learning together">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+
+      <div class="faq-list">
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>What is Career Prepare Hub?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Career Prepare Hub is a learning platform designed to help students and aspiring developers build strong programming skills, master core computer science subjects, and prepare for technical interviews through structured learning and practice.</p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>What can I learn on this platform?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>You can learn essential programming languages, data structures and algorithms, and core computer science subjects such as Operating Systems, DBMS, and Computer Networks. The platform also provides coding practice and career preparation resources.</p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>How will this platform help me prepare for technical interviews?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Career Prepare Hub provides commonly asked coding questions, explanations of core CS concepts, and structured practice that helps build the skills required for technical interviews.</p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Is Career Prepare Hub free to use?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. The platform provides free learning resources to help students practice coding and improve their technical knowledge.</p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>How should I start learning on this platform?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Begin with programming fundamentals, then move on to data structures and algorithms. After that, explore core computer science subjects and practice coding problems regularly.</p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>What makes Career Prepare Hub different?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Career Prepare Hub focuses on combining programming practice, core CS subjects, and interview preparation in one place to help learners build a complete foundation for a tech career.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Edit Profile Modal -->
+  <div id="editProfileModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Edit Profile</h3>
+        <button id="closeModalBtn" type="button" class="modal-close">&times;</button>
+      </div>
+      <form id="editProfileForm" class="edit-profile-form">
+        <input type="text" name="firstname" placeholder="First Name" required>
+        <input type="text" name="middlename" placeholder="Middle Name">
+        <input type="text" name="lastname" placeholder="Last Name" required>
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="username" placeholder="Username">
+        <input type="tel" name="phone" placeholder="Phone">
+        <input type="date" name="dob">
+        <input type="text" name="nationality" placeholder="Nationality">
+        <input type="text" name="status" placeholder="Status">
+        <div class="modal-actions">
+          <button type="button" id="cancelModalBtn" class="profile-action-btn">Cancel</button>
+          <button type="submit" class="profile-action-btn logout">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Career Prepare Hub</h3>
+          <p>Your journey to career success starts here.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="tech-skills.html">Tech Skills</a></li>
+            <li><a href="core-subjects.html">Core Subjects</a></li>
+            <li><a href="coding-questions.html">Coding Questions</a></li>
+            <li><a href="project-explorer.html">Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: support@careerpreparehub.com</p>
+          <p>Phone: +1 (555) 123-4567</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Career Prepare Hub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/home.js"></script>
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/auth-gate.js"></script>
+</body>
+</html>

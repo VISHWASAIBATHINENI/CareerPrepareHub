@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Exo+2:wght@400;700;800&display=swap');
+
+:root {
+  --cph-blue-light: #6ec6f5;
+  --cph-blue-mid: #3a8fd4;
+  --cph-blue-deep: #1a5fa8;
+  --cph-glow-color: rgba(58, 143, 212, 0.45);
+  --cph-frame-stroke: 2.5px;
+  --cph-anim-ease: cubic-bezier(0.42, 0, 0.22, 1);
+}
+
+.cph-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(170px, 22vw, 300px);
+  text-decoration: none;
+  line-height: 0;
+}
+
+.cph-logo-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: default;
+  user-select: none;
+}
+
+.cph-logo-svg {
+  width: auto;
+  max-width: 100%;
+  height: clamp(34px, 4.2vw, 52px);
+  overflow: visible;
+  display: block;
+}
+
+.cph-frame-path {
+  fill: none;
+  stroke: url(#cphFrameGrad);
+  stroke-width: var(--cph-frame-stroke);
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-dashoffset: 0;
+  filter: url(#cphFrameShadow);
+  animation: cph-draw-frame 1s var(--cph-anim-ease) 0.1s both;
+}
+
+.cph-text-main {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+  font-size: 68px;
+  letter-spacing: 5px;
+  fill: url(#cphTextGrad);
+  opacity: 0;
+  transform: translateY(14px);
+  animation: cph-rise-in 0.75s var(--cph-anim-ease) 0.65s both;
+}
+
+.cph-text-hub {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 8px;
+  fill: var(--cph-blue-mid);
+  opacity: 0;
+  transform-origin: center;
+  transform: scale(0.75);
+  animation: cph-scale-up 0.55s var(--cph-anim-ease) 1.3s both;
+}
+
+.cph-logo-wrapper:hover .cph-frame-path {
+  filter: url(#cphFrameGlow);
+  transition: filter 0.35s ease;
+}
+
+@keyframes cph-draw-frame {
+  from {
+    stroke-dashoffset: var(--cph-perimeter);
+    opacity: 0.4;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes cph-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cph-scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .cph-logo-link {
+    width: clamp(150px, 34vw, 250px);
+  }
+}
+
+@media (max-width: 540px) {
+  .cph-logo-link {
+    width: clamp(140px, 48vw, 190px);
+  }
+
+  .cph-logo-svg {
+    height: clamp(30px, 8vw, 40px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cph-frame-path,
+  .cph-text-main,
+  .cph-text-hub {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
