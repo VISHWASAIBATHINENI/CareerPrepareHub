@@ -4,27 +4,27 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/pages/home.html"
+      "destination": "/frontend/pages/home.html"
     },
     {
       "source": "/login",
-      "destination": "/pages/login.html"
+      "destination": "/frontend/pages/login.html"
     },
     {
       "source": "/signup",
-      "destination": "/pages/signup.html"
+      "destination": "/frontend/pages/signup.html"
     },
     {
       "source": "/aptitude",
-      "destination": "/pages/aptitude.html"
+      "destination": "/frontend/pages/aptitude.html"
     },
     {
       "source": "/coding",
-      "destination": "/pages/coding-questions.html"
+      "destination": "/frontend/pages/coding-questions.html"
     },
     {
       "source": "/(.*)",
-      "destination": "/$1"
+      "destination": "/frontend/$1"
     }
   ]
 }
