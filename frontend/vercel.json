@@ -5,6 +5,7 @@
     { "src": "/signup", "dest": "/pages/signup.html" },
     { "src": "/aptitude", "dest": "/pages/aptitude.html" },
     { "src": "/coding", "dest": "/pages/coding-questions.html" },
+    { "src": "/([\\w-]+\\.html)", "dest": "/pages/$1" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
