@@ -11,17 +11,6 @@ export const findUserById = (id) => User.findById(id);
 
 export const createUser = (payload) => User.create(payload);
 
-export const upgradeUserToPremium = async (id) => {
-  const user = await User.findById(id);
-  if (!user) return null;
-
-  user.isPremium = true;
-  user.isPaid = true;
-  await user.save();
-
-  return user;
-};
-
 export const updatePasswordByEmail = async (email, newPassword) => {
   const user = await User.findOne({ email: normalizeEmail(email) }).select('+password');
   if (!user) return null;
@@ -29,4 +18,17 @@ export const updatePasswordByEmail = async (email, newPassword) => {
   user.password = newPassword;
   await user.save();
   return user;
+};
+
+export const updateUserResume = async (userId, resumeData) => {
+  return User.findByIdAndUpdate(
+    userId,
+    { resumeData: String(resumeData || '').trim().slice(0, 8000) },
+    { new: true },
+  );
+};
+
+export const getUserResume = async (userId) => {
+  const user = await User.findById(userId).select('resumeData');
+  return user ? (user.resumeData || '') : '';
 };

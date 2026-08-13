@@ -4,7 +4,6 @@ const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirmPassword');
 const togglePasswordBtn = document.getElementById('togglePassword');
 const toggleConfirmPasswordBtn = document.getElementById('toggleConfirmPassword');
-const googleSignupBtn = document.getElementById('googleSignupBtn');
 const ruleLength = document.getElementById('ruleLength');
 const ruleUpper = document.getElementById('ruleUpper');
 const ruleLower = document.getElementById('ruleLower');
@@ -17,16 +16,12 @@ const signupOtpInput = document.getElementById('signupOtp');
 const verifyOtpBtn = document.getElementById('verifyOtpBtn');
 const emailVerificationStatus = document.getElementById('emailVerificationStatus');
 const otpVerificationStatus = document.getElementById('otpVerificationStatus');
+
 ensureSessionValidity();
 
 if (getCurrentSessionUser()) {
   location.replace('home.html');
 }
-
-const showMessage = (message, isSuccess = false) => {
-  signupFeedback.textContent = message;
-  signupFeedback.classList.toggle('success', isSuccess);
-};
 
 const verificationState = {
   verifiedEmail: '',
@@ -34,17 +29,16 @@ const verificationState = {
 };
 
 const requiredFieldConfigs = [
-  { id: 'firstname', label: 'First Name' },
-  { id: 'lastname', label: 'Last Name' },
-  { id: 'dob', label: 'Date of Birth' },
   { id: 'username', label: 'Username' },
-  { id: 'email', label: 'Email' },
-  { id: 'phone', label: 'Phone Number' },
+  { id: 'email', label: 'Gmail Address' },
   { id: 'password', label: 'Password' },
   { id: 'confirmPassword', label: 'Re-confirm Password' },
-  { id: 'nationality', label: 'Nationality' },
-  { id: 'status', label: 'Status' },
 ];
+
+const showMessage = (message, isSuccess = false) => {
+  signupFeedback.textContent = message;
+  signupFeedback.classList.toggle('success', isSuccess);
+};
 
 const getErrorElement = (fieldId) => document.getElementById(`${fieldId}Error`);
 
@@ -80,84 +74,64 @@ const validateRequiredFields = () => {
   return missingLabels;
 };
 
-const resetEmailVerificationState = ({ clearOtp = true } = {}) => {
-  verificationState.verifiedEmail = '';
-  verificationState.otpSentEmail = '';
-  signupOtpPanel?.classList.add('hidden');
-  if (clearOtp && signupOtpInput) signupOtpInput.value = '';
-  setVerificationStatus(emailVerificationStatus, '', '');
-  setVerificationStatus(otpVerificationStatus, '', '');
+const isPasswordStrong = (value) => {
+  return value.length >= 8
+    && /[A-Z]/.test(value)
+    && /[a-z]/.test(value)
+    && /\d/.test(value)
+    && /[^A-Za-z\d]/.test(value);
 };
 
-const isIgnorableGoogleError = (message) =>
-  typeof message === 'string' && message.toLowerCase().includes('did not return a credential');
-
-const setButtonLoading = (button, isLoading, idleText) => {
-  if (!button) return;
-  button.disabled = isLoading;
-  if (!button.dataset.defaultText) {
-    button.dataset.defaultText = idleText || button.textContent.trim();
-  }
-  button.textContent = isLoading ? 'Please wait...' : button.dataset.defaultText;
-};
-
-const completeSignup = (payload, message) => {
-  persistSession(payload || {});
-  showMessage(message, true);
-  signupForm.reset();
-  clearAllFieldErrors();
-  resetEmailVerificationState();
-
-  setTimeout(() => {
-    location.href = 'home.html';
-  }, 900);
-};
-
-const passwordRules = {
-  length: (value) => value.length >= 8,
-  upper: (value) => /[A-Z]/.test(value),
-  lower: (value) => /[a-z]/.test(value),
-  number: (value) => /\d/.test(value),
-  special: (value) => /[^A-Za-z\d]/.test(value),
-};
-
-const setRuleState = (element, isValid) => {
+const updateRuleState = (element, isValid) => {
   if (!element) return;
   element.classList.toggle('valid', isValid);
   element.classList.toggle('invalid', !isValid);
 };
 
 const updatePasswordChecklist = () => {
-  const value = passwordInput.value;
-  setRuleState(ruleLength, passwordRules.length(value));
-  setRuleState(ruleUpper, passwordRules.upper(value));
-  setRuleState(ruleLower, passwordRules.lower(value));
-  setRuleState(ruleNumber, passwordRules.number(value));
-  setRuleState(ruleSpecial, passwordRules.special(value));
+  const password = passwordInput?.value || '';
+  updateRuleState(ruleLength, password.length >= 8);
+  updateRuleState(ruleUpper, /[A-Z]/.test(password));
+  updateRuleState(ruleLower, /[a-z]/.test(password));
+  updateRuleState(ruleNumber, /\d/.test(password));
+  updateRuleState(ruleSpecial, /[^A-Za-z\d]/.test(password));
 };
 
-const isPasswordStrong = (value) => Object.values(passwordRules).every((rule) => rule(value));
+const setButtonLoading = (button, isLoading, idleText, loadingText = 'Please wait...') => {
+  if (!button) return;
+  button.disabled = isLoading;
+  if (!button.dataset.defaultText) {
+    button.dataset.defaultText = idleText || button.textContent.trim();
+  }
+  button.textContent = isLoading ? loadingText : button.dataset.defaultText;
+};
 
-requiredFieldConfigs.forEach(({ id, label }) => {
-  const input = document.getElementById(id);
-  input?.addEventListener('input', () => {
-    const value = input.value?.trim?.() ?? input.value;
-    if (value) setFieldError(id, '');
-    if (id === 'email' && verificationState.verifiedEmail && value.trim().toLowerCase() !== verificationState.verifiedEmail) {
-      resetEmailVerificationState({ clearOtp: true });
-      setVerificationStatus(emailVerificationStatus, 'Email changed. Please verify this email again.', 'error');
-    }
-  });
-  input?.addEventListener('change', () => {
-    const value = input.value?.trim?.() ?? input.value;
-    if (value) setFieldError(id, '');
-  });
-});
+const resetEmailVerificationState = ({ clearOtp = true } = {}) => {
+  verificationState.verifiedEmail = '';
+  verificationState.otpSentEmail = '';
+  signupOtpPanel?.classList.add('hidden');
+  if (clearOtp && signupOtpInput) signupOtpInput.value = '';
+  setVerificationStatus(emailVerificationStatus, '');
+  setVerificationStatus(otpVerificationStatus, '');
+  setFieldError('signupOtp', '');
+};
 
-passwordInput.addEventListener('input', updatePasswordChecklist);
-updatePasswordChecklist();
+const completeSignup = (payload, successMessage) => {
+  persistSession(payload || {});
+  showMessage(successMessage || 'Signup successful. Redirecting...', true);
+  try { signupForm?.reset(); } catch (_) {}
+  try { updatePasswordChecklist(); } catch (_) {}
+  try { resetEmailVerificationState(); } catch (_) {}
 
-togglePasswordBtn.addEventListener('click', () => {
+  setTimeout(() => {
+    window.location.href = 'home.html';
+  }, 400);
+};
+
+const isIgnorableGoogleError = (message) =>
+  typeof message === 'string' && message.toLowerCase().includes('did not return a credential');
+
+togglePasswordBtn?.addEventListener('click', () => {
   const icon = togglePasswordBtn.querySelector('i');
   const showPassword = passwordInput.type === 'password';
   passwordInput.type = showPassword ? 'text' : 'password';
@@ -165,7 +139,7 @@ togglePasswordBtn.addEventListener('click', () => {
   icon.classList.toggle('fa-eye-slash', showPassword);
 });
 
-toggleConfirmPasswordBtn.addEventListener('click', () => {
+toggleConfirmPasswordBtn?.addEventListener('click', () => {
   const icon = toggleConfirmPasswordBtn.querySelector('i');
   const showPassword = confirmPasswordInput.type === 'password';
   confirmPasswordInput.type = showPassword ? 'text' : 'password';
@@ -173,28 +147,46 @@ toggleConfirmPasswordBtn.addEventListener('click', () => {
   icon.classList.toggle('fa-eye-slash', showPassword);
 });
 
+passwordInput?.addEventListener('input', updatePasswordChecklist);
+updatePasswordChecklist();
+
+emailInput?.addEventListener('input', () => {
+  const currentEmail = emailInput.value.trim().toLowerCase();
+  const matchesVerified = currentEmail && currentEmail === verificationState.verifiedEmail;
+  const matchesOtpSent = currentEmail && currentEmail === verificationState.otpSentEmail;
+
+  if (!matchesVerified) {
+    verificationState.verifiedEmail = '';
+    setVerificationStatus(emailVerificationStatus, '');
+  }
+
+  if (!matchesOtpSent) {
+    verificationState.otpSentEmail = '';
+    signupOtpPanel?.classList.add('hidden');
+    signupOtpInput && (signupOtpInput.value = '');
+    setVerificationStatus(otpVerificationStatus, '');
+    setFieldError('signupOtp', '');
+  }
+});
+
 verifyEmailBtn?.addEventListener('click', async () => {
   const email = emailInput.value.trim().toLowerCase();
-  showMessage('');
   setFieldError('email', '');
-  setFieldError('signupOtp', '');
+  showMessage('');
 
   if (!email) {
-    setFieldError('email', 'Email is required.');
-    setVerificationStatus(emailVerificationStatus, 'Please enter your email first.', 'error');
-    emailInput.focus();
+    setFieldError('email', 'Gmail Address is required.');
     return;
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    setFieldError('email', 'Enter a valid email address.');
-    setVerificationStatus(emailVerificationStatus, 'Please enter a valid email address.', 'error');
-    emailInput.focus();
+  if (!email.endsWith('@gmail.com')) {
+    setFieldError('email', 'Please enter a valid Gmail address.');
+    setVerificationStatus(emailVerificationStatus, 'Please use a Gmail address for verification.', 'error');
     return;
   }
 
   try {
-    setButtonLoading(verifyEmailBtn, true, 'Verify');
+    setButtonLoading(verifyEmailBtn, true, 'Verify', 'Sending OTP...');
     const response = await fetch(`${AUTH_API_BASE_URL}/auth/send-otp`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -209,11 +201,10 @@ verifyEmailBtn?.addEventListener('click', async () => {
     verificationState.verifiedEmail = '';
     verificationState.otpSentEmail = email;
     signupOtpPanel?.classList.remove('hidden');
-    setVerificationStatus(emailVerificationStatus, 'OTP sent to your email. Please enter it below.', 'success');
-    setVerificationStatus(otpVerificationStatus, '', '');
+    setVerificationStatus(emailVerificationStatus, 'OTP sent to your Gmail. Please verify to continue.', 'success');
+    setVerificationStatus(otpVerificationStatus, '');
     signupOtpInput?.focus();
   } catch (error) {
-    resetEmailVerificationState();
     setVerificationStatus(emailVerificationStatus, error.message || 'Unable to send OTP right now.', 'error');
   } finally {
     setButtonLoading(verifyEmailBtn, false, 'Verify');
@@ -222,24 +213,22 @@ verifyEmailBtn?.addEventListener('click', async () => {
 
 verifyOtpBtn?.addEventListener('click', async () => {
   const email = emailInput.value.trim().toLowerCase();
-  const otp = signupOtpInput.value.trim();
+  const otp = signupOtpInput?.value?.trim() || '';
   setFieldError('signupOtp', '');
   showMessage('');
 
-  if (!email || verificationState.otpSentEmail !== email) {
-    setVerificationStatus(otpVerificationStatus, 'Please click Verify on your email first.', 'error');
+  if (!otp) {
+    setFieldError('signupOtp', 'OTP is required.');
     return;
   }
 
   if (!/^\d{6}$/.test(otp)) {
-    setFieldError('signupOtp', 'Enter a valid 6-digit OTP.');
-    setVerificationStatus(otpVerificationStatus, 'Enter a valid 6-digit OTP.', 'error');
-    signupOtpInput.focus();
+    setFieldError('signupOtp', 'Please enter a valid 6-digit OTP.');
     return;
   }
 
   try {
-    setButtonLoading(verifyOtpBtn, true, 'Verify OTP');
+    setButtonLoading(verifyOtpBtn, true, 'Verify OTP', 'Verifying...');
     const response = await fetch(`${AUTH_API_BASE_URL}/auth/verify-otp`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -252,43 +241,41 @@ verifyOtpBtn?.addEventListener('click', async () => {
     }
 
     verificationState.verifiedEmail = email;
+    verificationState.otpSentEmail = email;
     setVerificationStatus(emailVerificationStatus, 'Email verified successfully.', 'success');
-    setVerificationStatus(otpVerificationStatus, 'OTP verified successfully. You can now create your account.', 'success');
-    setFieldError('email', '');
+    setVerificationStatus(otpVerificationStatus, 'OTP verified successfully.', 'success');
   } catch (error) {
-    verificationState.verifiedEmail = '';
     setVerificationStatus(otpVerificationStatus, error.message || 'Unable to verify OTP right now.', 'error');
   } finally {
     setButtonLoading(verifyOtpBtn, false, 'Verify OTP');
   }
 });
 
-signupForm.addEventListener('submit', async (event) => {
+signupForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   clearAllFieldErrors();
+  showMessage('');
 
-  const firstname = signupForm.querySelector('#firstname').value.trim();
-  const middlename = signupForm.querySelector('#middlename').value.trim();
-  const lastname = signupForm.querySelector('#lastname').value.trim();
-  const dob = signupForm.querySelector('#dob').value;
-  const username = signupForm.querySelector('#username').value.trim();
-  const email = signupForm.querySelector('#email').value.trim();
-  const phone = signupForm.querySelector('#phone').value.trim();
-  const password = signupForm.querySelector('#password').value;
-  const confirmPassword = signupForm.querySelector('#confirmPassword').value;
-  const nationality = signupForm.querySelector('#nationality').value;
-  const status = signupForm.querySelector('#status').value;
   const missingFields = validateRequiredFields();
-
-  if (missingFields.length > 0) {
-    showMessage(`Please fill the required fields: ${missingFields.join(', ')}.`);
+  if (missingFields.length) {
+    showMessage(`Please fill in: ${missingFields.join(', ')}.`);
     return;
   }
 
-  if (!verificationState.verifiedEmail || verificationState.verifiedEmail !== email.toLowerCase()) {
-    setFieldError('email', 'Please verify your email before creating your account.');
-    setVerificationStatus(emailVerificationStatus, 'You must verify your email before creating your account.', 'error');
-    showMessage('Please verify your email before creating your account.');
+  const username = document.getElementById('username').value.trim();
+  const email = document.getElementById('email').value.trim().toLowerCase();
+  const password = passwordInput.value;
+  const confirmPassword = confirmPasswordInput.value;
+
+  if (!email.endsWith('@gmail.com')) {
+    setFieldError('email', 'Please enter a valid Gmail address.');
+    showMessage('Please use a Gmail address for signup.');
+    return;
+  }
+
+  if (verificationState.verifiedEmail !== email) {
+    setVerificationStatus(emailVerificationStatus, 'Please verify your Gmail before creating an account.', 'error');
+    showMessage('Email verification is required before account creation.');
     return;
   }
 
@@ -309,18 +296,7 @@ signupForm.addEventListener('submit', async (event) => {
     const response = await fetch(`${AUTH_API_BASE_URL}/auth/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        firstname,
-        middlename,
-        lastname,
-        username,
-        email,
-        phone,
-        dob,
-        password,
-        nationality,
-        status,
-      }),
+      body: JSON.stringify({ username, email, password }),
     });
 
     const result = await response.json();
@@ -328,8 +304,7 @@ signupForm.addEventListener('submit', async (event) => {
       throw new Error(result.message || 'Unable to create account');
     }
 
-    const payload = result?.data || {};
-    completeSignup(payload, 'Account created successfully! Redirecting...');
+    completeSignup(result?.data || {}, 'Account created successfully! Redirecting...');
   } catch (error) {
     showMessage(error.message || 'Unable to create account right now.');
   } finally {
@@ -337,54 +312,34 @@ signupForm.addEventListener('submit', async (event) => {
   }
 });
 
-googleSignupBtn?.addEventListener('click', () => {
-  showMessage('');
-  setButtonLoading(googleSignupBtn, true, 'Continue with Google');
+renderGoogleSignIn({
+  mountId: 'googleSignupMount',
+  onCredential: async ({ credential }) => {
+    try {
+      showMessage('Verifying Google sign-in...', true);
+      const response = await fetch(`${AUTH_API_BASE_URL}/auth/google`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ credential }),
+      });
 
-  requestGoogleCredential({
-    mountId: 'googleSignupMount',
-    onReady: () => {
-      // The Google button is rendered invisibly off-screen.
-      // Auto-click it to open the popup immediately.
-      // Our styled button stays fully visible at all times.
-      const mount = document.getElementById('googleSignupMount');
-      if (mount) {
-        const innerBtn = mount.querySelector('div[role="button"], iframe');
-        if (innerBtn) innerBtn.click();
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.message || 'Google signup failed.');
       }
-      // Restore our button to normal — it was never hidden
-      setButtonLoading(googleSignupBtn, false, 'Continue with Google');
-    },
-    onCredential: async ({ credential }) => {
-      try {
-        setButtonLoading(googleSignupBtn, true, 'Continue with Google');
 
-        const response = await fetch(`${AUTH_API_BASE_URL}/auth/google`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ credential }),
-        });
+      const googleMessage = result.data?.isNewUser
+        ? 'Google account created successfully! Redirecting...'
+        : 'Existing account found. Signed in with Google successfully!';
 
-        const result = await response.json();
-        if (!response.ok) {
-          throw new Error(result.message || 'Google signup failed.');
-        }
-
-        const googleMessage = result.data?.isNewUser
-          ? 'Google account created successfully! Redirecting...'
-          : 'Existing account found. Signed in with Google successfully!';
-
-        completeSignup(result.data || {}, googleMessage);
-      } catch (error) {
-        showMessage(error.message || 'Google signup failed.');
-        setButtonLoading(googleSignupBtn, false, 'Continue with Google');
-      }
-    },
-    onError: (message) => {
-      if (!isIgnorableGoogleError(message)) {
-        showMessage(message);
-      }
-      setButtonLoading(googleSignupBtn, false, 'Continue with Google');
-    },
-  });
+      completeSignup(result.data || {}, googleMessage);
+    } catch (error) {
+      showMessage(error.message || 'Google signup failed.');
+    }
+  },
+  onError: (message) => {
+    if (!isIgnorableGoogleError(message)) {
+      showMessage(message);
+    }
+  },
 });

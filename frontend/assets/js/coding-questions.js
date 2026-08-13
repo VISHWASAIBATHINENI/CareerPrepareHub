@@ -3,9 +3,6 @@ const topicFilter = document.getElementById('topicFilter');
 const difficultyFilter = document.getElementById('difficultyFilter');
 const resultsMeta = document.getElementById('resultsMeta');
 const activeQuestionStatus = document.getElementById('activeQuestionStatus');
-const premiumModal = document.getElementById('premiumModal');
-const premiumCloseBtn = document.getElementById('premiumCloseBtn');
-const payNowBtn = document.getElementById('payNowBtn');
 const problemTitle = document.getElementById('problemTitle');
 const problemDifficulty = document.getElementById('problemDifficulty');
 const problemCompany = document.getElementById('problemCompany');
@@ -47,8 +44,8 @@ const summaryFooter = document.getElementById('summaryFooter');
 const prevQuestionBtn = document.getElementById('prevQuestionBtn');
 const nextQuestionBtn = document.getElementById('nextQuestionBtn');
 const customInputEditor = document.getElementById('customInputEditor');
-const API_BASE_URL = window.location.origin.includes(':5000') ? '/api' : 'http://localhost:5000/api';
-const RUN_ENDPOINT = '/api/run';
+const API_BASE_URL = typeof AUTH_API_BASE_URL !== 'undefined' ? AUTH_API_BASE_URL : (window.API_BASE_URL || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '5000' ? 'http://localhost:5000/api' : '/api'));
+const RUN_ENDPOINT = `${API_BASE_URL}/run`;
 const SUBMIT_ENDPOINT = `${API_BASE_URL}/submit`;
 const QUESTION_WORKSPACE_STORAGE_KEY = 'careerprephub-question-workspaces';
 const CURRENT_QUESTION_STORAGE_KEY = 'careerprephub-current-question-index';
@@ -540,13 +537,10 @@ const languageConfig = {
   python: {
     label: 'Python',
     monaco: 'python',
-    template: `def solve():
-    # Write your solution here
-    return None
-
-
-if __name__ == "__main__":
-    solve()
+    template: `class Solution:
+    def solve(self):
+        # Write your solution here
+        return None
 `,
   },
   java: {
@@ -555,9 +549,10 @@ if __name__ == "__main__":
     template: `import java.io.*;
 import java.util.*;
 
-public class Main {
-    public static void main(String[] args) throws Exception {
+class Solution {
+    public Object solve() {
         // Write your solution here
+        return null;
     }
 }
 `,
@@ -567,7 +562,7 @@ public class Main {
     monaco: 'c',
     template: `#include <stdio.h>
 
-int main() {
+int solve() {
     // Write your solution here
     return 0;
 }
@@ -579,13 +574,13 @@ int main() {
     template: `#include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    // Write your solution here
-    return 0;
-}
+class Solution {
+public:
+    int solve() {
+        // Write your solution here
+        return 0;
+    }
+};
 `,
   },
   javascript: {
@@ -593,7 +588,7 @@ int main() {
     monaco: 'javascript',
     template: `function solve(input) {
   // Write your solution here
-  return '';
+  return null;
 }
 
 console.log(solve(''));
@@ -603,11 +598,6 @@ console.log(solve(''));
 
 function getCurrentUser() {
   return JSON.parse(localStorage.getItem('currentUser') || 'null');
-}
-
-function isPremiumUser() {
-  const user = getCurrentUser();
-  return Boolean(user && (user.isPaid || user.isPremium));
 }
 
 function getAuthHeaders() {
@@ -654,104 +644,6 @@ function getSampleIO(question) {
 
 function getHints(question) {
   return Array.isArray(question.hints) ? question.hints : [];
-}
-
-function openPremiumModal() {
-  if (!premiumModal) return;
-
-  if (isPremiumUser() && payNowBtn) {
-    payNowBtn.disabled = true;
-    payNowBtn.textContent = 'You are already Premium';
-  } else if (payNowBtn) {
-    payNowBtn.disabled = false;
-    payNowBtn.textContent = 'Pay Now';
-  }
-
-  premiumModal.classList.add('active');
-  premiumModal.setAttribute('aria-hidden', 'false');
-}
-
-function closePremiumModal() {
-  if (!premiumModal) return;
-  premiumModal.classList.remove('active');
-  premiumModal.setAttribute('aria-hidden', 'true');
-}
-
-function wirePremiumModalEvents() {
-  if (premiumCloseBtn) {
-    premiumCloseBtn.addEventListener('click', closePremiumModal);
-  }
-
-  if (premiumModal) {
-    premiumModal.addEventListener('click', (event) => {
-      const target = event.target;
-      if (!(target instanceof HTMLElement)) return;
-
-      if (target.dataset.closePremium === 'true') {
-        closePremiumModal();
-      }
-    });
-  }
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && premiumModal?.classList.contains('active')) {
-      closePremiumModal();
-    }
-  });
-
-  if (payNowBtn) {
-    payNowBtn.addEventListener('click', async () => {
-      if (payNowBtn.disabled) return;
-
-      const token = localStorage.getItem('authToken');
-      if (!token) {
-        payNowBtn.textContent = 'Login required';
-        setTimeout(() => {
-          payNowBtn.textContent = 'Pay Now';
-        }, 1500);
-        window.location.href = 'login.html?next=coding-questions.html';
-        return;
-      }
-
-      const originalText = payNowBtn.textContent;
-      payNowBtn.disabled = true;
-      payNowBtn.textContent = 'Processing...';
-
-      try {
-        const response = await fetch(`${API_BASE_URL}/user/upgrade`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            ...getAuthHeaders(),
-          },
-        });
-
-        const result = await response.json();
-        if (!response.ok) {
-          throw new Error(result?.message || 'Unable to complete upgrade right now.');
-        }
-
-        const payload = result?.data || {};
-        if (payload.token) {
-          localStorage.setItem('authToken', payload.token);
-        }
-        if (payload.user) {
-          localStorage.setItem('currentUser', JSON.stringify(payload.user));
-        }
-
-        payNowBtn.textContent = 'Upgrade Complete';
-        closePremiumModal();
-        await applyFilters();
-      } catch (error) {
-        console.error(error);
-        payNowBtn.disabled = false;
-        payNowBtn.textContent = error.message || originalText;
-        setTimeout(() => {
-          payNowBtn.textContent = originalText;
-        }, 1800);
-      }
-    });
-  }
 }
 
 function populateCompanyFilter(questions) {
@@ -1226,12 +1118,6 @@ async function applyFilters() {
       const preferred = allQuestions[resolvedIndex];
 
       if (preferred) {
-        if (preferred.isLocked) {
-          openPremiumModal();
-          renderEmptyQuestionState('This filtered question requires premium access. Change filters or upgrade to continue.');
-          return;
-        }
-
         currentQuestionIndex = resolvedIndex;
         const fullQuestion = await fetchQuestionDetails(preferred._id);
         renderProblemDetails(fullQuestion);
@@ -1264,10 +1150,6 @@ async function loadQuestionByIndex(index) {
   }
 
   const nextQuestion = questions[safeIndex];
-  if (nextQuestion.isLocked) {
-    openPremiumModal();
-    return;
-  }
 
   // ── Source ID bounds validation ───────────────────────────────────────────
   // Guard against corrupted data; sourceId must be within the valid range.
@@ -1581,7 +1463,6 @@ toggleHintsBtn.addEventListener('click', () => {
   toggleHintsBtn.textContent = problemHints.classList.contains('hidden') ? 'Show Hints' : 'Hide Hints';
 });
 
-wirePremiumModalEvents();
 bindTerminalTabs();
 wireTimerControls();
 refreshTimerUI();

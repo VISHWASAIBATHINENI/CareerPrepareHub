@@ -28,6 +28,8 @@ export const env = Object.freeze({
   corsOrigins: parseOrigins(process.env.CORS_ORIGINS || ''),
   requestBodyLimit: process.env.REQUEST_BODY_LIMIT || '100kb',
   logLevel: process.env.LOG_LEVEL || 'info',
+  openaiApiKey: process.env.OPENAI_API_KEY?.trim() || '',
+  geminiApiKey: process.env.GEMINI_API_KEY?.trim() || '',
   redisUrl: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
   judgeQueueName: process.env.JUDGE_QUEUE_NAME || 'submission-judge',
   judgeWorkerConcurrency: Number(process.env.JUDGE_WORKER_CONCURRENCY || 2),

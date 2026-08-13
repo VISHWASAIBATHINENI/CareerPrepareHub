@@ -1,6 +1,7 @@
 const spokenLanguageSelect = document.getElementById('spokenLanguage');
 const watchButtons = document.querySelectorAll('.watch-btn');
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = typeof AUTH_API_BASE_URL !== 'undefined' ? AUTH_API_BASE_URL : (window.API_BASE_URL || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '5000' ? 'http://localhost:5000/api' : '/api'));
+
 
 // Add your own YouTube links below for each domain and spoken language.
 let videoLinks = {

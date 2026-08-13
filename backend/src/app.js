@@ -15,6 +15,8 @@ import authRoutes from './routes/auth.routes.js';
 import codingRoutes from './routes/coding.routes.js';
 import contentRoutes from './routes/content.routes.js';
 import executionRoutes from './routes/execution.routes.js';
+import interviewRoutes from './routes/interview.routes.js';
+import roadmapRoutes from './routes/roadmap.routes.js';
 import userRoutes from './routes/user.routes.js';
 
 const app = express();
@@ -32,7 +34,12 @@ const corsOptions = {
       return callback(null, true);
     }
 
-    if (env.corsOrigins.includes(origin)) {
+    if (
+      env.corsOrigins.includes(origin) ||
+      origin.endsWith('.vercel.app') ||
+      origin.startsWith('http://localhost') ||
+      origin.startsWith('http://127.0.0.1')
+    ) {
       return callback(null, true);
     }
 
@@ -40,6 +47,7 @@ const corsOptions = {
   },
   credentials: true,
 };
+
 
 app.use(
   helmet({
@@ -97,6 +105,8 @@ app.use('/api/aptitude', aptitudeRoutes);
 app.use('/api/coding', codingRoutes);
 app.use('/api/content', contentRoutes);
 app.use('/api', executionRoutes);
+app.use('/api/interviews', interviewRoutes);
+app.use('/api/roadmaps', roadmapRoutes);
 app.use('/api/user', userRoutes);
 
 app.get('/', (_req, res) => {
@@ -104,6 +114,26 @@ app.get('/', (_req, res) => {
 });
 
 app.use(notFoundHandler);
+
+// Handle multer errors (file size, file type) before the generic error handler
+app.use((err, _req, res, next) => {
+  if (err && err.code === 'LIMIT_FILE_SIZE') {
+    return res.status(400).json({
+      success: false,
+      message: 'PDF file is too large. Maximum allowed size is 5 MB.',
+      code: 'FILE_TOO_LARGE',
+    });
+  }
+  if (err && err.message === 'Only PDF files are accepted') {
+    return res.status(400).json({
+      success: false,
+      message: 'Only PDF files are accepted. Please upload a .pdf file.',
+      code: 'INVALID_FILE_TYPE',
+    });
+  }
+  return next(err);
+});
+
 app.use(errorHandler);
 
 export default app;

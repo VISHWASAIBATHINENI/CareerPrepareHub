@@ -37,18 +37,13 @@ const aptitudeQuestionSchema = new mongoose.Schema({
     default: 'easy',
     index: true,
   },
-  isPremium: {
-    type: Boolean,
-    default: false,
-    index: true,
-  },
 }, {
   timestamps: true,
 });
 
-aptitudeQuestionSchema.index({ isPremium: 1, difficulty: 1, createdAt: -1 });
 aptitudeQuestionSchema.index({ topic: 1, difficulty: 1, createdAt: -1 });
 
 const AptitudeQuestion = mongoose.model('AptitudeQuestion', aptitudeQuestionSchema);
 
 export default AptitudeQuestion;
+

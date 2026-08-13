@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Preparation — CareerPrepHub</title>
+  <meta name="description" content="AI-powered interview preparation hub. Practice with personalized mock interviews, upload your resume for project-based questions, and get detailed performance reports.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Exo+2:wght@400;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/interview-prep.css">
+</head>
+<body>
+
+  <!-- Standard CPH Navbar (matches home, coding questions, tech expertise) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+      <div class="nav-right">
+        <div id="navUserBadge" class="nav-user-badge hidden"></div>
+        <a id="navLoginBtn" href="login.html" class="nav-login-btn">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-wrap">
+      <div class="prep-container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+          <span class="crumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+          <span class="crumb-current"><i class="fa-solid fa-robot"></i> Interview Prep</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="prep-hero">
+      <div class="prep-hero-inner">
+        <div class="prep-badge">
+          <i class="fa-solid fa-robot"></i>
+          AI POWERED
+        </div>
+        <h1>Interview Preparation</h1>
+        <p class="prep-subtitle">Choose your interview mode. Upload your resume for personalized, project-based questions. Get AI-generated performance reports with technical and communication scores.</p>
+        <div class="prep-stats">
+          <div class="prep-stat">
+            <span class="prep-stat-num">4</span>
+            <span class="prep-stat-label">Interview Modes</span>
+          </div>
+          <div class="prep-stat">
+            <span class="prep-stat-num">AI</span>
+            <span class="prep-stat-label">Adaptive Questions</span>
+          </div>
+          <div class="prep-stat">
+            <span class="prep-stat-num">∞</span>
+            <span class="prep-stat-label">Unlimited Questions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interview Mode Cards -->
+    <section class="modes-section">
+      <div class="prep-container">
+        <div class="section-label">SELECT INTERVIEW MODE</div>
+
+        <!-- Voice Mode Feature Banner -->
+        <div style="background:linear-gradient(135deg, rgba(37,99,235,0.08), rgba(168,85,247,0.08)); border:1px solid rgba(37,99,235,0.2); border-radius:16px; padding:20px 24px; margin-bottom:32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="width:48px; height:48px; border-radius:12px; background:linear-gradient(135deg, #2563eb, #7c3aed); color:#fff; display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0;">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+            <div>
+              <div style="font-weight:700; font-size:16px; color:var(--text);">🎙️ New: Voice Interview Mode Available</div>
+              <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">Speak your answers naturally with real-time speech-to-text, editable transcripts, and AI question read-aloud!</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <a href="mock-interview.html?interviewMode=voice" class="btn btn-primary" style="padding:10px 18px; font-size:13px; font-weight:600;">
+              <i class="fa-solid fa-microphone"></i> Try Voice Mode
+            </a>
+            <a href="mock-interview.html?interviewMode=text" class="btn btn-secondary" style="padding:10px 18px; font-size:13px; font-weight:600;">
+              <i class="fa-solid fa-keyboard"></i> Text Mode
+            </a>
+          </div>
+        </div>
+
+        <div class="modes-grid">
+
+          <!-- Technical Interview -->
+          <div class="mode-card" id="card-technical">
+            <div class="mode-card-accent accent-blue"></div>
+            <div class="mode-card-body">
+              <div class="mode-icon icon-blue">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <div class="mode-badge badge-blue">TECHNICAL</div>
+              <h2 class="mode-title">Technical Interview</h2>
+              <p class="mode-desc">Select your technical topics. The AI will ask conceptual, problem-solving, and depth-of-knowledge questions strictly on your chosen subjects.</p>
+              <div class="mode-features">
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Select specific topics (Java, SQL, DBMS, DSA…)</span>
+                </div>
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Adaptive difficulty based on your answers</span>
+                </div>
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Unlimited questions until you stop</span>
+                </div>
+                <div class="mode-feature mode-feature-optional">
+                  <i class="fa-solid fa-file-lines"></i>
+                  <span>Resume optional</span>
+                </div>
+              </div>
+              <a href="mock-interview.html?mode=Technical" class="mode-btn btn-blue" id="btn-technical">
+                <i class="fa-solid fa-play"></i> Start Technical Interview
+              </a>
+            </div>
+          </div>
+
+          <!-- Resume-Based Interview -->
+          <div class="mode-card mode-card-featured" id="card-resume">
+            <div class="mode-card-accent accent-purple"></div>
+            <div class="mode-popular-badge">MOST PERSONALIZED</div>
+            <div class="mode-card-body">
+              <div class="mode-icon icon-purple">
+                <i class="fa-solid fa-file-user"></i>
+              </div>
+              <div class="mode-badge badge-purple">RESUME BASED</div>
+              <h2 class="mode-title">Resume-Based Interview</h2>
+              <p class="mode-desc">Upload your resume PDF. The AI will ask questions specifically about your projects, skills, experience, and technology choices mentioned in your resume.</p>
+              <div class="mode-features">
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Upload resume PDF (required)</span>
+                </div>
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Project-specific questions (why MongoDB? why Node.js?)</span>
+                </div>
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Deep follow-ups on your actual projects</span>
+                </div>
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Project understanding score in report</span>
+                </div>
+              </div>
+              <a href="mock-interview.html?mode=Resume+Based" class="mode-btn btn-purple" id="btn-resume">
+                <i class="fa-solid fa-upload"></i> Start Resume Interview
+              </a>
+            </div>
+          </div>
+
+          <!-- Resume + Technical -->
+          <div class="mode-card" id="card-resume-technical">
+            <div class="mode-card-accent accent-indigo"></div>
+            <div class="mode-card-body">
+              <div class="mode-icon icon-indigo">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <div class="mode-badge badge-indigo">COMBINED</div>
+              <h2 class="mode-title">Resume + Technical</h2>
+              <p class="mode-desc">The most comprehensive interview. Combines your resume projects with selected technical topics for a fully personalized, real-world interview experience.</p>
+              <div class="mode-features">
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Resume PDF + selected topics combined</span>
+                </div>
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Project questions + conceptual topics</span>
+                </div>
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Technical + project + communication scores</span>
+                </div>
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Full personalized interview report</span>
+                </div>
+              </div>
+              <a href="mock-interview.html?mode=Resume+Technical" class="mode-btn btn-indigo" id="btn-resume-technical">
+                <i class="fa-solid fa-rocket"></i> Start Combined Interview
+              </a>
+            </div>
+          </div>
+
+          <!-- HR Interview -->
+          <div class="mode-card" id="card-hr">
+            <div class="mode-card-accent accent-green"></div>
+            <div class="mode-card-body">
+              <div class="mode-icon icon-green">
+                <i class="fa-solid fa-people-group"></i>
+              </div>
+              <div class="mode-badge badge-green">HR ROUND</div>
+              <h2 class="mode-title">HR Interview</h2>
+              <p class="mode-desc">Practice behavioral and soft-skills questions. The AI evaluates communication, clarity, and professional articulation from your written answers.</p>
+              <div class="mode-features">
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Behavioral & situational questions</span>
+                </div>
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Teamwork, leadership, conflict resolution</span>
+                </div>
+                <div class="mode-feature">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>AI Communication Assessment (text-based)</span>
+                </div>
+                <div class="mode-feature mode-feature-optional">
+                  <i class="fa-solid fa-file-lines"></i>
+                  <span>Resume optional — used for personalization</span>
+                </div>
+              </div>
+              <a href="mock-interview.html?mode=HR" class="mode-btn btn-green" id="btn-hr">
+                <i class="fa-solid fa-comments"></i> Start HR Interview
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works-section">
+      <div class="prep-container">
+        <div class="section-label">HOW IT WORKS</div>
+        <h2 class="section-title">A Real Personalized AI Interview</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-icon"><i class="fa-solid fa-sliders"></i></div>
+            <h3>Configure</h3>
+            <p>Choose interview mode, topics, difficulty, and optionally upload your resume PDF.</p>
+          </div>
+          <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-icon"><i class="fa-solid fa-robot"></i></div>
+            <h3>AI Interviews You</h3>
+            <p>The AI asks questions, adapts difficulty, and follows up based on your answers. You stop whenever you're ready.</p>
+          </div>
+          <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-icon"><i class="fa-solid fa-chart-pie"></i></div>
+            <h3>Get Your Report</h3>
+            <p>Receive a full report with Technical Score, AI Communication Assessment, topic-wise performance, and personalized recommendations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interview History Quick Access -->
+    <section class="history-section">
+      <div class="prep-container">
+        <div class="history-quick-card">
+          <div class="history-quick-left">
+            <div class="history-quick-icon">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <div class="history-quick-text">
+              <h3>My Interview History</h3>
+              <p id="historyQuickDesc">Loading your past interviews…</p>
+            </div>
+          </div>
+          <a href="mock-interview-history.html" class="history-view-btn">
+            <i class="fa-solid fa-list"></i> View All Interviews
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Banner: Communication Assessment -->
+    <section class="info-section">
+      <div class="prep-container">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fa-solid fa-circle-info"></i>
+          </div>
+          <div class="info-card-body">
+            <h3>About AI Communication Assessment</h3>
+            <p>CareerPrepHub evaluates your <strong>written communication</strong> from your text answers — not voice, tone, pronunciation, or facial expressions. The assessment covers <strong>clarity, answer structure, conciseness, technical vocabulary, and completeness</strong>. This gives you actionable feedback on how clearly you express technical concepts in writing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Career Prepare Hub</h3>
+          <p>Your journey to career success starts here.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="tech-skills.html">Technical Expertise</a></li>
+            <li><a href="coding-questions.html">Coding Questions</a></li>
+            <li><a href="project-explorer.html">Projects</a></li>
+            <li><a href="interview-prep.html">Interview Prep</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: vishwa.bathineni@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Career Prepare Hub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/interview-prep.js"></script>
+</body>
+</html>
+

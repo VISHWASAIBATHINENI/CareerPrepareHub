@@ -8,6 +8,8 @@
 
 (function () {
   const RESTRICTED_PAGES = new Set([
+    'roadmap.html',
+    'roadmap-detail.html',
     'tech-skills.html',
     'core-subjects.html',
     'project-explorer.html',
@@ -16,7 +18,11 @@
     'aptitude-practice.html',
     'coding-questions.html',
     'programming-languages.html',
-    'domains.html'
+    'domains.html',
+    'mock-interview.html',
+    'mock-interview-session.html',
+    'mock-interview-report.html',
+    'mock-interview-history.html',
   ]);
 
   const path = window.location.pathname.split('/').pop() || 'home.html';

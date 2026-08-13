@@ -9,7 +9,8 @@ const confirmPassword = document.getElementById('confirmPassword');
 const emailDisplay = document.getElementById('emailDisplay');
 const resendBtn = document.getElementById('resendBtn');
 const resendTimer = document.getElementById('resendTimer');
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = typeof AUTH_API_BASE_URL !== 'undefined' ? AUTH_API_BASE_URL : (window.API_BASE_URL || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '5000' ? 'http://localhost:5000/api' : '/api'));
+
 
 let currentEmail = '';
 let currentOtp = '';

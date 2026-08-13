@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { forgotPassword, googleAuth, login, resetPassword, sendOtp, signup, verifyOtp } from '../controllers/auth.controller.js';
+import { forgotPassword, googleAuth, googleAuthRedirect, login, resetPassword, sendOtp, signup, verifyOtp } from '../controllers/auth.controller.js';
 import { validateBody } from '../middleware/validate.middleware.js';
 import {
   forgotPasswordSchema,
@@ -17,6 +17,7 @@ const router = express.Router();
 router.post('/signup', validateBody(signupSchema), signup);
 router.post('/login', validateBody(loginSchema), login);
 router.post('/google', validateBody(googleAuthSchema), googleAuth);
+router.post('/google/callback', googleAuthRedirect);
 router.post('/send-otp', validateBody(sendOtpSchema), sendOtp);
 router.post('/verify-otp', validateBody(verifyOtpSchema), verifyOtp);
 router.post('/forgot-password', validateBody(forgotPasswordSchema), forgotPassword);

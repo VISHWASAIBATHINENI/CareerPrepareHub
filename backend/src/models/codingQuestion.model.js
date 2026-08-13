@@ -151,17 +151,11 @@ const codingQuestionSchema = new mongoose.Schema({
     type: executionSchema,
     default: () => ({}),
   },
-  isPremium: {
-    type: Boolean,
-    default: false,
-    index: true,
-  },
 }, {
   timestamps: true,
 });
 
 codingQuestionSchema.index({ difficulty: 1, company: 1, topic: 1, createdAt: -1 });
-codingQuestionSchema.index({ isPremium: 1, createdAt: -1 });
 
 const CodingQuestion = mongoose.model('CodingQuestion', codingQuestionSchema);
 

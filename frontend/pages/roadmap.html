@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/auth-modal.css">
+  <link rel="stylesheet" href="../assets/css/roadmap.css">
+  <title>Career Roadmaps — Career Prepare Hub</title>
+</head>
+<body data-restricted-page="true">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="roadmap-main">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="home.html">Home</a>
+      <span class="separator">/</span>
+      <span aria-current="page">Roadmaps</span>
+    </nav>
+
+    <!-- Hero Header -->
+    <section class="roadmap-hero">
+      <h1>Build Your <span>Career Roadmap</span></h1>
+      <p class="subtext">Choose your career goal and follow a structured path from learning fundamentals to interview preparation.</p>
+      
+      <div class="roadmap-filter-bar">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="roadmapSearchInput" placeholder="Search career goal or topic...">
+        </div>
+      </div>
+    </section>
+
+    <!-- Career Cards Grid -->
+    <section id="careerCardsGrid" class="career-grid">
+      <!-- Loaded dynamically via roadmap.js -->
+      <div class="loading-state" style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
+        <i class="fa-solid fa-spinner fa-spin fa-2x" style="color: var(--primary); margin-bottom: 12px;"></i>
+        <p>Loading Career Roadmaps...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/js/auth-common.js"></script>
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/auth-gate.js"></script>
+  <script src="../assets/js/roadmap.js"></script>
+</body>
+</html>

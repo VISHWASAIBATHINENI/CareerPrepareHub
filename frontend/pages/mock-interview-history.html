@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Interviews — CareerPrepHub</title>
+  <meta name="description" content="View your AI mock interview history and past performance reports.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/mock-interview.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+      <div class="nav-right">
+        <a href="mock-interview.html" class="nav-back"><i class="fa-solid fa-plus"></i> New Interview</a>
+        <div id="navUserBadge" class="nav-user-badge hidden"></div>
+        <a id="navLoginLink" href="login.html" class="nav-login-link hidden">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="container">
+
+      <div class="page-header">
+        <div class="badge"><i class="fa-solid fa-clock-rotate-left"></i> HISTORY</div>
+        <h1>My Interviews</h1>
+        <p>Track your progress across all mock interview sessions.</p>
+      </div>
+
+      <div id="errorBanner" class="error-banner"></div>
+
+      <div id="loadingState" style="text-align:center; padding:40px 0;">
+        <div class="spinner" style="width:28px;height:28px;border-color:rgba(37,99,235,0.2);border-top-color:var(--primary);"></div>
+        <p style="margin-top:12px;color:var(--text-muted);font-size:14px;">Loading your interviews...</p>
+      </div>
+
+      <div class="history-grid hidden" id="historyGrid"></div>
+
+      <div class="empty-state hidden" id="emptyState">
+        <i class="fa-solid fa-microphone-slash"></i>
+        <h3>No interviews yet</h3>
+        <p>Start your first AI mock interview to see your history here.</p>
+        <a href="interview-prep.html" class="btn btn-primary">
+          <i class="fa-solid fa-play"></i> Start AI Mock Interview
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Career Prepare Hub</h3>
+          <p>Your journey to career success starts here.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="tech-skills.html">Technical Expertise</a></li>
+            <li><a href="coding-questions.html">Coding Questions</a></li>
+            <li><a href="project-explorer.html">Projects</a></li>
+            <li><a href="interview-prep.html">Interview Prep</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: vishwa.bathineni@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Career Prepare Hub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/mock-interview-history.js"></script>
+</body>
+</html>

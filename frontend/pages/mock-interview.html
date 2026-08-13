@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mock Interview Setup — CareerPrepHub</title>
+  <meta name="description" content="Configure your personalized AI mock interview. Choose interview type, upload your resume, select topics, and difficulty.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Exo+2:wght@400;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/mock-interview.css">
+  <style>
+    /* ── PDF Upload styles ── */
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: 14px;
+      padding: 32px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s;
+      background: #fafcff;
+      position: relative;
+    }
+    .upload-zone:hover, .upload-zone.drag-over {
+      border-color: var(--primary);
+      background: rgba(37,99,235,0.04);
+    }
+    .upload-zone input[type="file"] {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+    }
+    .upload-icon { font-size: 36px; color: var(--primary); margin-bottom: 12px; opacity: 0.7; }
+    .upload-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .upload-subtitle { font-size: 13px; color: var(--text-muted); }
+    .upload-hint { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+    .upload-selected {
+      display: none; align-items: center; gap: 12px; background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.25); border-radius: 10px; padding: 12px 16px; margin-top: 12px;
+    }
+    .upload-selected.show { display: flex; }
+    .upload-selected i { color: var(--success); font-size: 18px; }
+    .upload-selected-name { font-size: 13px; font-weight: 600; color: var(--text); flex: 1; }
+    .upload-selected-size { font-size: 12px; color: var(--text-muted); }
+    .upload-remove { background: none; border: none; cursor: pointer; color: var(--danger); font-size: 16px; padding: 2px; }
+    .upload-error {
+      background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25);
+      border-radius: 10px; padding: 10px 14px; font-size: 13px; color: #b91c1c;
+      margin-top: 10px; display: none; align-items: center; gap: 8px;
+    }
+    .upload-error.show { display: flex; }
+    .resume-tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+    .resume-tab {
+      flex: 1; padding: 10px 16px; border-radius: 10px; border: 2px solid var(--border);
+      cursor: pointer; font-size: 13px; font-weight: 600; background: var(--card);
+      color: var(--text-muted); text-align: center; transition: all 0.2s;
+    }
+    .resume-tab.active { border-color: var(--primary); background: rgba(37,99,235,0.08); color: var(--primary); }
+    .resume-panel { display: none; }
+    .resume-panel.active { display: block; }
+    .required-badge {
+      display: inline-flex; align-items: center; gap: 4px; background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.2); border-radius: 999px; padding: 3px 10px;
+      font-size: 11px; font-weight: 700; color: #b91c1c; margin-left: 8px;
+    }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb-bar {
+      padding: 14px 0 4px;
+      margin-bottom: 8px;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--primary); }
+    .breadcrumb .crumb-sep {
+      color: var(--border);
+      font-size: 11px;
+    }
+    .breadcrumb .crumb-current {
+      color: var(--primary);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Standard CPH Navbar (matches home, coding questions, tech expertise) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+      <div class="nav-right">
+        <div id="navUserBadge" class="nav-user-badge hidden"></div>
+        <a id="navLoginLink" href="login.html" class="nav-login-link hidden">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb-bar">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+          <span class="crumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+          <span class="crumb-current"><i class="fa-solid fa-robot"></i> Interview Prep</span>
+        </nav>
+      </div>
+
+      <div class="page-header">
+        <div class="badge" id="modeTypeBadge"><i class="fa-solid fa-robot"></i> AI POWERED</div>
+        <h1 id="pageTitle">AI Mock Interview Setup</h1>
+        <p id="pageSubtitle">Configure your personalized interview session. The AI will ask questions until you choose to end.</p>
+      </div>
+
+      <div id="errorBanner" class="error-banner"></div>
+
+      <!-- Interview Mode Selection (Text vs Voice) -->
+      <div class="card" id="interviewModeCard">
+        <div class="card-title"><i class="fa-solid fa-headset"></i> Interview Mode</div>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px;">Select how you want to respond during your mock interview.</p>
+        <div class="option-group" id="modeGroup">
+          <label class="option-pill selected" data-value="text" style="padding:14px 18px;flex:1;min-width:220px;cursor:pointer;">
+            <input type="radio" name="interviewMode" value="text" checked>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:24px;">⌨️</span>
+              <div>
+                <div style="font-weight:700;font-size:14px;color:var(--text);">Text Interview</div>
+                <div style="font-size:12px;color:var(--text-muted);font-weight:400;margin-top:2px;">Type your answers and practice written technical communication.</div>
+              </div>
+            </div>
+          </label>
+          <label class="option-pill" data-value="voice" style="padding:14px 18px;flex:1;min-width:220px;cursor:pointer;">
+            <input type="radio" name="interviewMode" value="voice">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:24px;">🎙️</span>
+              <div>
+                <div style="font-weight:700;font-size:14px;color:var(--text);">Voice Interview</div>
+                <div style="font-size:12px;color:var(--text-muted);font-weight:400;margin-top:2px;">Speak naturally into your microphone like a live phone/video call.</div>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Interview Type -->
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-layer-group"></i> Interview Type</div>
+        <div class="option-group" id="typeGroup">
+          <label class="option-pill selected" data-value="Technical">
+            <input type="radio" name="interviewType" value="Technical" checked>
+            <i class="fa-solid fa-code"></i> Technical
+          </label>
+          <label class="option-pill" data-value="Resume Based">
+            <input type="radio" name="interviewType" value="Resume Based">
+            <i class="fa-solid fa-file-lines"></i> Resume Based
+          </label>
+          <label class="option-pill" data-value="Resume + Technical">
+            <input type="radio" name="interviewType" value="Resume + Technical">
+            <i class="fa-solid fa-layer-group"></i> Resume + Technical
+          </label>
+          <label class="option-pill" data-value="HR">
+            <input type="radio" name="interviewType" value="HR">
+            <i class="fa-solid fa-people-group"></i> HR
+          </label>
+          <label class="option-pill" data-value="Technical + HR">
+            <input type="radio" name="interviewType" value="Technical + HR">
+            <i class="fa-solid fa-shuffle"></i> Technical + HR
+          </label>
+        </div>
+      </div>
+
+      <!-- Topics Card (hidden for pure HR and Resume Based) -->
+      <div class="card" id="topicsCard">
+        <div class="card-title"><i class="fa-solid fa-tags"></i> Select Topics</div>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px;">Select the topics you want to be interviewed on. The AI will focus on your chosen subjects.</p>
+        <div class="topics-grid" id="topicsGrid">
+          <!-- Populated by JS -->
+        </div>
+        <!-- Add Custom Topic UI -->
+        <div class="add-custom-topic-box">
+          <input type="text" id="customTopicInput" placeholder="Add custom topic (e.g. Docker, Microservices, React Native...)" class="custom-topic-input" maxlength="40">
+          <button id="addCustomTopicBtn" class="btn btn-secondary btn-sm" type="button">
+            <i class="fa-solid fa-plus"></i> Add Topic
+          </button>
+        </div>
+      </div>
+
+      <!-- Resume Card (shown for resume-based interviews) -->
+      <div class="card" id="resumeCard" style="display:none;">
+        <div class="card-title">
+          <i class="fa-solid fa-file-user"></i> Resume
+          <span class="required-badge" id="resumeRequiredBadge"><i class="fa-solid fa-asterisk"></i> Required</span>
+        </div>
+
+        <div class="resume-tabs" id="resumeTabs">
+          <div class="resume-tab active" id="tabPDF" data-tab="pdf">
+            <i class="fa-solid fa-file-pdf"></i> Upload PDF
+          </div>
+          <div class="resume-tab" id="tabText" data-tab="text">
+            <i class="fa-solid fa-keyboard"></i> Paste Text
+          </div>
+        </div>
+
+        <!-- PDF Upload Panel -->
+        <div class="resume-panel active" id="panelPDF">
+          <div class="upload-zone" id="uploadZone">
+            <input type="file" id="resumePDFInput" accept=".pdf,application/pdf" aria-label="Upload resume PDF">
+            <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <div class="upload-title">Drag &amp; drop your resume PDF or click to browse</div>
+            <div class="upload-subtitle">Only PDF files accepted</div>
+            <div class="upload-hint"><i class="fa-solid fa-lock"></i> Max 5 MB · Used only to personalise your interview</div>
+          </div>
+          <div class="upload-selected" id="uploadSelected">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span class="upload-selected-name" id="uploadFileName">file.pdf</span>
+            <span class="upload-selected-size" id="uploadFileSize">0 KB</span>
+            <button class="upload-remove" id="uploadRemoveBtn" type="button" aria-label="Remove file"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="upload-error" id="uploadError">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span id="uploadErrorMsg">Invalid file</span>
+          </div>
+        </div>
+
+        <!-- Text Paste Panel -->
+        <div class="resume-panel" id="panelText">
+          <textarea id="resumeTextarea" class="resume-textarea"
+            placeholder="Paste your resume information here — skills, projects, experience, education...&#10;&#10;Example:&#10;Skills: Java, SQL, MongoDB, Node.js, React&#10;Projects: CareerPrepHub (Node.js + MongoDB), Task Manager (React)&#10;Education: B.Tech Computer Science, 2025&#10;Experience: Intern at XYZ Corp — backend development"></textarea>
+          <p class="resume-hint"><i class="fa-solid fa-lock"></i> Your resume is stored securely and used only to personalise interview questions.</p>
+          <div style="margin-top:10px; display:flex; gap:8px; align-items:center;">
+            <button class="btn btn-secondary btn-sm" id="saveResumeBtn" type="button">
+              <i class="fa-solid fa-floppy-disk"></i> Save Resume
+            </button>
+            <span id="resumeSaveStatus" style="font-size:12px; color: var(--success);"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional resume toggle for Technical / HR types -->
+      <div class="card" id="resumeOptionalCard">
+        <div class="card-title"><i class="fa-solid fa-file-user"></i> Resume Context (Optional)</div>
+        <div class="resume-toggle">
+          <label class="toggle-switch" for="useResumeToggle">
+            <input type="checkbox" id="useResumeToggle" checked>
+            <span class="toggle-track"></span>
+            <span class="toggle-thumb"></span>
+          </label>
+          <span class="toggle-label">Use my saved resume to personalise questions</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:6px;">
+          <i class="fa-solid fa-info-circle"></i> If you have a saved resume, the AI will reference it for more relevant questions.
+        </p>
+      </div>
+
+      <!-- Difficulty -->
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-gauge-high"></i> Difficulty</div>
+        <div class="option-group" id="difficultyGroup">
+          <label class="option-pill" data-value="Beginner">
+            <input type="radio" name="difficulty" value="Beginner">
+            <i class="fa-solid fa-seedling"></i> Beginner
+          </label>
+          <label class="option-pill selected" data-value="Intermediate">
+            <input type="radio" name="difficulty" value="Intermediate" checked>
+            <i class="fa-solid fa-fire-flame-curved"></i> Intermediate
+          </label>
+          <label class="option-pill" data-value="Advanced">
+            <input type="radio" name="difficulty" value="Advanced">
+            <i class="fa-solid fa-bolt"></i> Advanced
+          </label>
+        </div>
+      </div>
+
+      <!-- History link -->
+      <div style="text-align:center; margin-top:16px;">
+        <a href="mock-interview-history.html" style="font-size:13px; color:var(--text-muted); text-decoration:none;">
+          <i class="fa-solid fa-clock-rotate-left"></i> View My Interview History
+        </a>
+      </div>
+
+      <div class="start-btn-row">
+        <button id="startInterviewBtn" class="btn btn-primary btn-lg" type="button">
+          <i class="fa-solid fa-play"></i> Start Interview
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Career Prepare Hub</h3>
+          <p>Your journey to career success starts here.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="tech-skills.html">Technical Expertise</a></li>
+            <li><a href="coding-questions.html">Coding Questions</a></li>
+            <li><a href="project-explorer.html">Projects</a></li>
+            <li><a href="interview-prep.html">Interview Prep</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: vishwa.bathineni@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Career Prepare Hub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/mock-interview.js"></script>
+</body>
+</html>
+

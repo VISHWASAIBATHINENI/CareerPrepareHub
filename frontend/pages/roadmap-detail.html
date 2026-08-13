@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/auth-modal.css">
+  <link rel="stylesheet" href="../assets/css/roadmap.css">
+  <title>Roadmap Detail — Career Prepare Hub</title>
+</head>
+<body data-restricted-page="true">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Detail View -->
+  <main class="roadmap-main">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="home.html">Home</a>
+      <span class="separator">/</span>
+      <a href="roadmap.html">Roadmaps</a>
+      <span class="separator">/</span>
+      <span id="breadcrumbRoadmapTitle" aria-current="page">Roadmap Detail</span>
+    </nav>
+
+    <!-- Header Summary Card -->
+    <header id="detailHeaderCard" class="detail-header-card">
+      <div class="loading-state" style="text-align: center; padding: 20px;">
+        <i class="fa-solid fa-spinner fa-spin fa-2x" style="color: var(--primary);"></i>
+        <p style="margin-top: 8px; color: var(--text-muted);">Loading roadmap details...</p>
+      </div>
+    </header>
+
+    <!-- Vertical Timeline -->
+    <section class="timeline-section">
+      <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; margin-bottom: 24px; color: var(--text);">
+        <i class="fa-solid fa-route" style="color: var(--primary); margin-right: 8px;"></i>
+        Learning Journey Timeline
+      </h2>
+
+      <div id="timelineContainer" class="timeline-container">
+        <!-- Loaded dynamically via roadmap-detail.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Topic Detail Modal -->
+  <div id="topicDetailModal" class="topic-modal-overlay">
+    <div class="topic-modal-card">
+      <div class="modal-header-banner">
+        <div>
+          <h3 id="modalTopicTitle">Topic Title</h3>
+          <div class="meta-tags">
+            <span id="modalTopicDifficulty" class="modal-tag">Beginner</span>
+            <span id="modalTopicTime" class="modal-tag"><i class="fa-regular fa-clock"></i> 2 hours</span>
+          </div>
+        </div>
+        <button id="closeTopicModalBtn" class="close-modal-btn" type="button" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-content-body">
+        <div class="topic-section-block">
+          <h4><i class="fa-solid fa-circle-info"></i> Description</h4>
+          <p id="modalTopicDescription" style="color: var(--text-muted); font-size: 14px; line-height: 1.6;"></p>
+        </div>
+
+        <div class="topic-section-block">
+          <h4><i class="fa-solid fa-bullseye"></i> What You Should Learn</h4>
+          <ul id="modalTopicObjectives" class="objectives-list">
+            <!-- Objectives -->
+          </ul>
+        </div>
+
+        <div class="topic-section-block">
+          <h4><i class="fa-solid fa-book-bookmark"></i> Learning Resources</h4>
+          <div id="modalTopicResources" class="resources-grid">
+            <!-- Resources -->
+          </div>
+        </div>
+
+        <div id="modalPracticeSectionBlock" class="topic-section-block">
+          <h4 id="modalPracticeHeader"><i class="fa-solid fa-code"></i> Recommended Practice</h4>
+          <div id="modalTopicCoding" class="practice-questions-list">
+            <!-- Dynamic practice content -->
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-action-footer">
+        <div style="font-size: 13px; color: var(--text-muted);" id="modalStatusText">
+          Click below to update your learning progress.
+        </div>
+        <button id="toggleCompleteBtn" class="toggle-complete-btn mark-complete" type="button">
+          <i class="fa-solid fa-check"></i>
+          <span>Mark as Complete</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/auth-common.js"></script>
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/auth-gate.js"></script>
+  <script src="../assets/js/roadmap-detail.js"></script>
+</body>
+</html>

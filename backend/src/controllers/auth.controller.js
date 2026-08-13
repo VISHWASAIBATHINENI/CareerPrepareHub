@@ -27,6 +27,35 @@ export const googleAuth = asyncHandler(async (req, res) => {
   });
 });
 
+export const googleAuthRedirect = asyncHandler(async (req, res) => {
+  const credential = req.body.credential;
+  if (!credential) {
+    return res.redirect('/pages/login.html?error=no_credential');
+  }
+
+  try {
+    const data = await authService.googleAuth({ credential });
+    const userJson = JSON.stringify(data.user || {});
+    const html = `<!DOCTYPE html>
+<html>
+<head><title>Authenticating...</title></head>
+<body>
+  <p style="font-family:sans-serif;text-align:center;margin-top:50px;">Google sign-in successful. Redirecting...</p>
+  <script>
+    try {
+      localStorage.setItem('authToken', ${JSON.stringify(data.token)});
+      localStorage.setItem('currentUser', JSON.stringify(${userJson}));
+    } catch (e) {}
+    window.location.href = '/pages/home.html';
+  </script>
+</body>
+</html>`;
+    return res.status(200).send(html);
+  } catch (error) {
+    return res.redirect(`/pages/login.html?error=${encodeURIComponent(error.message || 'Google Auth Failed')}`);
+  }
+});
+
 export const sendOtp = asyncHandler(async (req, res) => {
   const data = await authService.sendOtp(req.body);
   return sendSuccess(res, {

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mock Interview — CareerPrepHub</title>
+  <meta name="description" content="AI-powered mock interview session with real-time dynamic questions.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/mock-interview.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+      <div class="nav-right">
+        <div id="navUserBadge" class="nav-user-badge hidden"></div>
+        <a id="navLoginLink" href="login.html" class="nav-login-link hidden">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="container-wide">
+
+      <div id="errorBanner" class="error-banner"></div>
+      <div id="loadingState" style="text-align:center; padding:60px 0;">
+        <div class="spinner" style="width:32px;height:32px;border-color:rgba(37,99,235,0.2);border-top-color:var(--primary);"></div>
+        <p style="margin-top:16px;color:var(--text-muted);font-size:14px;">Loading your interview session...</p>
+      </div>
+
+      <div id="interviewLayout" class="interview-layout hidden">
+
+        <!-- Sidebar -->
+        <aside>
+          <div class="card sidebar-card">
+            <div class="card-title"><i class="fa-solid fa-chart-bar"></i> Session Info</div>
+            <div class="stat-row">
+              <span class="stat-label">Mode</span>
+              <span class="stat-val accent" id="sideMode">⌨️ Text</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Type</span>
+              <span class="stat-val accent" id="sideType">—</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Difficulty</span>
+              <span class="stat-val" id="sideDiff">—</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Progress</span>
+              <span class="stat-val accent" id="sideProgress">0/10</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Duration</span>
+              <span class="stat-val" id="sideTimer">00:00</span>
+            </div>
+            <div style="margin-top:12px;">
+              <div class="stat-label" style="margin-bottom:6px;">Topics</div>
+              <div class="topic-pills-small" id="sideTopics"></div>
+            </div>
+            <div style="margin-top:20px;">
+              <button id="endInterviewBtn" class="btn btn-danger btn-sm btn-full" type="button">
+                <i class="fa-solid fa-flag-checkered"></i> End Interview
+              </button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Chat window -->
+        <div>
+          <div class="chat-window">
+            <div class="chat-topbar">
+              <div class="chat-topbar-title">
+                <span class="ai-dot"></span>
+                AI Interviewer
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span id="chatModeBadge" class="badge" style="font-size:11px;padding:4px 10px;margin:0;"><i class="fa-solid fa-keyboard"></i> Text Mode</span>
+                <span class="q-counter" id="qCounter">Question 1 of 10</span>
+              </div>
+            </div>
+
+            <div class="messages-area" id="messagesArea">
+              <!-- Messages rendered by JS -->
+            </div>
+
+            <!-- Answer area -->
+            <div class="answer-area" id="answerArea">
+              
+              <!-- 1. Text Mode Container -->
+              <div id="textAnswerContainer">
+                <label for="answerInput" style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);display:block;margin-bottom:6px;">Your Answer</label>
+                <textarea
+                  id="answerInput"
+                  class="answer-textarea"
+                  placeholder="Type your answer here..."
+                  maxlength="5000"
+                  aria-label="Your answer"
+                ></textarea>
+                <div class="answer-actions">
+                  <span class="char-count" id="charCount">0 / 5000</span>
+                  <div class="action-btns">
+                    <button id="submitAnswerBtn" class="btn btn-primary" type="button">
+                      <i class="fa-solid fa-paper-plane"></i> Submit Answer
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Voice Mode Container -->
+              <div id="voiceAnswerContainer" class="hidden">
+                <!-- Permission / Unsupported Error Fallback Banner -->
+                <div id="voiceErrorBanner" class="error-banner" style="margin-bottom:14px;display:none;">
+                  <div style="display:flex;align-items:flex-start;gap:10px;">
+                    <i class="fa-solid fa-triangle-exclamation" style="font-size:18px;margin-top:2px;"></i>
+                    <div style="flex:1;">
+                      <div id="voiceErrorTitle" style="font-weight:700;">Microphone Access Needed</div>
+                      <div id="voiceErrorMsg" style="font-size:12px;margin-top:2px;color:var(--text-muted);">
+                        Microphone permission is required for Voice Interview. You can enable microphone permissions in your browser or switch to Text Mode.
+                      </div>
+                      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
+                        <button id="retryMicBtn" class="btn btn-secondary btn-sm" type="button"><i class="fa-solid fa-rotate-right"></i> Try Again</button>
+                        <button id="switchToTextBtn" class="btn btn-primary btn-sm" type="button"><i class="fa-solid fa-keyboard"></i> Switch to Text Interview</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Voice Recording Controls -->
+                <div class="voice-area" id="voiceControlsBox">
+                  <button id="micRecordBtn" class="mic-btn-large" type="button" aria-label="Start recording answer">
+                    <i class="fa-solid fa-microphone" id="micIcon"></i>
+                  </button>
+                  <div>
+                    <div id="micStatusText" class="voice-status-text">Click the microphone to start speaking</div>
+                    <div id="recordingTimer" class="recording-timer hidden">Recording... 00:00</div>
+                  </div>
+
+                  <!-- Transcript Container -->
+                  <div id="transcriptBox" class="voice-transcript-box hidden">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                      <label for="voiceTranscriptTextarea" style="font-size:12px;font-weight:700;text-transform:uppercase;color:var(--primary);"><i class="fa-solid fa-quote-left"></i> Your Spoken Transcript</label>
+                      <span style="font-size:11px;color:var(--text-muted);"><i class="fa-solid fa-pen"></i> Editable</span>
+                    </div>
+                    <textarea id="voiceTranscriptTextarea" class="voice-transcript-textarea" placeholder="Your speech will appear here... You can edit it before submitting."></textarea>
+                    
+                    <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+                      <div style="display:flex;gap:8px;">
+                        <button id="reRecordBtn" class="btn btn-secondary btn-sm" type="button">
+                          <i class="fa-solid fa-rotate-left"></i> Re-record
+                        </button>
+                        <button id="focusTranscriptBtn" class="btn btn-secondary btn-sm" type="button">
+                          <i class="fa-solid fa-pen-to-square"></i> Edit Text
+                        </button>
+                      </div>
+                      <button id="submitVoiceAnswerBtn" class="btn btn-primary" type="button">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Answer
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Complete banner (shown after all questions answered) -->
+            <div id="completeBanner" class="answer-area hidden" style="text-align:center; padding:24px;">
+              <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;">
+                <i class="fa-solid fa-flag-checkered" style="color:var(--success);"></i>
+                All questions answered!
+              </p>
+              <button id="viewReportBtn" class="btn btn-primary" type="button">
+                <i class="fa-solid fa-chart-line"></i> View My Report
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Career Prepare Hub</h3>
+          <p>Your journey to career success starts here.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="tech-skills.html">Technical Expertise</a></li>
+            <li><a href="coding-questions.html">Coding Questions</a></li>
+            <li><a href="project-explorer.html">Projects</a></li>
+            <li><a href="interview-prep.html">Interview Prep</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: vishwa.bathineni@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Career Prepare Hub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/mock-interview-session.js"></script>
+</body>
+</html>

@@ -2,6 +2,12 @@ import mongoose from 'mongoose';
 import { env } from './env.js';
 import logger from '../logger/index.js';
 
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
 const connectDB = async () => {
   const mongoURI = env.mongoUri;
 
@@ -9,8 +15,32 @@ const connectDB = async () => {
     throw new Error('MONGODB_URI is missing in environment variables');
   }
 
-  await mongoose.connect(mongoURI);
-  logger.info('MongoDB connected');
+  if (cached.conn && mongoose.connection.readyState === 1) {
+    return cached.conn;
+  }
+
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+    };
+
+    cached.promise = mongoose.connect(mongoURI, opts).then((mongooseInstance) => {
+      logger.info('MongoDB connected');
+      return mongooseInstance;
+    }).catch((err) => {
+      cached.promise = null;
+      throw err;
+    });
+  }
+
+  try {
+    cached.conn = await cached.promise;
+  } catch (e) {
+    cached.promise = null;
+    throw e;
+  }
+
+  return cached.conn;
 };
 
 export default connectDB;

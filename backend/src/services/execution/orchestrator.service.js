@@ -5,6 +5,7 @@ import path from 'path';
 
 import { env } from '../../config/env.js';
 import CodingQuestion from '../../models/codingQuestion.model.js';
+import Progress from '../../models/progress.model.js';
 import Submission from '../../models/submission.model.js';
 import logger from '../../logger/index.js';
 import { compareOutputs } from './comparator/index.js';
@@ -216,6 +217,35 @@ const finalizeSubmission = async (submission, payload) => {
   
   submission.finishedAt = new Date();
   await submission.save();
+
+  // ── Sync User Coding Progress Document ────────────────────────────
+  if (submission.userId && submission.problemId && submission.mode === 'submit') {
+    try {
+      const isAccepted = payload.status === 'Accepted';
+      const updateDoc = {
+        $inc: { attempts: 1 },
+        $set: { lastAttemptAt: new Date() },
+      };
+      if (isAccepted) {
+        updateDoc.$set = { isCorrect: true, lastAttemptAt: new Date() };
+      } else {
+        updateDoc.$setOnInsert = { isCorrect: false };
+      }
+
+      await Progress.findOneAndUpdate(
+        {
+          user: submission.userId,
+          questionType: 'coding',
+          questionId: submission.problemId,
+        },
+        updateDoc,
+        { upsert: true, new: true }
+      );
+    } catch (err) {
+      logger.error({ message: 'Failed to update user coding progress', error: err.message });
+    }
+  }
+
   return submission;
 };
 
@@ -223,6 +253,17 @@ export const judgeSubmissionById = async (submissionId) => {
   const submission = await Submission.findById(submissionId);
   if (!submission) {
     throw new Error(`Submission not found: ${submissionId}`);
+  }
+
+  if (process.env.VERCEL) {
+    submission.status = 'System Error';
+    submission.startedAt = new Date();
+    submission.completedAt = new Date();
+    submission.stderr = 'Code execution is temporarily unavailable in the deployed environment.';
+    submission.stdout = '';
+    submission.compileOutput = 'Code execution is temporarily unavailable in the deployed environment.';
+    await submission.save();
+    return submission.toObject ? submission.toObject() : submission;
   }
 
   const question = submission.problemId ? await CodingQuestion.findById(submission.problemId).lean() : null;

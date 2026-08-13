@@ -17,8 +17,10 @@ export const runCode = asyncHandler(async (req, res) => {
   const { code, language, input = '', problemId = null } = req.body || {};
   ensureCode(code);
 
+  const userId = req.user?.id || req.user?._id || null;
+
   const submission = await buildSubmissionPayload({
-    userId: req.user?._id || null,
+    userId,
     problemId,
     language: String(language || '').trim().toLowerCase(),
     sourceCode: code,
@@ -59,8 +61,10 @@ export const submitCode = asyncHandler(async (req, res) => {
     throw new ApiError('problemId is required', 400, 'PROBLEM_ID_REQUIRED');
   }
 
+  const userId = req.user?.id || req.user?._id || null;
+
   const submission = await buildSubmissionPayload({
-    userId: req.user?._id || null,
+    userId,
     problemId,
     language: String(language || '').trim().toLowerCase(),
     sourceCode: code,
@@ -98,6 +102,14 @@ export const getSubmissionResult = asyncHandler(async (req, res) => {
 
   if (!submission) {
     throw new ApiError('Submission not found', 404, 'SUBMISSION_NOT_FOUND');
+  }
+
+  // ── Ownership Check ───────────────────────────────────────────────
+  if (submission.userId) {
+    const currentUserId = req.user?.id || req.user?._id || null;
+    if (!currentUserId || String(submission.userId) !== String(currentUserId)) {
+      throw new ApiError('Access denied to this submission', 403, 'FORBIDDEN');
+    }
   }
 
   logger.info({ message: 'Fetched submission result', submissionId: String(submissionId), status: submission.status });

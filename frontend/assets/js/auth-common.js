@@ -24,11 +24,16 @@ if (_origin.startsWith('file:')) {
   throw new Error('file:// origin is not allowed for Google OAuth.');
 }
 
-// Point API calls to port 5000 regardless of which port serves the HTML
+// Point API calls to port 5000 in local dev (if on another port like 5500), otherwise use relative /api
 const AUTH_API_BASE_URL = (() => {
-  const { protocol, hostname } = window.location;
-  return `${protocol}//${hostname}:5000/api`;
+  const { protocol, hostname, port } = window.location;
+  if ((hostname === 'localhost' || hostname === '127.0.0.1') && port && port !== '5000') {
+    return `${protocol}//${hostname}:5000/api`;
+  }
+  return '/api';
 })();
+window.API_BASE_URL = AUTH_API_BASE_URL;
+
 const AUTH_STORAGE_KEYS = Object.freeze({
   token: 'authToken',
   user: 'currentUser',
@@ -74,63 +79,69 @@ const ensureSessionValidity = () => {
   }
 };
 
-const requestGoogleCredential = ({ onCredential, onError, mountId, onReady }) => {
+const renderGoogleSignIn = ({ mountId, onCredential, onError }) => {
   const clientId = getGoogleClientId();
+  console.log(`[Google Auth] Initializing Google Sign-In with Client ID: ${clientId}`);
+  console.log(`[Google Auth] Current Browser Origin: ${window.location.origin}`);
 
   if (!clientId || clientId.includes('YOUR_GOOGLE_CLIENT_ID')) {
     onError?.('Google Client ID is missing. Add your real CLIENT_ID in the page meta tag.');
     return;
   }
 
-  if (!window.google?.accounts?.id) {
-    onError?.(
-      'Google Identity Services script failed to load. ' +
-      'Check your internet connection and that <script src="https://accounts.google.com/gsi/client"> is present.',
-    );
-    return;
-  }
-
-  let completed = false;
-
-  // Credential received via the rendered Google button
-  window.google.accounts.id.initialize({
-    client_id: clientId,
-    callback: (response) => {
-      if (completed) return;
-      completed = true;
-
-      if (!response?.credential) {
-        onError?.('Google authentication did not return a credential.');
-        return;
-      }
-
-      onCredential(response);
-    },
-    auto_select: false,
-    // 'popup' ux_mode works correctly only on http:// origins
-    ux_mode: 'popup',
-    // Cancel One-Tap suppression message noise on localhost
-    cancel_on_tap_outside: true,
-  });
-
-  // Render the Google button inside mountId (kept off-screen via CSS).
-  // The JS click handlers will auto-click the inner button to open the popup.
   const mountNode = document.getElementById(mountId);
-  if (mountNode) {
-    mountNode.innerHTML = '';
-    window.google.accounts.id.renderButton(mountNode, {
-      type: 'standard',
-      theme: 'outline',
-      size: 'large',
-      shape: 'rectangular',
-      text: 'continue_with',
-      width: 280,
-    });
+  if (!mountNode) return;
+
+  const initAndRender = () => {
+    if (!window.google?.accounts?.id) {
+      onError?.(
+        'Google Identity Services script failed to load. ' +
+        'Check your internet connection and that <script src="https://accounts.google.com/gsi/client"> is present.',
+      );
+      return;
+    }
+
+    const callbackUrl = AUTH_API_BASE_URL.startsWith('http')
+      ? `${AUTH_API_BASE_URL}/auth/google/callback`
+      : `${window.location.origin}${AUTH_API_BASE_URL}/auth/google/callback`;
+
+    try {
+      window.google.accounts.id.initialize({
+        client_id: clientId,
+        login_uri: callbackUrl,
+        ux_mode: 'redirect',
+        auto_select: false,
+      });
+
+      mountNode.innerHTML = '';
+      window.google.accounts.id.renderButton(mountNode, {
+        type: 'standard',
+        theme: 'outline',
+        size: 'large',
+        shape: 'rectangular',
+        text: 'continue_with',
+        width: 320,
+        logo_alignment: 'left',
+      });
+    } catch (err) {
+      onError?.(err.message || 'Error initializing Google Sign-In.');
+    }
+  };
+
+  if (window.google?.accounts?.id) {
+    initAndRender();
+  } else {
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts += 1;
+      if (window.google?.accounts?.id) {
+        clearInterval(interval);
+        initAndRender();
+      } else if (attempts >= 30) {
+        clearInterval(interval);
+        onError?.('Google Identity Services script timed out.');
+      }
+    }, 100);
   }
-
-  onReady?.();
-
-  // NOTE: google.accounts.id.prompt() is intentionally NOT called here.
-  // One-Tap is unreliable on localhost (suppressed by browser/Google policy).
-  // The rendered button above is the correct, reliable entry-point.
-};
+};
+

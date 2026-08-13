@@ -5,7 +5,6 @@ const loginTitle = document.getElementById('loginTitle');
 const feedback = document.getElementById('loginFeedback');
 const togglePasswordBtn = document.getElementById('togglePassword');
 const confettiLayer = document.getElementById('confettiLayer');
-const googleLoginBtn = document.getElementById('googleLoginBtn');
 
 ensureSessionValidity();
 
@@ -35,14 +34,14 @@ const setButtonLoading = (button, isLoading, idleText) => {
 
 const completeLogin = (payload, successMessage) => {
   persistSession(payload || {});
-  loginTitle.textContent = 'Welcome!';
-  showMessage(successMessage, true);
-  burstConfetti();
-  loginForm.reset();
+  if (loginTitle) loginTitle.textContent = 'Welcome!';
+  showMessage(successMessage || 'Login successful. Redirecting...', true);
+  try { burstConfetti(); } catch (_) {}
+  try { loginForm?.reset(); } catch (_) {}
 
   setTimeout(() => {
-    location.replace('home.html');
-  }, 900);
+    window.location.href = 'home.html';
+  }, 400);
 };
 
 const burstConfetti = () => {
@@ -105,50 +104,30 @@ loginForm.addEventListener('submit', async (event) => {
   }
 });
 
-googleLoginBtn?.addEventListener('click', () => {
-  showMessage('');
-  setButtonLoading(googleLoginBtn, true, 'Continue with Google');
+renderGoogleSignIn({
+  mountId: 'googleLoginMount',
+  onCredential: async ({ credential }) => {
+    try {
+      showMessage('Verifying Google credentials...', true);
+      const response = await fetch(`${AUTH_API_BASE_URL}/auth/google`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ credential }),
+      });
 
-  requestGoogleCredential({
-    mountId: 'googleLoginMount',
-    onReady: () => {
-      // The Google button is rendered invisibly off-screen.
-      // Auto-click it to open the popup immediately.
-      // Our styled button stays fully visible at all times.
-      const mount = document.getElementById('googleLoginMount');
-      if (mount) {
-        const innerBtn = mount.querySelector('div[role="button"], iframe');
-        if (innerBtn) innerBtn.click();
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.message || 'Google login failed.');
       }
-      // Restore our button to normal — it was never hidden
-      setButtonLoading(googleLoginBtn, false, 'Continue with Google');
-    },
-    onCredential: async ({ credential }) => {
-      try {
-        setButtonLoading(googleLoginBtn, true, 'Continue with Google');
 
-        const response = await fetch(`${AUTH_API_BASE_URL}/auth/google`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ credential }),
-        });
-
-        const result = await response.json();
-        if (!response.ok) {
-          throw new Error(result.message || 'Google login failed.');
-        }
-
-        completeLogin(result.data || {}, 'Google login successful. Redirecting...');
-      } catch (error) {
-        showMessage(error.message || 'Google login failed.');
-        setButtonLoading(googleLoginBtn, false, 'Continue with Google');
-      }
-    },
-    onError: (message) => {
-      if (!isIgnorableGoogleError(message)) {
-        showMessage(message);
-      }
-      setButtonLoading(googleLoginBtn, false, 'Continue with Google');
-    },
-  });
+      completeLogin(result.data || {}, 'Google login successful. Redirecting...');
+    } catch (error) {
+      showMessage(error.message || 'Google login failed.');
+    }
+  },
+  onError: (message) => {
+    if (!isIgnorableGoogleError(message)) {
+      showMessage(message);
+    }
+  },
 });

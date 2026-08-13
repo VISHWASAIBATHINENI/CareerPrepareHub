@@ -93,8 +93,6 @@ const toPublicUser = (user) => ({
   authProvider: user.authProvider,
   nationality: user.nationality,
   status: user.status,
-  isPaid: Boolean(user.isPaid || user.isPremium),
-  isPremium: user.isPremium,
   role: user.role,
   createdAt: user.createdAt,
 });
@@ -220,10 +218,16 @@ export const googleAuth = async ({ credential }) => {
     );
   }
 
-  const ticket = await googleClient.verifyIdToken({
-    idToken: credential,
-    audience: env.googleClientId,
-  });
+  let ticket;
+  try {
+    ticket = await googleClient.verifyIdToken({
+      idToken: credential,
+      audience: env.googleClientId,
+    });
+  } catch (err) {
+    logger.warn(`Google token verification failed: ${err.message}`);
+    throw new ApiError('Google authentication failed. Invalid token signature or client ID mismatch.', 401, 'INVALID_GOOGLE_TOKEN');
+  }
 
   const payload = ticket.getPayload();
   if (!payload || !payload.email || !payload.sub) {

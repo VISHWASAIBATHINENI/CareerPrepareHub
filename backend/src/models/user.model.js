@@ -87,18 +87,15 @@ const userSchema = new mongoose.Schema({
     enum: ['Student', 'Employed', 'Unemployed'],
     default: 'Student',
   },
-  isPremium: {
-    type: Boolean,
-    default: false,
-  },
-  isPaid: {
-    type: Boolean,
-    default: false,
-  },
   role: {
     type: String,
     enum: ['user', 'admin'],
     default: 'user',
+  },
+  resumeData: {
+    type: String,
+    default: '',
+    maxlength: 8000,
   },
 }, {
   timestamps: { createdAt: true, updatedAt: true },
@@ -141,12 +138,7 @@ userSchema.pre('validate', function syncNameFields(next) {
   return next();
 });
 
-userSchema.pre('save', function syncPaidFlags(next) {
-  const premiumEnabled = Boolean(this.isPremium || this.isPaid);
-  this.isPremium = premiumEnabled;
-  this.isPaid = premiumEnabled;
-  return next();
-});
+
 
 const User = mongoose.model('User', userSchema);
 

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Report — CareerPrepHub</title>
+  <meta name="description" content="Your AI-generated mock interview performance report with scores and recommendations.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/navbar-logo.css">
+  <link rel="stylesheet" href="../assets/css/mock-interview.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="home.html" class="cph-logo-link" aria-label="Career Prepare Hub Home">
+          <div class="cph-logo-wrapper" data-cph-logo>
+            <svg class="cph-logo-svg" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career Prepare Hub logo">
+              <defs>
+                <linearGradient id="cphTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="55%" stop-color="#3a8fd4" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <linearGradient id="cphFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6ec6f5" />
+                  <stop offset="100%" stop-color="#1a5fa8" />
+                </linearGradient>
+                <filter id="cphFrameShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#3a8fd4" flood-opacity="0.35" />
+                </filter>
+                <filter id="cphFrameGlow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#3a8fd4" flood-opacity="0.65" />
+                </filter>
+              </defs>
+              <path class="cph-frame-path" d="M 38,14  L 555,14  L 542,146  L 25,146  Z" />
+              <text class="cph-text-main" x="290" y="102" text-anchor="middle">CAREER PREPARE</text>
+              <text class="cph-text-hub" x="382" y="133" text-anchor="middle">HUB</text>
+            </svg>
+          </div>
+        </a>
+      </div>
+      <div class="nav-right">
+        <a href="mock-interview-history.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> My Interviews</a>
+        <div id="navUserBadge" class="nav-user-badge hidden"></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="container">
+
+      <div id="loadingState" style="text-align:center; padding:60px 0;">
+        <div class="spinner" style="width:32px;height:32px;border-color:rgba(37,99,235,0.2);border-top-color:var(--primary);"></div>
+        <p style="margin-top:16px;color:var(--text-muted);font-size:14px;">Generating your interview report...</p>
+      </div>
+
+      <div id="errorState" class="card hidden" style="text-align:center; padding:40px;">
+        <i class="fa-solid fa-triangle-exclamation" style="font-size:36px;color:var(--danger);margin-bottom:12px;"></i>
+        <h3 id="errorTitle">Report Error</h3>
+        <p id="errorMsg" style="color:var(--text-muted);margin-top:8px;"></p>
+        <div style="margin-top:20px;">
+          <a href="mock-interview-history.html" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Back to History</a>
+        </div>
+      </div>
+
+      <div id="reportContent" class="hidden">
+
+        <!-- Report Header -->
+        <div class="report-header">
+          <div class="badge"><i class="fa-solid fa-chart-line"></i> PERFORMANCE REPORT</div>
+          <h1 id="repTitle">Interview Report</h1>
+          <p id="repSub" style="color:var(--text-muted);font-size:14px;margin-top:4px;"></p>
+        </div>
+
+        <!-- Overview Score Ring Card -->
+        <div class="score-card">
+          <div class="score-ring-wrap">
+            <svg class="score-svg" viewBox="0 0 100 100">
+              <circle class="score-bg" cx="50" cy="50" r="42"/>
+              <circle class="score-fill" id="scoreCircle" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264"/>
+            </svg>
+            <div class="score-inner">
+              <div class="score-num" id="overallScoreVal">0</div>
+              <div class="score-denom">/ 100</div>
+            </div>
+          </div>
+          <div class="score-meta">
+            <h2 id="verdictText">Processing...</h2>
+            <p id="summaryText">Summarising performance...</p>
+          </div>
+        </div>
+
+        <!-- Scores breakdown grid -->
+        <div class="dimensions-grid" id="dimGrid">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Strengths & Weaknesses -->
+        <div class="card-grid-2">
+          <div class="card">
+            <div class="card-title text-success"><i class="fa-solid fa-thumbs-up"></i> Key Strengths</div>
+            <ul class="feedback-list" id="strengthsList"></ul>
+          </div>
+          <div class="card">
+            <div class="card-title text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Areas for Improvement</div>
+            <ul class="feedback-list" id="weaknessesList"></ul>
+          </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="card" id="recsCard">
+          <div class="card-title"><i class="fa-solid fa-lightbulb"></i> Recommended Next Steps</div>
+          <ul class="feedback-list" id="recsList"></ul>
+        </div>
+
+        <!-- Conversation log toggle -->
+        <div class="card">
+          <div class="conv-toggle" id="convToggleBtn">
+            <span><i class="fa-solid fa-comments"></i> View Full Conversation</span>
+            <i class="fa-solid fa-chevron-down conv-toggle-icon"></i>
+          </div>
+          <div class="conv-log" id="convLog"></div>
+        </div>
+
+        <!-- Actions -->
+        <div class="report-actions">
+          <a href="interview-prep.html" class="btn btn-primary">
+            <i class="fa-solid fa-rotate-right"></i> New Interview
+          </a>
+          <a href="mock-interview-history.html" class="btn btn-secondary">
+            <i class="fa-solid fa-clock-rotate-left"></i> My Interviews
+          </a>
+          <a href="home.html" class="btn btn-secondary">
+            <i class="fa-solid fa-house"></i> Home
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Career Prepare Hub</h3>
+          <p>Your journey to career success starts here.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="tech-skills.html">Technical Expertise</a></li>
+            <li><a href="coding-questions.html">Coding Questions</a></li>
+            <li><a href="project-explorer.html">Projects</a></li>
+            <li><a href="interview-prep.html">Interview Prep</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: vishwa.bathineni@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Career Prepare Hub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/navbar-logo.js"></script>
+  <script src="../assets/js/mock-interview-report.js"></script>
+</body>
+</html>

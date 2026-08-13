@@ -18,6 +18,11 @@ const createInMemoryQueueFallback = () => ({
 const loadQueueBundle = async () => {
   if (cachedQueueBundle) return cachedQueueBundle;
 
+  if (process.env.VERCEL) {
+    cachedQueueBundle = createInMemoryQueueFallback();
+    return cachedQueueBundle;
+  }
+
   try {
     const [{ default: IORedis }, { Queue, QueueEvents }] = await Promise.all([
       import('ioredis'),
@@ -27,10 +32,12 @@ const loadQueueBundle = async () => {
     const connection = new IORedis(env.redisUrl, {
       maxRetriesPerRequest: null,
       enableReadyCheck: false,
+      retryStrategy: (times) => (times > 1 ? null : 200),
     });
 
     connection.on('error', (error) => {
-      logger.error({ message: 'Redis connection error', error: error.message });
+      logger.warn({ message: 'Redis connection unavailable. Using queue fallback.', error: error.message });
+      cachedQueueBundle = createInMemoryQueueFallback();
     });
 
     cachedQueueBundle = {

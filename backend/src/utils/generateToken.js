@@ -6,8 +6,6 @@ const generateToken = (user) => jwt.sign(
     id: user._id,
     email: user.email,
     role: user.role,
-    isPaid: Boolean(user.isPaid || user.isPremium),
-    isPremium: Boolean(user.isPremium || user.isPaid),
   },
   env.jwtSecret,
   {

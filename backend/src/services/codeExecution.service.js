@@ -737,6 +737,16 @@ export const executeUserCode = async ({ code, language, input = '' }) => {
     };
   }
 
+  if (process.env.VERCEL) {
+    return {
+      status: 'error',
+      output: '',
+      error: 'Code execution is temporarily unavailable in the deployed environment.',
+      executionStatus: 'System Error',
+      runtime: '--',
+    };
+  }
+
   const workspaceRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'careerprephub-run-'));
 
   try {

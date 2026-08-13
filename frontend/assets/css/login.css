@@ -350,14 +350,16 @@ select.input-error {
 }
 
 .google-mount {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 46px;
+  margin: 8px 0;
+}
+
+.google-mount iframe {
+  margin: 0 auto !important;
 }
 
 .switch-text {
@@ -446,6 +448,64 @@ select.input-error {
   gap: 16px;
 }
 
+.simple-signup-card {
+  max-width: 560px;
+  padding: 38px 34px;
+}
+
+.simple-signup-card .subtitle {
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.simple-signup-card form {
+  gap: 8px;
+}
+
+.simple-signup-card .primary-btn,
+.simple-signup-card .google-btn {
+  margin-top: 4px;
+}
+
+.simple-signup-card .google-note {
+  font-size: 0.83rem;
+}
+
+.simple-signup-card .field-group {
+  gap: 2px;
+}
+
+.simple-signup-card .verify-row {
+  gap: 8px;
+}
+
+.simple-signup-card .verify-row input {
+  flex: 1;
+}
+
+.simple-signup-card .verify-btn {
+  min-width: 110px;
+  padding: 0 14px;
+}
+
+.simple-signup-card .password-checklist {
+  margin: 0 0 4px;
+}
+
+.simple-signup-card .field-error {
+  min-height: 12px;
+  margin-top: 2px;
+}
+
+.simple-signup-card label {
+  margin-bottom: 4px;
+}
+
+.simple-signup-card input {
+  padding: 12px 14px;
+}
+
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -501,5 +561,9 @@ body.signup-page .login-stack {
 
   .signup-card {
     padding: 26px;
+  }
+
+  .simple-signup-card {
+    padding: 26px 22px;
   }
 }

@@ -1,6 +1,8 @@
 // Navigation and scrolling functionality
 document.addEventListener('DOMContentLoaded', function() {
-  const API_BASE_URL = 'http://localhost:5000/api';
+  const API_BASE_URL = typeof AUTH_API_BASE_URL !== 'undefined' ? AUTH_API_BASE_URL : (window.API_BASE_URL || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '5000' ? 'http://localhost:5000/api' : '/api'));
+
+
   const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
 
   const navbar = document.querySelector('.navbar');
@@ -48,6 +50,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
     profileCircle.textContent = profileInitial;
     renderUserProfile(currentUser);
+
+    // Fetch and display Continue Learning widget if user has active roadmap progress
+    const loadContinueLearningWidget = async () => {
+      const widgetEl = document.getElementById('continueLearningWidget');
+      const token = localStorage.getItem('authToken');
+      if (!widgetEl || !token) return;
+
+      try {
+        const res = await fetch(`${API_BASE_URL}/roadmaps/my-progress`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        const progressList = data.data || [];
+
+        if (progressList.length > 0) {
+          // Sort by last accessed
+          const latest = progressList.sort((a, b) => new Date(b.lastAccessedAt) - new Date(a.lastAccessedAt))[0];
+          widgetEl.innerHTML = `
+            <div class="cl-header">
+              <h4><i class="fa-solid fa-fire" style="color: #f59e0b;"></i> Continue Learning</h4>
+              <span style="font-size: 13px; font-weight: 700; color: #2563eb;">${latest.percentage}% Completed</span>
+            </div>
+            <div class="cl-title">${latest.roadmapTitle}</div>
+            <div class="cl-bar-bg">
+              <div class="cl-bar-fill" style="width: ${latest.percentage}%"></div>
+            </div>
+            <a href="roadmap-detail.html?slug=${latest.roadmapSlug}" class="cl-btn">
+              <span>Continue Roadmap</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          `;
+          widgetEl.classList.remove('hidden');
+        }
+      } catch (err) {
+        console.error('Failed to load continue learning widget:', err);
+      }
+    };
+
+    loadContinueLearningWidget();
 
     profileCircle.addEventListener('click', function (e) {
       e.stopPropagation();
