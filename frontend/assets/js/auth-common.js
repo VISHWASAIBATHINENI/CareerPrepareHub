@@ -27,9 +27,19 @@ if (_origin.startsWith('file:')) {
 // Point API calls to port 5000 in local dev (if on another port like 5500), otherwise use relative /api
 const AUTH_API_BASE_URL = (() => {
   const { protocol, hostname, port } = window.location;
-  if ((hostname === 'localhost' || hostname === '127.0.0.1') && port && port !== '5000') {
+  const isLocal = hostname === 'localhost' || hostname === '127.0.0.1';
+
+  if (!isLocal) {
+    // Production (Vercel) → Render backend
+    return 'https://careerpreparehub.onrender.com/api';
+  }
+
+  if (port && port !== '5000') {
+    // Local dev on another port (e.g. Live Server :5500) → proxy to Express
     return `${protocol}//${hostname}:5000/api`;
   }
+
+  // Local dev served by Express on :5000
   return '/api';
 })();
 window.API_BASE_URL = AUTH_API_BASE_URL;
