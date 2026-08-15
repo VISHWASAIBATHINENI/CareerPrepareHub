@@ -9,16 +9,16 @@ const passwordSchema = Joi.string()
   });
 
 export const signupSchema = Joi.object({
-  firstname: Joi.string().trim().min(2).max(50).required(),
+  firstname: Joi.string().trim().min(2).max(50).allow('').optional().default(''),
   middlename: Joi.string().trim().max(50).allow('').optional(),
-  lastname: Joi.string().trim().min(1).max(50).required(),
+  lastname: Joi.string().trim().min(1).max(50).allow('').optional().default(''),
   username: Joi.string().trim().lowercase().min(3).max(30).required(),
   email: Joi.string().trim().lowercase().email().required(),
   phone: Joi.string().trim().allow('').optional(),
-  dob: Joi.string().required(),
+  dob: Joi.string().optional().default(''),
   password: passwordSchema.required(),
-  nationality: Joi.string().trim().required(),
-  status: Joi.string().valid('Student', 'Employed', 'Unemployed').required(),
+  nationality: Joi.string().trim().optional().default(''),
+  status: Joi.string().valid('Student', 'Employed', 'Unemployed').optional().default('Student'),
 });
 
 export const loginSchema = Joi.object({

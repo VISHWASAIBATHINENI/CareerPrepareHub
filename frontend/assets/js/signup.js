@@ -301,7 +301,9 @@ signupForm?.addEventListener('submit', async (event) => {
 
     const result = await response.json();
     if (!response.ok) {
-      throw new Error(result.message || 'Unable to create account');
+      // Surface per-field validation details if the backend provides them
+      const detailText = Array.isArray(result.details) ? result.details.join('; ') : '';
+      throw new Error(detailText || result.message || 'Unable to create account');
     }
 
     completeSignup(result?.data || {}, 'Account created successfully! Redirecting...');

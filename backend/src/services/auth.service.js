@@ -148,7 +148,7 @@ export const signup = async ({ firstname, middlename, lastname, username, email,
   }
 
   const normalizedUsername = await buildUniqueUsername(username);
-  const fullName = [firstname, middlename, lastname].filter(Boolean).join(' ').trim();
+  const fullName = [firstname, middlename, lastname].filter(Boolean).join(' ').trim() || normalizedUsername;
 
   const user = await createUser({
     name: fullName,

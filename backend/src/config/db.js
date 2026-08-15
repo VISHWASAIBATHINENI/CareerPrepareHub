@@ -1,6 +1,11 @@
+import dns from 'node:dns';
 import mongoose from 'mongoose';
 import { env } from './env.js';
 import logger from '../logger/index.js';
+
+// Use reliable public DNS servers for SRV resolution (fixes Node.js
+// default resolver failing to look up MongoDB Atlas SRV records).
+dns.setServers(['8.8.8.8', '1.1.1.1', '8.8.4.4']);
 
 let cached = global.mongoose;
 

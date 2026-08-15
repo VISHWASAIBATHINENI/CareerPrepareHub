@@ -33,11 +33,7 @@ const startServer = async (retried = false) => {
   try {
     validateEnv();
 
-    try {
-      await connectDB();
-    } catch (error) {
-      logger.warn(`MongoDB connection failed. Starting API in degraded mode: ${error.message}`);
-    }
+    await connectDB();
 
     const server = app.listen(env.port, () => {
       logger.info(`Backend running on http://localhost:${env.port}`);
